@@ -1,29 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/_route.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/_schema.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-    </list>
+    <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="" />
     <ignored path="generator-njax.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396821677017" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829841600" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396872989605" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/lib/model/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396825994806" ignored="false" />
     <file path="/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396828061430" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/lib/routes/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396825555479" ignored="false" />
-    <file path="$PROJECT_DIR$/../njax/lib/njax.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829838529" ignored="false" />
+    <file path="$PROJECT_DIR$/../njax/lib/njax.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864186566" ignored="false" />
     <file path="/njax.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829836433" ignored="false" />
     <file path="$PROJECT_DIR$/../njax/lib/model/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396828085556" ignored="false" />
-    <file path="$PROJECT_DIR$/../njax/lib/routes/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829843598" ignored="false" />
-    <file path="/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829791588" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/node_modules/njax/lib/routes/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829791588" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/public/templates/register.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829770756" ignored="false" />
-    <file path="/register.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829770756" ignored="false" />
+    <file path="$PROJECT_DIR$/../njax/lib/routes/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864820136" ignored="false" />
+    <file path="/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864716666" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/node_modules/njax/lib/routes/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864717821" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/register.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864534437" ignored="false" />
+    <file path="/register.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864402509" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829956357" ignored="false" />
+    <file path="/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829966727" ignored="false" />
+    <file path="$PROJECT_DIR$/../njax/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829969725" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/lib/routes/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396830444134" ignored="false" />
+    <file path="/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862701714" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/css/base-admin-2.css" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862090723" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/_meta.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862210130" ignored="false" />
+    <file path="/a.dummy" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862222405" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/_meta.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862237425" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/_navbar.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864217800" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396863114254" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/index.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862455445" ignored="false" />
+    <file path="/index.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862437432" ignored="false" />
+    <file path="/_navbar.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864100416" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/auth.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864737837" ignored="false" />
+    <file path="$PROJECT_DIR$/../njax/public/templates/_footer.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862923115" ignored="false" />
+    <file path="/auth.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396863610720" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/README.md" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396872999295" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
