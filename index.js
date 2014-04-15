@@ -3,13 +3,14 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
+var fs = require('fs');
 
 
 
 var NJaxGenerator = module.exports = function SchemaGenerator(args, options, config) {
     // By calling `NamedBase` here, we get the argument to the subgenerator call
     // as `this.name`.
-    yeoman.generators.NamedBase.apply(this, arguments);
+
     var schemaName = this.name.split("|")[0];
     var fieldsArgs = this.name.split("|")[1].split(',');
     var fields = [];

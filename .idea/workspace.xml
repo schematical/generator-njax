@@ -4,8 +4,8 @@
     <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="" />
     <ignored path="generator-njax.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396821677017" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396872989605" ignored="false" />
+    <file path="/Dummy.txt" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396875030777" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396875031452" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/lib/model/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396825994806" ignored="false" />
     <file path="/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396828061430" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/lib/routes/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396825555479" ignored="false" />
@@ -14,7 +14,7 @@
     <file path="$PROJECT_DIR$/../njax/lib/model/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396828085556" ignored="false" />
     <file path="$PROJECT_DIR$/../njax/lib/routes/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864820136" ignored="false" />
     <file path="/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864716666" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/node_modules/njax/lib/routes/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864717821" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/node_modules/njax/lib/routes/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396874975675" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/public/templates/register.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864534437" ignored="false" />
     <file path="/register.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864402509" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829956357" ignored="false" />
@@ -34,7 +34,8 @@
     <file path="$PROJECT_DIR$/../boosely/public/templates/auth.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864737837" ignored="false" />
     <file path="$PROJECT_DIR$/../njax/public/templates/_footer.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862923115" ignored="false" />
     <file path="/auth.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396863610720" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/README.md" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396872999295" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/README.md" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396873542733" ignored="false" />
+    <file path="/README.md" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396873524674" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +67,7 @@
       <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="4" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.8333333">
+            <state line="35" column="4" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.83623695">
               <folding />
             </state>
           </provider>
@@ -117,8 +118,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2796" />
-    <option name="y" value="764" />
+    <option name="x" value="64" />
+    <option name="y" value="-4" />
     <option name="width" value="1303" />
     <option name="height" value="773" />
   </component>
@@ -205,6 +206,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vpr2" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -258,8 +260,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2796" y="764" width="1303" height="773" extended-state="6" />
-    <editor active="true" />
+    <frame x="64" y="-4" width="1303" height="773" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -374,7 +376,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="4" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.8333333">
+        <state line="35" column="4" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.83623695">
           <folding />
         </state>
       </provider>

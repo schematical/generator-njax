@@ -3,50 +3,59 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
-
+var fs = require('fs');
+var _ = require('underscore');
 
 
 var NJaxGenerator = module.exports = function SchemaGenerator(args, options, config) {
     // By calling `NamedBase` here, we get the argument to the subgenerator call
     // as `this.name`.
-    yeoman.generators.NamedBase.apply(this, arguments);
-    var schemaName = this.name.split("|")[0];
-    var fieldsArgs = this.name.split("|")[1].split(',');
-    var fields = [];
-    fieldsArgs.forEach(function(field) {
-        fields.push(field.split(":")[0]);
-    });
-    console.log("Your creating a schema for " + schemaName );
-    console.log("With the fields: " + fields.join(','));
+
+    var config_file_path = path.join(process.cwd(), 'njax.json');
+    if(!fs.existsSync(config_file_path)){
+        throw new Error("Missing NJax File");
+    }
+    var config_raw = fs.readFileSync(config_file_path);
+
+    yeoman.generators.Base.apply(this, arguments);
+
+    this.config = JSON.parse(config_raw);
+
 };
 
-util.inherits(NJaxGenerator, yeoman.generators.NamedBase);
+util.inherits(NJaxGenerator, yeoman.generators.Base);
 
-NJaxGenerator.prototype.files = function files() {
-    var arg = this.name.split("|");
-    var name = arg[0];
-    var fields = arg[1].split(',');
-    this.schemaName = name;
-    this.schemaFields = (typeof fields != 'undefined') ? fields : ['title:String', 'content:String', 'created:Date'];
-    this.mockData = "{}";
+NJaxGenerator.prototype.app = function app() {
+
 
     this.mkdir('lib');
     this.mkdir('lib/model');
     this.mkdir('lib/routes');
-    this.template('_route.js', 'lib/routes/' + name + '.js');
-    this.template('_schema.js', 'lib/model/' + name + '.js');
+    for(var i in this.config.models){
+        this._model = this.config.models[i];
+        if(!this._model.name){
+            this._model.name = i;
+        }
+        this._genSchema(this._model);
+/*
+        this.template('_route.js', 'lib/routes/' + model.name + '.js');
+        this.template('_schema.js', 'lib/model/' +model. name + '.js');*/
+    }
+
 
 };
+NJaxGenerator.prototype._genSchema = function genSchema(model){
 
-NJaxGenerator.prototype.schematic = function schematic() {
-    this.mockData = '{}';
-    var props = {};
+    for(var key in model.fields){
 
-    this.schemaFields.forEach(function(field, index) {
-        var fld = field.split(":")[0];
-        var type = field.split(":")[1];
-        props[fld] = {};
-        switch(type){
+        var fieldData =  model.fields[key];
+        if(_.isString(fieldData)){
+            fieldData = { type: fieldData };
+        }
+        if(!fieldData.type){
+            throw new Error("Invalid Model > Field >Type in njax.json");
+        }
+       /* switch(fieldData.type.toLowerCase()){
             case 'ObjectId':
                 props[fld].type = type.toLowerCase();
                 props[fld].ipsum = 'id';
@@ -72,34 +81,10 @@ NJaxGenerator.prototype.schematic = function schematic() {
             case 'Buffer':
             case 'Mixed':
                 break;
-        }
-    });
-    /*
-    var options = {
-        uri: 'http://schematic-ipsum.herokuapp.com',
-        method: 'POST',
-        json: {
-            "type": "object",
-            "properties": props
-        }
-    };
+        }*/
+        this._model.fields[key] = JSON.stringify(fieldData);
 
-    var cb = this.async();
+    }
+    this.template('_schema.js', 'lib/model/' + this._model.name + '.js');
+}
 
-   request(options, function(error, response, body) {
-        console.log("starting request to schematic for test mock data...");
-        if (!error && response.statusCode == 200) {
-            this.mockData = JSON.stringify(body);
-        }else{
-            console.log("There was an issue reaching http://schematic-ipsum.herokuapp.com.");
-            console.log("providing mock data for tests has failed, update you test file manually.");
-        }
-        cb();
-    }.bind(this));*/
-};
-
-NJaxGenerator.prototype.loadTest = function loadTest() {
-    var arg = this.name.split("|");
-    var name = arg[0];
-    //this.template('_test-schema.js', 'test/test-' + name + '.js');
-};
