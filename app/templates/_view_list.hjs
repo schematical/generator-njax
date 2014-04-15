@@ -1,0 +1,21 @@
+{{> _header }}
+    <table class="table">
+        <tr>
+            <% for(var name in _model.fields){  %>
+                <th>
+                    <%= name %>
+                </th>
+            <% } %>
+        </tr>
+        {{# <%= _model.name %> }}
+            <tr>
+                <% for(var name in _model.fields){  %>
+                    <td>
+                        {{ <%= name %> }}
+                    </td>
+                <% } %>
+            </tr>
+        {{/ <%= _model.name %> }}
+    </table>
+{{> _footer }}
+

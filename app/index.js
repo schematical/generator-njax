@@ -85,6 +85,18 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
         this._model.fields[key] = JSON.stringify(fieldData);
 
     }
+    this.copy('_meta.hjs', 'public/templates/_meta.hjs');
+    this.copy('_meta_footer.hjs', 'public/templates/_meta_footer.hjs');
+    this.copy('_modal.hjs', 'public/templates/_modal.hjs');
+    this.copy('_navbar.hjs', 'public/templates/_navbar.hjs');
+    this.copy('auth.hjs', 'public/templates/auth.hjs');
+    this.copy('register.hjs', 'public/templates/register.hjs');
+
     this.template('_schema.js', 'lib/model/' + this._model.name + '.js');
+    this.template('_route.js', 'lib/routes/' + this._model.name + '.js');
+    this.template('_view_detail.hjs', 'public/templates/' + this._model.name + '_detail.hjs');
+    this.template('_view_edit.hjs', 'public/templates/' + this._model.name + '_edit.hjs');
+    this.template('_view_list.hjs', 'public/templates/' + this._model.name + '_list.hjs');
 }
+
 
