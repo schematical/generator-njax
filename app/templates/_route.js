@@ -1,48 +1,48 @@
 module.exports = function(app) {
     // Module dependencies.
     var mongoose = require('mongoose'),
-        <%= _.capitalize(schemaName) %> = mongoose.models.<%= _.capitalize(schemaName) %>,
+        <%= _.capitalize(_model.name) %> = mongoose.models.<%= _.capitalize(_model.name) %>,
     api = {};
 
     // ALL
-    api.<%= schemaName.toLowerCase() %>s = function (req, res) {
-            <%= _.capitalize(schemaName) %>.find(function(err, <%= schemaName.toLowerCase() %>s) {
+    api.<%= _model.name.toLowerCase() %>s = function (req, res) {
+            <%= _.capitalize(_model.name) %>.find(function(err, <%= _model.name.toLowerCase() %>s) {
                 if (err) {
                 res.json(500, err);
                 } else {
-            res.json({<%= schemaName.toLowerCase() %>s: <%= schemaName.toLowerCase() %>s});
+            res.json({<%= _model.name.toLowerCase() %>s: <%= _model.name.toLowerCase() %>s});
         }
         });
         };
 
         // GET
-        api.<%= schemaName.toLowerCase() %> = function (req, res) {
+        api.<%= _model.name.toLowerCase() %> = function (req, res) {
                 var id = req.params.id;
-                <%= _.capitalize(schemaName) %>.findOne({ '_id': id }, function(err, <%= schemaName.toLowerCase() %>) {
+                <%= _.capitalize(_model.name) %>.findOne({ '_id': id }, function(err, <%= _model.name.toLowerCase() %>) {
                 if (err) {
                 res.json(404, err);
                 } else {
-                res.json({<%= schemaName.toLowerCase() %>: <%= schemaName.toLowerCase() %>});
+                res.json({<%= _model.name.toLowerCase() %>: <%= _model.name.toLowerCase() %>});
             }
             });
             };
 
             // POST
-            api.add<%= _.capitalize(schemaName) %> = function (req, res) {
+            api.add<%= _.capitalize(_model.name) %> = function (req, res) {
 
-                    var <%= schemaName.toLowerCase() %>;
+                    var <%= _model.name.toLowerCase() %>;
 
-                    if(typeof req.body.<%= schemaName.toLowerCase() %> == 'undefined'){
+                    if(typeof req.body.<%= _model.name.toLowerCase() %> == 'undefined'){
          res.status(500);
-         return res.json({message: '<%= schemaName.toLowerCase() %> is undefined'});
+         return res.json({message: '<%= _model.name.toLowerCase() %> is undefined'});
                 }
 
-                    <%= schemaName.toLowerCase() %> = new <%= _.capitalize(schemaName) %>(req.body.<%= schemaName.toLowerCase() %>);
+                    <%= _model.name.toLowerCase() %> = new <%= _.capitalize(_model.name) %>(req.body.<%= _model.name.toLowerCase() %>);
 
-                        <%= schemaName.toLowerCase() %>.save(function (err) {
+                        <%= _model.name.toLowerCase() %>.save(function (err) {
                             if (!err) {
-                            console.log("created <%= schemaName.toLowerCase() %>");
-                            return res.json(201, <%= schemaName.toLowerCase() %>.toObject());
+                            console.log("created <%= _model.name.toLowerCase() %>");
+                            return res.json(201, <%= _model.name.toLowerCase() %>.toObject());
                             } else {
                             return res.json(500, err);
                             }
@@ -51,38 +51,38 @@ module.exports = function(app) {
                         };
 
                         // PUT
-                        api.edit<%= _.capitalize(schemaName) %> = function (req, res) {
+                        api.edit<%= _.capitalize(_model.name) %> = function (req, res) {
                             var id = req.params.id;
 
-                            <%= _.capitalize(schemaName) %>.findById(id, function (err, <%= schemaName.toLowerCase() %>) {
+                            <%= _.capitalize(_model.name) %>.findById(id, function (err, <%= _model.name.toLowerCase() %>) {
 
 
                             <% schemaFields.forEach(function(field, index) { %>
-                                if(typeof req.body.<%= schemaName.toLowerCase() %>["<%= field.split(':')[0] %>"] != 'undefined'){
-                                <%= schemaName.toLowerCase() %>["<%= field.split(':')[0] %>"] = req.body.<%= schemaName.toLowerCase() %>["<%= field.split(':')[0] %>"];
+                                if(typeof req.body.<%= _model.name.toLowerCase() %>["<%= field.split(':')[0] %>"] != 'undefined'){
+                                <%= _model.name.toLowerCase() %>["<%= field.split(':')[0] %>"] = req.body.<%= _model.name.toLowerCase() %>["<%= field.split(':')[0] %>"];
                                 }
                             <% }) %>
 
-                            return <%= schemaName.toLowerCase() %>.save(function (err) {
+                            return <%= _model.name.toLowerCase() %>.save(function (err) {
                                 if (!err) {
-                                console.log("updated <%= schemaName.toLowerCase() %>");
-                                return res.json(200, <%= schemaName.toLowerCase() %>.toObject());
+                                console.log("updated <%= _model.name.toLowerCase() %>");
+                                return res.json(200, <%= _model.name.toLowerCase() %>.toObject());
                                 } else {
                                 return res.json(500, err);
                                 }
-                            return res.json(<%= schemaName.toLowerCase() %>);
+                            return res.json(<%= _model.name.toLowerCase() %>);
                                 });
                                 });
 
                                 };
 
                                 // DELETE
-                                api.delete<%= _.capitalize(schemaName) %> = function (req, res) {
+                                api.delete<%= _.capitalize(_model.name) %> = function (req, res) {
                                         var id = req.params.id;
-                                        return <%= _.capitalize(schemaName) %>.findById(id, function (err, <%= schemaName.toLowerCase() %>) {
-                                        return <%= schemaName.toLowerCase() %>.remove(function (err) {
+                                        return <%= _.capitalize(_model.name) %>.findById(id, function (err, <%= _model.name.toLowerCase() %>) {
+                                        return <%= _model.name.toLowerCase() %>.remove(function (err) {
                                         if (!err) {
-                                        console.log("removed <%= schemaName.toLowerCase() %>");
+                                        console.log("removed <%= _model.name.toLowerCase() %>");
                                         return res.send(204);
                                         } else {
                                         console.log(err);
@@ -94,9 +94,9 @@ module.exports = function(app) {
                                     };
 
 
-                                    app.get('/api/<%= schemaName.toLowerCase() %>s', api.<%= schemaName.toLowerCase() %>s);
-  app.get('/api/<%= schemaName.toLowerCase() %>/:id', api.<%= schemaName.toLowerCase() %>);
-  app.post('/api/<%= schemaName.toLowerCase() %>', api.add<%= _.capitalize(schemaName) %>);
-                                        app.put('/api/<%= schemaName.toLowerCase() %>/:id', api.edit<%= _.capitalize(schemaName) %>);
-  app.delete('/api/<%= schemaName.toLowerCase() %>/:id', api.delete<%= _.capitalize(schemaName) %>);
+                                    app.get('/api/<%= _model.name.toLowerCase() %>s', api.<%= _model.name.toLowerCase() %>s);
+  app.get('/api/<%= _model.name.toLowerCase() %>/:id', api.<%= _model.name.toLowerCase() %>);
+  app.post('/api/<%= _model.name.toLowerCase() %>', api.add<%= _.capitalize(_model.name) %>);
+                                        app.put('/api/<%= _model.name.toLowerCase() %>/:id', api.edit<%= _.capitalize(_model.name) %>);
+  app.delete('/api/<%= _model.name.toLowerCase() %>/:id', api.delete<%= _.capitalize(_model.name) %>);
 };
