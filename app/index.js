@@ -101,6 +101,7 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
                 fieldData.mongo_type.type = "Boolean";
                 break;
             case 'string':
+            case 'namespace':
             case 'url':
             case 'md':
                 fieldData.mongo_type.type = "String";

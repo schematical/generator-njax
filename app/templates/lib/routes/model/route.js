@@ -2,8 +2,9 @@ var path = require('path');
 var fs = require('fs');
 module.exports = function(app, uri){
     if(!uri) uri = '/<%= _model.name.toLowerCase() %>s';
-
+    <% if(_model.fields.namespace){ %>
     app.param('<%= _model.name.toLowerCase() %>', populate)
+    <% } %>
     app.get(uri, render_list);
     app.get(uri + '/new', render_edit);
     app.get(uri + '/:<%= _model.name.toLowerCase() %>', render_detail);
@@ -32,18 +33,19 @@ module.exports = function(app, uri){
         ]
     );
 
-
-    function populate(req, res, next, id){
-        console.log("Populating <%= _.capitalize(_model.name) %>: " + id);
-        app.model.<%= _.capitalize(_model.name) %>.findOne({ hash: id }, function(err, <%= _model.name.toLowerCase() %>){
-            if(err){
-                return next(err);
-            }
-            console.log("Populatinged! <%= _.capitalize(_model.name) %>: " + id);
-            req.<%= _model.name.toLowerCase() %> = <%= _model.name.toLowerCase() %>;//TODO:Bootstrap
-            return next();
-        })
-    }
+    <% if(_model.fields.namespace){ %>
+        function populate(req, res, next, id){
+            console.log("Populating <%= _.capitalize(_model.name) %>: " + id);
+            app.model.<%= _.capitalize(_model.name) %>.findOne({ hash: id }, function(err, <%= _model.name.toLowerCase() %>){
+                if(err){
+                    return next(err);
+                }
+                console.log("Populatinged! <%= _.capitalize(_model.name) %>: " + id);
+                req.<%= _model.name.toLowerCase() %> = <%= _model.name.toLowerCase() %>;//TODO:Bootstrap
+                return next();
+            })
+        }
+    <% } %>
     function render_list(req, res, next){
         console.log("HIT");
         res.render('model/<%= _model.name.toLowerCase() %>_list');
