@@ -31,12 +31,15 @@ NJaxGenerator.prototype.app = function app() {
     this.mkdir('lib');
     this.mkdir('lib/model');
     this.mkdir('lib/routes');
-    this.copy('_meta.hjs', 'public/templates/_meta.hjs');
-    this.copy('_meta_footer.hjs', 'public/templates/_meta_footer.hjs');
-    this.copy('_modal.hjs', 'public/templates/_modal.hjs');
-    this.copy('_navbar.hjs', 'public/templates/_navbar.hjs');
-    this.copy('auth.hjs', 'public/templates/auth.hjs');
-    this.copy('register.hjs', 'public/templates/register.hjs');
+    this.mkdir('lib/routes/model');
+    this.copy('lib/routes/index.js', 'lib/routes/index.js');
+    this.copy('lib/routes/model/index.js', 'lib/routes/model/index.js');
+    this.copy('public/templates/_meta.hjs', 'public/templates/_meta.hjs');
+    this.copy('public/templates/_meta_footer.hjs', 'public/templates/_meta_footer.hjs');
+    this.copy('public/templates/_modal.hjs', 'public/templates/_modal.hjs');
+    this.copy('public/templates/_navbar.hjs', 'public/templates/_navbar.hjs');
+    this.copy('public/templates/auth.hjs', 'public/templates/auth.hjs');
+    this.copy('public/templates/register.hjs', 'public/templates/register.hjs');
 
     for(var i in this.config.models){
         this._model = this.config.models[i];
@@ -47,7 +50,7 @@ NJaxGenerator.prototype.app = function app() {
 
     }
 
-    this.template('_lib_model_index.js', 'lib/model/index.js');
+    this.template('lib/model/index.js', 'lib/model/index.js');
 
 };
 NJaxGenerator.prototype._genSchema = function genSchema(model){
@@ -98,11 +101,11 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
     }
 
 
-    this.template('_lib_model_class.js', 'lib/model/' + this._model.name + '.js');
-    this.template('_route.js', 'lib/routes/' + this._model.name + '.js');
-    this.template('_public_template_detail.hjs', 'public/templates/' + this._model.name + '_detail.hjs');
-    this.template('_public_template_edit.hjs', 'public/templates/' + this._model.name + '_edit.hjs');
-    this.template('_public_template_list.hjs', 'public/templates/' + this._model.name + '_list.hjs');
+    this.template('lib/model/schema.js', 'lib/model/' + this._model.name + '.js');
+    this.template('lib/routes/model/route.js', 'lib/routes/model/' + this._model.name + '.js');
+    this.template('public/templates/model/detail.hjs', 'public/templates/model/' + this._model.name + '_detail.hjs');
+    this.template('public/templates/model/edit.hjs', 'public/templates/model/' + this._model.name + '_edit.hjs');
+    this.template('public/templates/model/list.hjs', 'public/templates/model/' + this._model.name + '_list.hjs');
 }
 
 
