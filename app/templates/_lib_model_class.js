@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 
 var fields = {
 <% for(var name in _model.fields){  %>
-    <%= name %>:<%= _model.fields[name] %>,
+    <%= name %>:<%= _model.fields[name].mongo_type %>,
 <% } %>
     cre_date:Date
 };

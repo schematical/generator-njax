@@ -44,12 +44,10 @@ NJaxGenerator.prototype.app = function app() {
             this._model.name = i;
         }
         this._genSchema(this._model);
-/*
-        this.template('_route.js', 'lib/routes/' + model.name + '.js');
-        this.template('_schema.js', 'lib/model/' +model. name + '.js');*/
+
     }
 
-    this.template('_schema_conn.js', 'lib/model/' + this._model.name + '.js');
+    this.template('_lib_model_index.js', 'lib/model/index.js');
 
 };
 NJaxGenerator.prototype._genSchema = function genSchema(model){
@@ -63,43 +61,48 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
         if(!fieldData.type){
             throw new Error("Invalid Model > Field >Type in njax.json");
         }
-       /* switch(fieldData.type.toLowerCase()){
-            case 'ObjectId':
-                props[fld].type = type.toLowerCase();
-                props[fld].ipsum = 'id';
+        fieldData.mongo_type = {}
+        switch(fieldData.type.toLowerCase()){
+            case 'objectid':
+                fieldData.mongo_type.type = 'ObjectId'
+                fieldData.mongo_type.ipsum = 'id';
                 break;
-            case 'Date':
-                props[fld].type = 'string';
-                props[fld].format = 'date-time';
+            case 'date':
+                fieldData.mongo_type.type = 'Date';
+                fieldData.mongo_type.format = 'date-time';
                 break;
-            case 'Array':
-                props[fld].type = type.toLowerCase();
-                props[fld].items = { "type": "string" };
+            case 'array':
+                fieldData.mongo_type.type = "Array";
+                fieldData.mongo_type.items = { "type": "string" };
                 break;
-            case 'Number':
-                props[fld].type = type.toLowerCase();
+            case 'number':
+                fieldData.mongo_type.type = "Number"
                 break;
-            case 'Boolean':
-                props[fld].type = type.toLowerCase();
+            case 'boolean':
+                fieldData.mongo_type.type = "Boolean";
                 break;
-            case 'String':
-                props[fld].type = type.toLowerCase();
-                props[fld].ipsum = "sentence"
+            case 'string':
+            case 'url':
+            case 'md':
+                fieldData.mongo_type.type = "String";
+                fieldData.mongo_type.ipsum = "sentence"
                 break;
-            case 'Buffer':
-            case 'Mixed':
+            case 'buffer':
+            case 'mixed':
                 break;
-        }*/
-        this._model.fields[key] = JSON.stringify(fieldData);
+        }
+
+        fieldData.mongo_type = JSON.stringify(fieldData.mongo_type);
+        this._model.fields[key] = fieldData;
 
     }
 
 
-    this.template('_schema.js', 'lib/model/' + this._model.name + '.js');
+    this.template('_lib_model_class.js', 'lib/model/' + this._model.name + '.js');
     this.template('_route.js', 'lib/routes/' + this._model.name + '.js');
-    this.template('_view_detail.hjs', 'public/templates/' + this._model.name + '_detail.hjs');
-    this.template('_view_edit.hjs', 'public/templates/' + this._model.name + '_edit.hjs');
-    this.template('_view_list.hjs', 'public/templates/' + this._model.name + '_list.hjs');
+    this.template('_public_template_detail.hjs', 'public/templates/' + this._model.name + '_detail.hjs');
+    this.template('_public_template_edit.hjs', 'public/templates/' + this._model.name + '_edit.hjs');
+    this.template('_public_template_list.hjs', 'public/templates/' + this._model.name + '_list.hjs');
 }
 
 
