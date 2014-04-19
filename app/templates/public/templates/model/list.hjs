@@ -1,5 +1,8 @@
 {{> _header }}
-    <table class="table">
+
+{{> _navbar }}
+
+<table class="table">
         <tr>
             <% for(var name in _model.fields){  %>
                 <th>

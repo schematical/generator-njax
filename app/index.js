@@ -38,6 +38,7 @@ NJaxGenerator.prototype.app = function app() {
     this.copy('public/templates/_meta_footer.hjs', 'public/templates/_meta_footer.hjs');
     this.copy('public/templates/_modal.hjs', 'public/templates/_modal.hjs');
     this.copy('public/templates/_navbar.hjs', 'public/templates/_navbar.hjs');
+    this.copy('public/templates/index.hjs', 'public/templates/index.hjs');
     this.copy('public/templates/auth.hjs', 'public/templates/auth.hjs');
     this.copy('public/templates/register.hjs', 'public/templates/register.hjs');
 

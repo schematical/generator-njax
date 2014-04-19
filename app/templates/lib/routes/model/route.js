@@ -5,10 +5,11 @@ module.exports = function(app, uri){
 
     app.param('<%= _model.name.toLowerCase() %>', populate)
     app.get(uri, render_list);
-    app.get(uri + '/new', render_detail);
+    app.get(uri + '/new', render_edit);
     app.get(uri + '/:<%= _model.name.toLowerCase() %>', render_detail);
+    app.get(uri + '/:<%= _model.name.toLowerCase() %>/edit', render_edit);
     app.post(uri, create);
-    app.put(uri, update);
+    app.put(uri + '/:<%= _model.name.toLowerCase() %>', update);
 
 
     function populate(req, res, next, id){
@@ -22,13 +23,20 @@ module.exports = function(app, uri){
     }
     function render_list(req, res, next){
         console.log("HIT");
-        res.render('<%= _model.name.toLowerCase() %>_list');
+        res.render('model/<%= _model.name.toLowerCase() %>_list');
     }
     function render_detail(req, res, next){
         if(!req.<%= _model.name.toLowerCase() %>){
             return next();
         }
-        res.render('<%= _model.name.toLowerCase() %>_detail');
+        res.render('model/<%= _model.name.toLowerCase() %>_detail');
+    }
+    function render_edit(req, res, next){
+        if(!req.<%= _model.name.toLowerCase() %>){
+            //return next();
+            req.<%= _model.name.toLowerCase() %> = new app.model.<%= _.capitalize(_model.name) %>();
+        }
+        res.render('model/<%= _model.name.toLowerCase() %>_edit');
     }
     function create(req, res, next){
         if(!req.user){
@@ -55,7 +63,7 @@ module.exports = function(app, uri){
 
         req.<%= _model.name.toLowerCase() %>.save(function(err, <%= _model.name.toLowerCase() %>){
             //app._refresh_locals();
-            res.render('<%= _model.name.toLowerCase() %>_edit', { <%= _model.name.toLowerCase() %>: req.<%= _model.name.toLowerCase() %>.toObject() });
+            res.render('model/<%= _model.name.toLowerCase() %>_edit', { <%= _model.name.toLowerCase() %>: req.<%= _model.name.toLowerCase() %>.toObject() });
         });
 
     }
