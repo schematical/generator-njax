@@ -13,9 +13,10 @@ var fields = {
 };
 
 var <%= _model.name.toLowerCase() %>Schema = new Schema(fields);
-    <%= _model.name.toLowerCase() %>Schema.pre('save', function(){
+    <%= _model.name.toLowerCase() %>Schema.pre('save', function(next){
         if(!this._id){
             this._id = new ObjectId();
         }
+        return next();
     });
 module.exports = mongoose.model('<%= _.capitalize(_model.name) %>', <%= _model.name.toLowerCase() %>Schema);
