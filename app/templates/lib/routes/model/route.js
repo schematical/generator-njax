@@ -36,7 +36,7 @@ module.exports = function(app, uri){
     <% if(_model.fields.namespace){ %>
         function populate(req, res, next, id){
             console.log("Populating <%= _.capitalize(_model.name) %>: " + id);
-            app.model.<%= _.capitalize(_model.name) %>.findOne({ hash: id }, function(err, <%= _model.name.toLowerCase() %>){
+            app.model.<%= _.capitalize(_model.name) %>.findOne({ namespace: id }, function(err, <%= _model.name.toLowerCase() %>){
                 if(err){
                     return next(err);
                 }
@@ -68,7 +68,7 @@ module.exports = function(app, uri){
             return res.redirect('/');
         }
         if(!req.<%= _model.name.toLowerCase() %>){
-            req.<%= _model.name.toLowerCase() %> = new app.model.Project();
+            req.<%= _model.name.toLowerCase() %> = new app.model.<%= _.capitalize(_model.name) %>();
         }
         return update(req, res, next);
 

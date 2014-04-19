@@ -1,3 +1,10 @@
 {{> _header }}
-
+{{> _navbar }}
+<div class="page-header">
+    <h1>{{ <%= _model.name %>.name }}<small>{{ <%= _model.name %>.desc }}</small></h1>
+</div>
+<% for(var name in _model.fields){  %>
+    <h3><%= _.capitalize(name) %></h3>
+    {{ <%= name %> }}
+<% } %>
 {{> _navbar }}
