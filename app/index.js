@@ -34,13 +34,13 @@ NJaxGenerator.prototype.app = function app() {
     this.mkdir('lib/routes/model');
     this.copy('lib/routes/index.js', 'lib/routes/index.js');
     this.copy('lib/routes/model/index.js', 'lib/routes/model/index.js');
-    this.copy('public/templates/_meta.hjs', 'public/templates/_meta.hjs');
-    this.copy('public/templates/_meta_footer.hjs', 'public/templates/_meta_footer.hjs');
-    this.copy('public/templates/_modal.hjs', 'public/templates/_modal.hjs');
-    this.copy('public/templates/_navbar.hjs', 'public/templates/_navbar.hjs');
-    this.copy('public/templates/index.hjs', 'public/templates/index.hjs');
-    this.copy('public/templates/auth.hjs', 'public/templates/auth.hjs');
-    this.copy('public/templates/register.hjs', 'public/templates/register.hjs');
+    this._copyIfNew('public/templates/_meta.hjs', 'public/templates/_meta.hjs');
+    this._copyIfNew('public/templates/_meta_footer.hjs', 'public/templates/_meta_footer.hjs');
+    this._copyIfNew('public/templates/_modal.hjs', 'public/templates/_modal.hjs');
+    this._copyIfNew('public/templates/_navbar.hjs', 'public/templates/_navbar.hjs');
+    this._copyIfNew('public/templates/index.hjs', 'public/templates/index.hjs');
+    this._copyIfNew('public/templates/auth.hjs', 'public/templates/auth.hjs');
+    this._copyIfNew('public/templates/register.hjs', 'public/templates/register.hjs');
 
     for(var i in this.config.models){
         this._model = this.config.models[i];
@@ -54,6 +54,12 @@ NJaxGenerator.prototype.app = function app() {
     this.template('lib/model/index.js', 'lib/model/index.js');
 
 };
+NJaxGenerator.prototype._copyIfNew = function copyIfNew(source, destination){
+    var destination = this.isPathAbsolute(destination) ? destination : path.join(this.destinationRoot(), destination);
+    if(!fs.existsSync(destination)){
+        this.copy(source, destination)
+    }
+}
 NJaxGenerator.prototype._genSchema = function genSchema(model){
 
     for(var key in model.fields){
@@ -65,8 +71,17 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
         if(!fieldData.type){
             throw new Error("Invalid Model > Field >Type in njax.json");
         }
+        model._files = [];
         fieldData.mongo_type = {}
         switch(fieldData.type.toLowerCase()){
+
+            case 's3-asset':
+                model._files.push(key);
+                fieldData.mongo_type.type = "String";
+                break
+            case 'ref':
+                fieldData.mongo_type = "{ type: Schema.Types.ObjectId, ref: '" + this._.capitalize(fieldData.ref) + "' }"
+                break
             case 'objectid':
                 fieldData.mongo_type.type = 'ObjectId'
                 fieldData.mongo_type.ipsum = 'id';
@@ -95,8 +110,12 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
             case 'mixed':
                 break;
         }
-
-        fieldData.mongo_type = JSON.stringify(fieldData.mongo_type);
+        if(model._files.length > 0){
+            model.file_fields =  model._files.join("','");
+        }
+        if(_.isObject(fieldData.mongo_type)){
+            fieldData.mongo_type = JSON.stringify(fieldData.mongo_type);
+        }
         this._model.fields[key] = fieldData;
 
     }

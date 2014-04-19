@@ -7,16 +7,39 @@ module.exports = function(app, uri){
     app.get(uri, render_list);
     app.get(uri + '/new', render_edit);
     app.get(uri + '/:<%= _model.name.toLowerCase() %>', render_detail);
-    app.get(uri + '/:<%= _model.name.toLowerCase() %>/edit', render_edit);
-    app.post(uri, create);
-    app.put(uri + '/:<%= _model.name.toLowerCase() %>', update);
+    app.get(
+        uri + '/:<%= _model.name.toLowerCase() %>/edit',
+
+            render_edit
+
+    );
+    app.post(
+        uri,
+        [
+            <% if(_model.file_fields){ %>
+                app.njax.s3.route(['<%= _model.file_fields %>']),
+            <% } %>
+            create
+        ]
+    );
+    app.put(
+        uri + '/:<%= _model.name.toLowerCase() %>',
+        [
+            <% if(_model.file_fields){ %>
+            app.njax.s3.route(['<%= _model.file_fields %>']),
+            <% } %>
+            update
+        ]
+    );
 
 
     function populate(req, res, next, id){
+        console.log("Populating <%= _.capitalize(_model.name) %>: " + id);
         app.model.<%= _.capitalize(_model.name) %>.findOne({ hash: id }, function(err, <%= _model.name.toLowerCase() %>){
             if(err){
                 return next(err);
             }
+            console.log("Populatinged! <%= _.capitalize(_model.name) %>: " + id);
             req.<%= _model.name.toLowerCase() %> = <%= _model.name.toLowerCase() %>;//TODO:Bootstrap
             return next();
         })
