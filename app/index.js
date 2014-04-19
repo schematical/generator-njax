@@ -31,6 +31,13 @@ NJaxGenerator.prototype.app = function app() {
     this.mkdir('lib');
     this.mkdir('lib/model');
     this.mkdir('lib/routes');
+    this.copy('_meta.hjs', 'public/templates/_meta.hjs');
+    this.copy('_meta_footer.hjs', 'public/templates/_meta_footer.hjs');
+    this.copy('_modal.hjs', 'public/templates/_modal.hjs');
+    this.copy('_navbar.hjs', 'public/templates/_navbar.hjs');
+    this.copy('auth.hjs', 'public/templates/auth.hjs');
+    this.copy('register.hjs', 'public/templates/register.hjs');
+
     for(var i in this.config.models){
         this._model = this.config.models[i];
         if(!this._model.name){
@@ -42,6 +49,7 @@ NJaxGenerator.prototype.app = function app() {
         this.template('_schema.js', 'lib/model/' +model. name + '.js');*/
     }
 
+    this.template('_schema_conn.js', 'lib/model/' + this._model.name + '.js');
 
 };
 NJaxGenerator.prototype._genSchema = function genSchema(model){
@@ -85,12 +93,7 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
         this._model.fields[key] = JSON.stringify(fieldData);
 
     }
-    this.copy('_meta.hjs', 'public/templates/_meta.hjs');
-    this.copy('_meta_footer.hjs', 'public/templates/_meta_footer.hjs');
-    this.copy('_modal.hjs', 'public/templates/_modal.hjs');
-    this.copy('_navbar.hjs', 'public/templates/_navbar.hjs');
-    this.copy('auth.hjs', 'public/templates/auth.hjs');
-    this.copy('register.hjs', 'public/templates/register.hjs');
+
 
     this.template('_schema.js', 'lib/model/' + this._model.name + '.js');
     this.template('_route.js', 'lib/routes/' + this._model.name + '.js');
