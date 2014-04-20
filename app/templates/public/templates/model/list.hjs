@@ -27,5 +27,10 @@
             </tr>
         {{/ <%= _model.name %> }}
     </table>
+
+     <a class='btn btn-default btn-block' href='/<%= _model.name.toLowerCase() %>s/new'>
+         Create New <%=_.capitalize(_model.name) %>
+     </a>
+
 {{> _footer }}
 

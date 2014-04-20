@@ -31,7 +31,7 @@ module.exports = function(app){
             <%= _model.name.toLowerCase() %>Schema.virtual('<%= name %>').get(function(){
                 return this.<%= name %>_rendered;
             }).set(function(value){
-                var markdown = require('markdown');
+                var markdown = require('markdown').markdown;
                 this.<%= name %>_raw = value;
                 this.<%= name %>_rendered = markdown.toHTML(value);
             });
