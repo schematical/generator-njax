@@ -19,7 +19,7 @@ module.exports = function(app, uri){
             create
         ]
     );
-    app.put(
+    app.post(
         uri + '/:<%= _model.name.toLowerCase() %>',
         [
             <% if(_model.file_fields){ %>
@@ -45,13 +45,11 @@ module.exports = function(app, uri){
             return next();
         }
         var query = { $or: or_condition };
-            console.log(query);
         app.model.<%= _.capitalize(_model.name) %>.findOne(query, function(err, <%= _model.name.toLowerCase() %>){
             if(err){
                 return next(err);
             }
 
-            console.log("Populatinged! <%= _.capitalize(_model.name) %>: " + id, <%= _model.name.toLowerCase() %>);
             res.bootstrap('<%= _model.name.toLowerCase() %>', <%= _model.name.toLowerCase() %>);
             return next();
         })
@@ -97,12 +95,16 @@ module.exports = function(app, uri){
         }
 
         <% for(var name in _model.fields){  %>
-        req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
+            <% if(_model.fields[name].type == 's3-asset'){ %>
+                req.<%= _model.name.toLowerCase() %>.<%= name %> = req.files.<%= name %>.s3_path;
+            <% }else{ %>
+                req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
+            <% } %>
         <% } %>
 
         req.<%= _model.name.toLowerCase() %>.save(function(err, <%= _model.name.toLowerCase() %>){
             //app._refresh_locals();
-            res.render('model/<%= _model.name.toLowerCase() %>_edit', { <%= _model.name.toLowerCase() %>: req.<%= _model.name.toLowerCase() %>.toObject() });
+            res.render('model/<%= _model.name.toLowerCase() %>_detail', { <%= _model.name.toLowerCase() %>: req.<%= _model.name.toLowerCase() %>.toObject() });
         });
 
     }

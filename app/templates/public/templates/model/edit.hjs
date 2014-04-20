@@ -2,7 +2,7 @@
 
 {{> _navbar }}
 
-<form role="form" action='/<%= _model.name %>s/{{ <%= _model.name %>._id }}' method='{{^ <%= _model.name %> }}POST{{/ <%= _model.name %>}}{{# <%= _model.name %>}}PUT{{/ <%= _model.name %>}}' enctype="multipart/form-data">
+<form role="form" action='/<%= _model.name %>s/{{ <%= _model.name %>._id }}' method='POST' enctype="multipart/form-data">
     <% for(var name in _model.fields){  %>
         <% if(_model.fields[name].type == 'md'){ %>
             <textarea id="<%= name %>" name="<%= name %>" class="form-control" rows="3">{{ <%= _model.name %>.<%= name %>}}</textarea>
