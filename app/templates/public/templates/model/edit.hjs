@@ -2,19 +2,19 @@
 
 {{> _navbar }}
 
-<form role="form" action='/<%= _model.name %>s/{{ <%= _model.name %>._id }}' method='POST' enctype="multipart/form-data">
+<form role="form" action='/<%= _model.name %>s/{{ <%= _model.name %>._id }}' method='{{^ <%= _model.name %> }}POST{{/ <%= _model.name %>}}{{# <%= _model.name %>}}PUT{{/ <%= _model.name %>}}' enctype="multipart/form-data">
     <% for(var name in _model.fields){  %>
         <% if(_model.fields[name].type == 'md'){ %>
-            <textarea id="<%= name %>" name="<%= name %>" class="form-control" rows="3"></textarea>
+            <textarea id="<%= name %>" name="<%= name %>" class="form-control" rows="3">{{ <%= _model.name %>.<%= name %>}}</textarea>
         <% }else if(_model.fields[name].type == 's3-asset'){ %>
             <div class="form-group">
                 <label for="<%= name %>"><%= name %></label>
-                <input type="file" class="form-control" id="<%= name %>" name="<%= name %>" placeholder="Enter <%= name %>" value="{{ <%= name %> }}">
+                <input type="file" class="form-control" id="<%= name %>" name="<%= name %>" placeholder="Enter <%= name %>" value="{{ <%= _model.name %>.<%= name %> }}">
             </div>
         <% }else if(_model.fields[name].type == 'ref'){ %>
             <div class="form-group">
                 <label for="<%= name %>"><%= name %></label>
-                <select id="<%= name %>" name='<%= name %>'>
+                <select id="<%= name %>" name='<%= name %>' value='{{ <%= _model.name %>.<%= name %> }}'>
                     {{# <%= name %>s }}
                         <options value='{{ _id }}'>{{ name }}</options>
                     {{/ <%= name %>s }}
@@ -23,7 +23,7 @@
         <% }else{ %>
             <div class="form-group">
                 <label for="<%= name %>"><%= name %></label>
-                <input name="<%= name %>" type="<%= name %>" class="form-control" id="<%= name %>" placeholder="Enter <%= name %>" value="{{ <%= name %> }}">
+                <input name="<%= name %>" type="<%= name %>" class="form-control" id="<%= name %>" placeholder="Enter <%= name %>" value="{{ <%= _model.name %>.<%= name %> }}">
             </div>
         <% } %>
     <% } %>
