@@ -5,16 +5,16 @@
 <form role="form" action='/<%= _model.name %>s/{{ <%= _model.name %>._id }}' method='POST' enctype="multipart/form-data">
     <% for(var name in _model.fields){  %>
         <% if(_model.fields[name].type == 'md'){ %>
-            <textarea class="form-control" rows="3"></textarea>
+            <textarea id="<%= name %>" name="<%= name %>" class="form-control" rows="3"></textarea>
         <% }else if(_model.fields[name].type == 's3-asset'){ %>
             <div class="form-group">
                 <label for="<%= name %>"><%= name %></label>
-                <input type="file" class="form-control" id="<%= name %>" placeholder="Enter <%= name %>" value="{{ <%= name %> }}">
+                <input type="file" class="form-control" id="<%= name %>" name="<%= name %>" placeholder="Enter <%= name %>" value="{{ <%= name %> }}">
             </div>
         <% }else if(_model.fields[name].type == 'ref'){ %>
             <div class="form-group">
                 <label for="<%= name %>"><%= name %></label>
-                <select name='<%= name %>'>
+                <select id="<%= name %>" name='<%= name %>'>
                     {{# <%= name %>s }}
                         <options value='{{ _id }}'>{{ name }}</options>
                     {{/ <%= name %>s }}
@@ -23,7 +23,7 @@
         <% }else{ %>
             <div class="form-group">
                 <label for="<%= name %>"><%= name %></label>
-                <input type="<%= name %>" class="form-control" id="<%= name %>" placeholder="Enter <%= name %>" value="{{ <%= name %> }}">
+                <input name="<%= name %>" type="<%= name %>" class="form-control" id="<%= name %>" placeholder="Enter <%= name %>" value="{{ <%= name %> }}">
             </div>
         <% } %>
     <% } %>

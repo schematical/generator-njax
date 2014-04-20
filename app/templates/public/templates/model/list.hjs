@@ -17,6 +17,13 @@
                         {{ <%= name %> }}
                     </td>
                 <% } %>
+                <% if(_model.fields.namespace) { %>
+                <td>
+                    <a class='btn btn-default btn-sm' href='/<%= _model.name.toLowerCase() %>s/{{ namespace }}'>
+                        View
+                    </a>
+                </td>
+                <% } %>
             </tr>
         {{/ <%= _model.name %> }}
     </table>

@@ -47,8 +47,11 @@ module.exports = function(app, uri){
         }
     <% } %>
     function render_list(req, res, next){
-        console.log("HIT");
-        res.render('model/<%= _model.name.toLowerCase() %>_list');
+        app.model.<%= _.capitalize(_model.name) %>.find({}, function(err, <%= _model.name %>){
+            if(err) return next(err);
+            res.locals.<%= _model.name %> = <%= _model.name %>;
+            res.render('model/<%= _model.name.toLowerCase() %>_list');
+        });
     }
     function render_detail(req, res, next){
         if(!req.<%= _model.name.toLowerCase() %>){

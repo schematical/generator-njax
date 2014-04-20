@@ -5,6 +5,9 @@
 </div>
 <% for(var name in _model.fields){  %>
     <h3><%= _.capitalize(name) %></h3>
-    {{ <%= name %> }}
+    {{ <%= _model.name %>.<%= name %> }}
 <% } %>
-{{> _navbar }}
+<a class='btn btn-default btn-sm' href='{{ uri }}/edit'>
+    Edit
+</a>
+{{> _footer }}
