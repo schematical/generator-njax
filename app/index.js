@@ -69,9 +69,10 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
             fieldData = { type: fieldData };
         }
         if(!fieldData.type){
-            throw new Error("Invalid Model > Field >Type in njax.json");
+            throw new Error("Invalid Model > Field > Type in njax.json");
         }
         model._files = [];
+        model._rels = [];
         fieldData.mongo_type = {}
         switch(fieldData.type.toLowerCase()){
 
@@ -80,6 +81,9 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
                 fieldData.mongo_type.type = "String";
                 break
             case 'ref':
+                model._rels.push({
+                    ref: fieldData.ref
+                });
                 fieldData.mongo_type = "{ type: Schema.Types.ObjectId, ref: '" + this._.capitalize(fieldData.ref) + "' }"
                 break
             case 'objectid':

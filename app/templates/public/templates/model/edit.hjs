@@ -16,7 +16,7 @@
                 <label for="<%= name %>"><%= name %></label>
                 <select id="<%= name %>" name='<%= name %>' value='{{ <%= _model.name %>.<%= name %> }}'>
                     {{# <%= name %>s }}
-                        <options value='{{ _id }}'>{{ name }}</options>
+                        <options {{# _selected }}selected='true'{{/ _selected}} value='{{ _id }}'>{{ name }}</options>
                     {{/ <%= name %>s }}
                 </select>
             </div>

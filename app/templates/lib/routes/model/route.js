@@ -1,5 +1,6 @@
 var path = require('path');
 var fs = require('fs');
+var async = require('async');
 var ObjectId = require('mongoose').Types.ObjectId;
 module.exports = function(app, uri){
     if(!uri) uri = '/<%= _model.name.toLowerCase() %>s';
@@ -69,11 +70,37 @@ module.exports = function(app, uri){
         res.render('model/<%= _model.name.toLowerCase() %>_detail');
     }
     function render_edit(req, res, next){
-        if(!req.<%= _model.name.toLowerCase() %>){
-            //return next();
-            req.<%= _model.name.toLowerCase() %> = new app.model.<%= _.capitalize(_model.name) %>();
-        }
-        res.render('model/<%= _model.name.toLowerCase() %>_edit');
+        async.series([
+            function(cb){
+                if(!req.<%= _model.name.toLowerCase() %>){
+                    //return next();
+                    req.<%= _model.name.toLowerCase() %> = new app.model.<%= _.capitalize(_model.name) %>();
+                }
+                return cb();
+            },
+            <% for(var i in _model._rels){ %>
+            function(cb){
+                if(req.<%= _model._rels[i].ref %>){
+                    return cb();
+                }
+                app.model.<%= _.capitalize(_model._rels[i].ref) %>.find({ }, function(err, <%= _model._rels[i].ref %>s){
+                    if(err) return next(err);
+                    var <%= _model._rels[i].ref %>_objs = [];
+                    for(var i in <%= _model._rels[i].ref %>s){
+                        var <%= _model._rels[i].ref %>_obj = <%= _model._rels[i].ref %>s[i].toObject();
+                        <%= _model._rels[i].ref %>_obj._selected = (req.<%= _model.name %>.<%= _model._rels[i].ref %> == <%= _model._rels[i].ref %>s[i]._id);
+                        <%= _model._rels[i].ref %>_objs.push(<%= _model._rels[i].ref %>_obj);
+                    }
+                    res.bootstrap('<%= _model._rels[i].ref %>s', <%= _model._rels[i].ref %>_objs);
+                    return cb();
+                });
+            },
+            <% } %>
+            function(cb){
+
+                res.render('model/<%= _model.name.toLowerCase() %>_edit');
+            }
+        ]);
     }
     function create(req, res, next){
         if(!req.user){
