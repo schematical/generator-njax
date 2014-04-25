@@ -5,7 +5,7 @@ phonecatServices.factory(
     [
         '$resource',
         function($resource){
-            return $resource('<%= _model.name %>s/:<%= _model.name %>_id', {}, {
+            return $resource('<%= _model.uri %>s/:<%= _model.name %>_id', {}, {
                 query: {
                     method:'GET',
                     params:{

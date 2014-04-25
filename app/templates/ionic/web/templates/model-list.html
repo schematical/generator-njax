@@ -1,0 +1,18 @@
+
+<ion-view title="'<% _.capitalize(_model.name) %>s Information'">
+  <ion-content has-header="true" has-tabs="true">
+
+    <ion-list>
+
+      <ion-item ng-repeat="<%= _model.name %> in <%= _model.name %>s" type="item-text-wrap" href="#<%= _model.uri %>/{{<%= _model.name %>._id}}">
+        <h3>{{<%= _model.name %>.name}}</h3>
+        <% for(var field_name in _model.fields){
+          var field = _model.fields[field_name]; %>
+            <p>{{%= _model.name %>.<%= field_name %>}}</p>
+        <% } %>
+      </ion-item>
+      
+    </ion-list>
+
+  </ion-content>
+</ion-view>

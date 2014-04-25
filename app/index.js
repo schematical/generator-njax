@@ -72,6 +72,25 @@ NJaxGenerator.prototype._angular = function(){
     this.template(this.angular_tpl_dir + 'public/js/services/model.js', 'public/js/services.js');
     this.template(this.angular_tpl_dir + 'public/js/app.js', 'public/js/app.js');
 }
+NJaxGenerator.prototype._ionic = function(){
+    this.angular_tpl_dir = 'ionic/';
+
+    this.template(this.angular_tpl_dir + 'web/index.html', 'web/index.html');
+
+    this.template(this.angular_tpl_dir + 'web/js/app.js', 'web/js/app.js');
+    this.template(this.angular_tpl_dir + 'web/templates/about.html', 'web/templates/about.html');
+    this.template(this.angular_tpl_dir + 'web/templates/about.html', 'web/templates/tabs.html');
+
+    this.template(this.angular_tpl_dir + 'web/js/services.js', 'web/js/services.js');
+    this.template(this.angular_tpl_dir + 'web/js/controllers.js', 'web/js/controllers.js');
+
+    for(var i in this.config.models){
+        this._model = this.config.models[i];
+
+        this.template(this.angular_tpl_dir + 'web/templates/model-detail.html', 'web/templates/' + this._model.name + '-detail.html');
+        this.template(this.angular_tpl_dir + 'web/templates/model-list.html', 'web/templates/' + this._model.name + '-list.html');
+    }
+}
 NJaxGenerator.prototype._copyIfNew = function copyIfNew(source, destination){
     var destination = this.isPathAbsolute(destination) ? destination : path.join(this.destinationRoot(), destination);
     if(!fs.existsSync(destination)){
@@ -98,28 +117,23 @@ NJaxGenerator.prototype._prepairModels = function(){
 NJaxGenerator.prototype._prepairModel = function(model){
 
     var uri = '';
-
+    var hjs_uri = '';
     if(model.parent){
 
         uri +=  this.config.models[model.parent].uri + '/:' + model.parent;
+        hjs_uri += '{{ ' + model.parent + '.uri }}';
     }
     if(typeof(model.uri_prefix) == 'undefined'){
         uri += '/' + model.name + 's';
-
+        hjs_uri += '/' + model.name + 's';
     }else{
         uri += model.uri_prefix;
+        hjs_uri += model.uri_prefix;
     }
     //uri += '/:' + model.name;
     model.uri = uri;
-    var hjs_uri = new String(uri);
-    for(var i in this.config.models){
-        var id_str = this.config.models[i].fields.namespace ? 'namespace' : '_id';
-        hjs_uri = hjs_uri.replace(
-            ':' + i,
-            '{{' + i + '.' + id_str + '}}'
-        );
-    }
     model.hjs_uri = hjs_uri;
+
     for(var key in model.fields){
 
         var fieldData =  model.fields[key];

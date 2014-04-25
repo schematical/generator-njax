@@ -1,0 +1,20 @@
+{
+    "name": "Schematical - Node Development Environment",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "async" : "*",
+        "underscore" : "*",
+        "mongoose":"*",
+        "errorhandler":"*",
+        "markdown":"*",
+        "connect-multiparty":"*",
+        "aws-lib":"*",
+        "socket.io":"*",
+        "njax": "git+ssh://git@github.com:schematical/njax.git#master",
+        "njax-bootstrap": "git+ssh://git@github.com:schematical/njax-bootstrap.git#master"
+    }
+}
