@@ -3,7 +3,7 @@ var fs = require('fs');
 var async = require('async');
 var ObjectId = require('mongoose').Types.ObjectId;
 module.exports = function(app, uri){
-    if(!uri) uri = '/<%= _model.name.toLowerCase() %>s';
+    if(!uri) uri = '<%= _model.uri %>';
 
     app.param('<%= _model.name.toLowerCase() %>', populate)
 

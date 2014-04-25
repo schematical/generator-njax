@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="" />
+    <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/lib/model/index.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/model/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/lib/model/schema.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/model/schema.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/lib/routes/index.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/routes/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/lib/routes/model/index.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/routes/model/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/lib/routes/model/route.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/public/templates/_meta.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/_meta.hjs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/public/templates/_meta_footer.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/_meta_footer.hjs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/public/templates/_modal.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/_modal.hjs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/public/templates/_navbar.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/_navbar.hjs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/public/templates/auth.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/auth.hjs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/public/templates/index.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/index.hjs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/public/templates/model/detail.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/public/templates/model/edit.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/model/edit.hjs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/public/templates/model/list.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/model/list.hjs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/public/templates/register.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/register.hjs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.js" afterPath="$PROJECT_DIR$/app/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="generator-njax.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396875030777" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396875031452" ignored="false" />
+    <file path="/Dummy.txt" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398440505814" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/lib/model/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396825994806" ignored="false" />
     <file path="/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396828061430" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/lib/routes/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396825555479" ignored="false" />
     <file path="$PROJECT_DIR$/../njax/lib/njax.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864186566" ignored="false" />
-    <file path="/njax.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829836433" ignored="false" />
+    <file path="/njax.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398439395032" ignored="false" />
     <file path="$PROJECT_DIR$/../njax/lib/model/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396828085556" ignored="false" />
     <file path="$PROJECT_DIR$/../njax/lib/routes/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864820136" ignored="false" />
     <file path="/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864716666" ignored="false" />
@@ -18,10 +35,10 @@
     <file path="$PROJECT_DIR$/../boosely/public/templates/register.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864534437" ignored="false" />
     <file path="/register.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864402509" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829956357" ignored="false" />
-    <file path="/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829966727" ignored="false" />
+    <file path="/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398438531387" ignored="false" />
     <file path="$PROJECT_DIR$/../njax/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829969725" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/lib/routes/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396830444134" ignored="false" />
-    <file path="/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862701714" ignored="false" />
+    <file path="/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398444260456" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/public/css/base-admin-2.css" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862090723" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/public/templates/_meta.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862210130" ignored="false" />
     <file path="/a.dummy" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862222405" ignored="false" />
@@ -36,6 +53,31 @@
     <file path="/auth.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396863610720" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/README.md" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396873542733" ignored="false" />
     <file path="/README.md" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396873524674" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/lib/model/application.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398437776832" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/lib/model/accessToken.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443108493" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/lib/model/project.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443108493" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/njax.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443877102" ignored="false" />
+    <file path="/njax.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443805642" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/node_modules/njax/node_modules/hjs/lib/express.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398438255448" ignored="false" />
+    <file path="/express.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398438208744" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/app.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398439468928" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398441168325" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/node_modules/njax/lib/njax.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398439410146" ignored="false" />
+    <file path="/app.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398439466581" ignored="false" />
+    <file path="/model.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398439719044" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/routes/model/document.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398441977923" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/routes/model/document_batch.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398441977923" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/lib/model/document.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398441977923" ignored="false" />
+    <file path="/route.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398442713507" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/lib/routes/model/project.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443750657" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/lib/routes/model/application.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443619101" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/lib/routes/model/requestCode.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443619101" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/lib/routes/model/accessToken.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443750657" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/lib/routes/model/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443750657" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/lib/routes/model/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443898359" ignored="false" />
+    <file path="$PROJECT_DIR$/../nde/lib/routes/model/repos.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443853571" ignored="false" />
+    <file path="/edit.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398444224339" ignored="false" />
+    <file path="/list.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398444229205" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,34 +100,52 @@
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="20" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0">
+            <state line="34" column="20" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="4" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.83623695">
+            <state line="115" column="42" selection-start="4423" selection-end="4423" vertical-scroll-proportion="-8.64">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_route.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/_route.js">
+      <file leaf-file-name="edit.hjs" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/edit.hjs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="13" selection-start="3261" selection-end="3261" vertical-scroll-proportion="0.0">
+            <state line="4" column="47" selection-start="79" selection-end="79" vertical-scroll-proportion="0.10676157">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_schema.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/_schema.js">
+      <file leaf-file-name="list.hjs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/list.hjs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="63" selection-start="1570" selection-end="1570" vertical-scroll-proportion="0.0">
+            <state line="21" column="60" selection-start="583" selection-end="604" vertical-scroll-proportion="-13.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="route.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="37" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -113,13 +173,18 @@
         <option value="$PROJECT_DIR$/app/templates/_schema.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/app/templates/_routes.js" />
+        <option value="$PROJECT_DIR$/app/templates/public/angular_js/service/model.js" />
+        <option value="$PROJECT_DIR$/app/templates/public/angular_js/app.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" />
         <option value="$PROJECT_DIR$/app/index.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/public/templates/model/list.hjs" />
+        <option value="$PROJECT_DIR$/app/templates/default/public/templates/model/edit.hjs" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-4" />
+    <option name="x" value="-1302" />
+    <option name="y" value="1532" />
     <option name="width" value="1303" />
     <option name="height" value="773" />
   </component>
@@ -198,6 +263,236 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -247,6 +542,17 @@
       </server>
     </servers>
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/templates/angular" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/templates/angular/public/js/services" />
+      <recent name="$PROJECT_DIR$/app/templates/angular/public/js" />
+      <recent name="$PROJECT_DIR$/app/templates/angular/public/js/service" />
+      <recent name="$PROJECT_DIR$/app/templates/default" />
+    </key>
+  </component>
   <component name="RunManager">
     <list size="0" />
   </component>
@@ -260,29 +566,29 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1303" height="773" extended-state="6" />
+    <frame x="-1302" y="1532" width="1303" height="773" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -346,13 +652,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="33" selection-start="614" selection-end="614" vertical-scroll-proportion="0.5979203">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="20" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0">
@@ -360,23 +659,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/_schema.js">
+    <entry file="file://$PROJECT_DIR$/app/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="63" selection-start="1570" selection-end="1570" vertical-scroll-proportion="0.0">
+        <state line="35" column="4" selection-start="965" selection-end="965" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/_route.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="13" selection-start="3261" selection-end="3261" vertical-scroll-proportion="0.0">
+        <state line="23" column="33" selection-start="614" selection-end="614" vertical-scroll-proportion="0.5979203" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="20" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/_modal.hjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="63" selection-start="2306" selection-end="2338" vertical-scroll-proportion="0.8225256">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="37" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="4" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.83623695">
+        <state line="115" column="42" selection-start="4423" selection-end="4423" vertical-scroll-proportion="-8.64">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/list.hjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="60" selection-start="583" selection-end="604" vertical-scroll-proportion="-13.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/edit.hjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="47" selection-start="79" selection-end="79" vertical-scroll-proportion="0.10676157">
           <folding />
         </state>
       </provider>
