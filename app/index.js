@@ -29,13 +29,21 @@ NJaxGenerator.prototype.app = function app() {
     this._prepairModels();
 
 
+
     this.default_tpl_dir = 'default/';
+
+    var _njax = require(__dirname + '/templates/' + this.default_tpl_dir + 'njax');
+    _.extend(this.config, _njax);
+    console.log(this.config);
+
     this.mkdir('lib');
     this.mkdir('lib/model');
     this.mkdir('lib/routes');
     this.mkdir('lib/routes/model');
-    this.copy(this.default_tpl_dir + 'lib/routes/index.js', 'lib/routes/index.js');
-    this.copy( this.default_tpl_dir + 'lib/routes/model/index.js', 'lib/routes/model/index.js');
+    this._copyIfNew(this.default_tpl_dir + 'app.js', 'app.js');
+    this._copyIfNew(this.default_tpl_dir + 'config.js', 'config.js');
+    this._copyIfNew(this.default_tpl_dir + 'lib/routes/index.js', 'lib/routes/index.js');
+    this._copyIfNew( this.default_tpl_dir + 'lib/routes/model/index.js', 'lib/routes/model/index.js');
     this._copyIfNew( this.default_tpl_dir +'public/templates/_meta.hjs', 'public/templates/_meta.hjs');
     this._copyIfNew( this.default_tpl_dir +'public/templates/_meta_footer.hjs', 'public/templates/_meta_footer.hjs');
     this._copyIfNew( this.default_tpl_dir +'public/templates/_modal.hjs', 'public/templates/_modal.hjs');
@@ -66,6 +74,17 @@ NJaxGenerator.prototype.frameworks = function(){
     }
 
 
+}
+NJaxGenerator.prototype.dependencies = function(){
+
+    this.writeFileFromString(
+        JSON.stringify(this.config.package),
+        'package.json'
+    );
+    this.writeFileFromString(
+        JSON.stringify(this.config.bower),
+        'bower.json'
+    );
 }
 NJaxGenerator.prototype._angular = function(){
     this.angular_tpl_dir = 'angular/';

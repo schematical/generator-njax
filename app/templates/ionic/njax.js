@@ -1,9 +1,13 @@
 module.exports = {
     bower:{
-        'ionic':'*'
+        dependencies:{
+            'ionic':'*'
+        }
     },
     package:{
+        dependencies:{
 
+        }
     },
     cordova:{
 
