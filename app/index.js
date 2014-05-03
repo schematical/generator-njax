@@ -152,7 +152,8 @@ NJaxGenerator.prototype._prepairModel = function(model){
     //uri += '/:' + model.name;
     model.uri = uri;
     model.hjs_uri = hjs_uri;
-
+    model._files = [];
+    model._rels = [];
     for(var key in model.fields){
 
         var fieldData =  model.fields[key];
@@ -162,8 +163,7 @@ NJaxGenerator.prototype._prepairModel = function(model){
         if(!fieldData.type){
             throw new Error("Invalid Model > Field > Type in njax.json");
         }
-        model._files = [];
-        model._rels = [];
+
         fieldData.mongo_type = {}
         switch(fieldData.type.toLowerCase()){
 
@@ -171,9 +171,11 @@ NJaxGenerator.prototype._prepairModel = function(model){
                 model._files.push(key);
                 fieldData.mongo_type.type = "String";
                 break
+
             case 'ref':
                 model._rels.push({
-                    ref: fieldData.ref
+                    ref: fieldData.ref,
+                    bootstrap_populate:fieldData.bootstrap_populate
                 });
                 fieldData.mongo_type = "{ type: Schema.Types.ObjectId, ref: '" + this._.capitalize(fieldData.ref) + "' }"
                 break

@@ -118,7 +118,12 @@ module.exports = function(app, uri){
             return res.redirect('/');
         }
         if(!req.<%= _model.name.toLowerCase() %>){
-            req.<%= _model.name.toLowerCase() %> = new app.model.<%= _.capitalize(_model.name) %>();
+            req.<%= _model.name.toLowerCase() %> = new app.model.<%= _.capitalize(_model.name) %>({
+                <% for(var i in _model._rels){ %>
+                        <%= _model._rels[i].ref %>:(req.<%= _model._rels[i].ref %> || null),
+                <% } %>
+                cre_date:new Date()
+            });
         }
         return update(req, res, next);
 

@@ -2,122 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/default/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/default/app.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/templates/default/package.json" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/node-sdk/client.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/njax/oauth/dialog.hjs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.js" afterPath="$PROJECT_DIR$/app/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/njax.js" afterPath="$PROJECT_DIR$/app/templates/default/njax.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/ionic/njax.js" afterPath="$PROJECT_DIR$/app/templates/ionic/njax.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="generator-njax.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398616525233" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/lib/model/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396825994806" ignored="false" />
-    <file path="/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396828061430" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/lib/routes/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396825555479" ignored="false" />
-    <file path="$PROJECT_DIR$/../njax/lib/njax.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864186566" ignored="false" />
-    <file path="/njax.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398549455207" ignored="false" />
-    <file path="$PROJECT_DIR$/../njax/lib/model/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396828085556" ignored="false" />
-    <file path="$PROJECT_DIR$/../njax/lib/routes/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864820136" ignored="false" />
-    <file path="/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864716666" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/node_modules/njax/lib/routes/auth.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396874975675" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/public/templates/register.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864534437" ignored="false" />
-    <file path="/register.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864402509" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829956357" ignored="false" />
-    <file path="/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398601680540" ignored="false" />
-    <file path="$PROJECT_DIR$/../njax/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396829969725" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/lib/routes/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396830444134" ignored="false" />
-    <file path="/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398615964921" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/public/css/base-admin-2.css" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862090723" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/public/templates/_meta.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862210130" ignored="false" />
-    <file path="/a.dummy" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398468616657" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/public/templates/_meta.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862237425" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/public/templates/_navbar.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864217800" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396863114254" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/public/templates/index.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862455445" ignored="false" />
-    <file path="/index.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398556158771" ignored="false" />
-    <file path="/_navbar.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864100416" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/public/templates/auth.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396864737837" ignored="false" />
-    <file path="$PROJECT_DIR$/../njax/public/templates/_footer.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396862923115" ignored="false" />
-    <file path="/auth.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396863610720" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/README.md" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396873542733" ignored="false" />
-    <file path="/README.md" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1396873524674" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/lib/model/application.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398437776832" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/lib/model/accessToken.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443108493" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/lib/model/project.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443108493" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/njax.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443877102" ignored="false" />
-    <file path="/njax.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398616393457" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/node_modules/njax/node_modules/hjs/lib/express.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398438255448" ignored="false" />
-    <file path="/express.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398438208744" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/app.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398469933690" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398441168325" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/node_modules/njax/lib/njax.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398439410146" ignored="false" />
-    <file path="/app.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398612941496" ignored="false" />
-    <file path="/model.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398449601847" ignored="false" />
-    <file path="$PROJECT_DIR$/../vpr2/routes/model/document.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398457519115" ignored="false" />
-    <file path="$PROJECT_DIR$/../vpr2/routes/model/document_batch.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398441977923" ignored="false" />
-    <file path="$PROJECT_DIR$/../vpr2/lib/model/document.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398441977923" ignored="false" />
-    <file path="/route.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398442713507" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/lib/routes/model/project.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443750657" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/lib/routes/model/application.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443619101" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/lib/routes/model/requestCode.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443619101" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/lib/routes/model/accessToken.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443750657" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/lib/routes/model/account.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443750657" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/lib/routes/model/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443898359" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/lib/routes/model/repos.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398443853571" ignored="false" />
-    <file path="/edit.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398444224339" ignored="false" />
-    <file path="/list.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398444229205" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/public/templates/model/repo_list.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398449151077" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/public/templates/model/project_edit.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398449151077" ignored="false" />
-    <file path="$PROJECT_DIR$/../vpr2/public/templates/commit/_commit_detail.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398450780184" ignored="false" />
-    <file path="$PROJECT_DIR$/../vpr2/routes/model/revision.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398451058492" ignored="false" />
-    <file path="/revision.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398451049475" ignored="false" />
-    <file path="$PROJECT_DIR$/../vpr2/lib/view/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398452074098" ignored="false" />
-    <file path="$PROJECT_DIR$/../vpr2/routes/model/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398459416792" ignored="false" />
-    <file path="$PROJECT_DIR$/../vpr2/routes/model/search.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398458195435" ignored="false" />
-    <file path="/search.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398458160028" ignored="false" />
-    <file path="$PROJECT_DIR$/../vpr2/public/templates/search.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398457197958" ignored="false" />
-    <file path="/search.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398457195922" ignored="false" />
-    <file path="$PROJECT_DIR$/../vpr2/lib/model/commit.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398457519115" ignored="false" />
-    <file path="$PROJECT_DIR$/../vpr2/lib/model/project.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398457519115" ignored="false" />
-    <file path="$PROJECT_DIR$/../vpr2/lib/control/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398459819895" ignored="false" />
-    <file path="/services.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398466112485" ignored="false" />
-    <file path="/controllers.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398466512786" ignored="false" />
-    <file path="$PROJECT_DIR$/../ionic_seed_project/www/js/app.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398466926558" ignored="false" />
-    <file path="/model-detail.html" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398467606051" ignored="false" />
-    <file path="/model-index.html" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398467676169" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/njax.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398554206759" ignored="false" />
-    <file path="/index.html" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398469389993" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/web/js/services.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398469607651" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/public/templates/index.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398596181190" ignored="false" />
-    <file path="$PROJECT_DIR$/../nde/lib/routes/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398548986304" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/lib/routes/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398596165381" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398556992558" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/bower.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398552084169" ignored="false" />
-    <file path="/.gitignore" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398612795780" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/public/css/main.css" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398559465917" ignored="false" />
-    <file path="/main.css" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398554803970" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/app.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398554399813" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/public/templates/_meta.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398554534949" ignored="false" />
-    <file path="/_meta.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398554532963" ignored="false" />
-    <file path="/event_edit.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398598424786" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/public/templates/model/event_edit.hjs" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398598641209" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/lib/routes/model/event.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398598379809" ignored="false" />
-    <file path="/event.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398598026067" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/lib/routes/model/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398598175466" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/web_app/njax.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398616395664" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/web_app/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398599077955" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/client_app/app.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398612945244" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/client_app/config.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398615827484" ignored="false" />
-    <file path="/config.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398614283287" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/.gitignore" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398612799610" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/client_app/package.json" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398601682694" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/client_app/lib/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398616417857" ignored="false" />
-    <file path="/test.txt" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398614127145" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/_test/test.txt" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398614127145" ignored="false" />
-    <file path="$PROJECT_DIR$/../photobooth/web_app/lib/routes/index.js" changelist="8992653a-a613-47ab-a867-0cca798236cc" time="1398615966672" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,64 +29,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="19" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="route.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="route.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="4" selection-start="899" selection-end="899" vertical-scroll-proportion="0.8191126">
+            <state line="107" column="14" selection-start="3844" selection-end="3844" vertical-scroll-proportion="0.0" vertical-offset="1368" max-vertical-offset="2880">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bower.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/default/bower.json">
+      <file leaf-file-name="edit.hjs" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/edit.hjs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="4" selection-start="6" selection-end="278" vertical-scroll-proportion="-0.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/default/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="19" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/services.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="2" selection-start="658" selection-end="658" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/controllers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="2" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="njax.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/ionic/njax.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="702">
               <folding />
             </state>
           </provider>
@@ -218,8 +65,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/templates/angular/public/js/services/model.js" />
-        <option value="$PROJECT_DIR$/app/templates/ionic/public/js/controllers.js" />
         <option value="$PROJECT_DIR$/app/templates/ionic/public/js/services.js" />
         <option value="$PROJECT_DIR$/app/templates/ionic/public/js/app.js" />
         <option value="$PROJECT_DIR$/app/templates/ionic/public/templates/model-detail.html" />
@@ -231,17 +76,20 @@
         <option value="$PROJECT_DIR$/app/templates/ionic/njax.js" />
         <option value="$PROJECT_DIR$/app/templates/default/package.json" />
         <option value="$PROJECT_DIR$/app/templates/default/.gitignore" />
-        <option value="$PROJECT_DIR$/app/index.js" />
-        <option value="$PROJECT_DIR$/app/templates/default/njax.js" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/public/templates/njax/dialog.hjs" />
+        <option value="$PROJECT_DIR$/app/templates/node-sdk/client.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/njax.js" />
+        <option value="$PROJECT_DIR$/app/index.js" />
       </list>
     </option>
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1302" />
+    <option name="x" value="65" />
     <option name="y" value="764" />
-    <option name="width" value="1303" />
-    <option name="height" value="773" />
+    <option name="width" value="1301" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -269,7 +117,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -288,53 +135,69 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../photobooth" />
-  </component>
-  <component name="PublishConfig">
-    <servers>
-      <server id="0006cbc4-674f-49eb-8284-1b7b8ecf3251">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="6f5de561-2676-4941-bded-f836a4168cf5">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="8725b5e3-6742-4936-840a-00da39f9a4d3">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="96385dab-723c-4634-b536-03b1258ac43e">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="c1204382-768c-4a07-abb0-de17d5c20f0e">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-    </servers>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../byobob" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -345,6 +208,7 @@
       <recent name="$PROJECT_DIR$/app/templates/ionic/public/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/templates/default/public/templates/njax/oauth" />
       <recent name="$PROJECT_DIR$/app/templates/angular/public/js/services" />
       <recent name="$PROJECT_DIR$/app/templates/angular/public/js" />
       <recent name="$PROJECT_DIR$/app/templates/angular/public/js/service" />
@@ -352,7 +216,21 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="$PROJECT_DIR$">
+      <browser start="false" url="" with-js-debugger="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -367,196 +245,206 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1302" y="764" width="1303" height="773" extended-state="6" />
+    <frame x="65" y="764" width="1301" height="772" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940239" sideWeight="0.6704" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2490392" sideWeight="0.6704" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="CHECK_NEW_TODO" value="true" />
     <option name="myTodoPanelSettings">
-      <value>
-        <are-packages-shown value="false" />
-        <are-modules-shown value="false" />
-        <flatten-packages value="false" />
-        <is-autoscroll-to-source value="false" />
-      </value>
+      <TodoPanelSettings />
     </option>
-    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
-    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
-    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
-    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
-    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
-    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
-    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
-    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
-    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
-    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
-    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
-    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
-    <option name="LIMIT_HISTORY" value="true" />
-    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
-    <option name="UPDATE_FILTER_SCOPE_NAME" />
-    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
-    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
-    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
-    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
-    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
-    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
-    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
-    <option name="ACTIVE_VCS_NAME" />
-    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
-    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
-    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
-    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
-    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/templates/default/cordova.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="18.75" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="11" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.31451613" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="2" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/ionic/njax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/njax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="21" selection-start="406" selection-end="406" vertical-scroll-proportion="0.2733564">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="19" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="9" selection-start="29" selection-end="29" vertical-scroll-proportion="0.051903114">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/edit.hjs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="4" selection-start="6" selection-end="278" vertical-scroll-proportion="-0.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="19" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="2" selection-start="658" selection-end="658" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="19" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.0">
+        <state line="155" column="21" selection-start="6062" selection-end="6062" vertical-scroll-proportion="0.0" vertical-offset="2790" max-vertical-offset="4140">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="4" selection-start="899" selection-end="899" vertical-scroll-proportion="0.8191126">
+        <state line="107" column="14" selection-start="3844" selection-end="3844" vertical-scroll-proportion="0.0" vertical-offset="1926" max-vertical-offset="2880">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="21" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="864">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/node-sdk/client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="19" selection-start="243" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="792">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="4" selection-start="6" selection-end="278" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="378">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="19" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="2" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="468">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/ionic/njax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.31451613" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/ionic/njax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="0.22187981" vertical-offset="0" max-vertical-offset="649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="19" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="9" selection-start="29" selection-end="29" vertical-scroll-proportion="0.051903114" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="2" selection-start="658" selection-end="658" vertical-scroll-proportion="0.5509182" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="19" selection-start="265" selection-end="265" vertical-scroll-proportion="0.27734977" vertical-offset="0" max-vertical-offset="649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="4" selection-start="6" selection-end="278" vertical-scroll-proportion="0.028938906" vertical-offset="0" max-vertical-offset="622">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/node-sdk/client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="19" selection-start="243" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/njax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="21" selection-start="689" selection-end="697" vertical-scroll-proportion="0.5847751" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="2" selection-start="834" selection-end="834" vertical-scroll-proportion="0.509434" vertical-offset="0" max-vertical-offset="636">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/njax/oauth/dialog.hjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="7" selection-start="407" selection-end="407" vertical-scroll-proportion="0.27075812" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="21" selection-start="637" selection-end="637" vertical-scroll-proportion="0.30546623" vertical-offset="242" max-vertical-offset="864">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="176" column="39" selection-start="6671" selection-end="6671" vertical-scroll-proportion="0.5943396" vertical-offset="2790" max-vertical-offset="4176">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="14" selection-start="3844" selection-end="3844" vertical-scroll-proportion="0.0" vertical-offset="1368" max-vertical-offset="2880">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/edit.hjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="702">
           <folding />
         </state>
       </provider>
