@@ -1,6 +1,4 @@
-{{> _header }}
 
-{{> _navbar }}
 
 <form role="form" action='<%= _model.hjs_uri %>/{{ <%= _model.name %>._id }}' method='POST' enctype="multipart/form-data">
     <% for(var name in _model.fields){  %>
@@ -12,6 +10,7 @@
                 <input type="file" class="form-control" id="<%= name %>" name="<%= name %>" placeholder="Enter <%= name %>" value="{{ <%= _model.name %>.<%= name %> }}">
             </div>
         <% }else if(_model.fields[name].type == 'ref'){ %>
+            {{^ <%= _model.fields[name].ref %> }}
             <div class="form-group">
                 <label for="<%= name %>"><%= name %></label>
                 <select id="<%= name %>" name='<%= name %>' value='{{ <%= _model.name %>.<%= name %> }}'>
@@ -20,6 +19,8 @@
                     {{/ <%= name %>s }}
                 </select>
             </div>
+             {{/ <%= _model.fields[name].ref %> }}
+
         <% }else{ %>
             <div class="form-group">
                 <label for="<%= name %>"><%= name %></label>
@@ -31,4 +32,3 @@
 
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
-{{> _footer }}

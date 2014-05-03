@@ -1,36 +1,39 @@
 {{> _header }}
 
 {{> _navbar }}
-
-<table class="table">
-        <tr>
-            <% for(var name in _model.fields){  %>
-                <th>
-                    <%= name %>
-                </th>
-            <% } %>
-        </tr>
-        {{# <%= _model.name %> }}
-            <tr>
-                <% for(var name in _model.fields){  %>
-                    <td>
-                        {{ <%= name %> }}
-                    </td>
-                <% } %>
-                <% if(_model.fields.namespace) { %>
-                <td>
-                    <a class='btn btn-default btn-sm' href='<%= _model.hjs_uri %>/{{ namespace }}'>
-                        View
-                    </a>
-                </td>
-                <% } %>
-            </tr>
-        {{/ <%= _model.name %> }}
-    </table>
-
-     <a class='btn btn-default btn-block' href='<%= _model.hjs_uri %>/new'>
-         Create New <%=_.capitalize(_model.name) %>
-     </a>
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            {{> _<%= _model.name %>_edit_form }}
+        </div>
+        <div class="col-md-8 col-md-offset-1">
+            <table class="table">
+                <tr>
+                    <% for(var name in _model.fields){  %>
+                        <th>
+                            <%= name %>
+                        </th>
+                    <% } %>
+                </tr>
+                {{# <%= _model.name %> }}
+                    <tr>
+                        <% for(var name in _model.fields){  %>
+                            <td>
+                                {{ <%= name %> }}
+                            </td>
+                        <% } %>
+                        <% if(_model.fields.namespace) { %>
+                        <td>
+                            <a class='btn btn-default btn-sm' href='<%= _model.hjs_uri %>/{{ namespace }}'>
+                                View
+                            </a>
+                        </td>
+                        <% } %>
+                    </tr>
+                {{/ <%= _model.name %> }}
+            </table>
+        </div>
+    </div>
+</div>
 {{> _footer }}
 

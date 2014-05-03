@@ -122,7 +122,8 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
     this.template(this.default_tpl_dir + 'lib/model/schema.js', 'lib/model/' + this._model.name + '.js');
     this.template(this.default_tpl_dir + 'lib/routes/model/route.js', 'lib/routes/model/' + this._model.name + '.js');
     this.template(this.default_tpl_dir + 'public/templates/model/detail.hjs', 'public/templates/model/' + this._model.name + '_detail.hjs');
-    this.template(this.default_tpl_dir + 'public/templates/model/edit.hjs', 'public/templates/model/' + this._model.name + '_edit.hjs');
+    //this.template(this.default_tpl_dir + 'public/templates/model/edit.hjs', 'public/templates/model/' + this._model.name + '_edit.hjs');
+    this.template(this.default_tpl_dir + 'public/templates/model/edit.hjs', 'public/templates/model/_' + this._model.name + '_edit_form.hjs');
     this.template(this.default_tpl_dir + 'public/templates/model/list.hjs', 'public/templates/model/' + this._model.name + '_list.hjs');
 }
 NJaxGenerator.prototype._prepairModels = function(){

@@ -4,7 +4,7 @@ var async = require('async');
 var ObjectId = require('mongoose').Types.ObjectId;
 module.exports = function(app, uri){
     if(!uri) uri = '<%= _model.uri %>';
-
+    app.locals.partials._<%= _model.name.toLowerCase() %>_edit_form = 'model/_<%= _model.name.toLowerCase() %>_edit_form';
     app.param('<%= _model.name.toLowerCase() %>', populate)
 
     app.get(uri, render_list);
@@ -140,6 +140,12 @@ module.exports = function(app, uri){
         <% for(var name in _model.fields){  %>
             <% if(_model.fields[name].type == 's3-asset'){ %>
                 req.<%= _model.name.toLowerCase() %>.<%= name %> = req.files.<%= name %>.s3_path;
+            <% }else if(_model.fields[name].type == 'ref'){ %>
+                if(req.<%= _model.fields[name].ref %>){
+                    req.<%= _model.name.toLowerCase() %>.<%= name %> = req.<%= _model.fields[name].ref %>._id;
+                }else if(req.body.<%= name %>){
+                    req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
+                }
             <% }else{ %>
                 req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
             <% } %>
