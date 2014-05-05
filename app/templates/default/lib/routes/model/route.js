@@ -68,9 +68,14 @@ module.exports = function(app, uri){
     }
 
     function render_list(req, res, next){
-        app.model.<%= _.capitalize(_model.name) %>.find({}, function(err, <%= _model.name %>){
+        app.model.<%= _.capitalize(_model.name) %>.find({}, function(err, <%= _model.name %>s){
             if(err) return next(err);
-            res.locals.<%= _model.name %> = <%= _model.name %>;
+            res.locals.<%= _model.name %>s = [];
+            for(var i in <%= _model.name %>s){
+                res.locals.<%= _model.name %>s.push(
+                    <%= _model.name %>s[i].toObject()
+                );
+            }
             res.render('model/<%= _model.name.toLowerCase() %>_list');
         });
     }
@@ -139,7 +144,9 @@ module.exports = function(app, uri){
 
         <% for(var name in _model.fields){  %>
             <% if(_model.fields[name].type == 's3-asset'){ %>
-                req.<%= _model.name.toLowerCase() %>.<%= name %> = req.files.<%= name %>.s3_path;
+                if(req.files.<%= name %>){
+                    req.<%= _model.name.toLowerCase() %>.<%= name %> = req.files.<%= name %>.s3_path;
+                }
             <% }else if(_model.fields[name].type == 'ref'){ %>
                 if(req.<%= _model.fields[name].ref %>){
                     req.<%= _model.name.toLowerCase() %>.<%= name %> = req.<%= _model.fields[name].ref %>._id;

@@ -15,7 +15,7 @@
                         </th>
                     <% } %>
                 </tr>
-                {{# <%= _model.name %> }}
+                {{# <%= _model.name %>s }}
                     <tr>
                         <% for(var name in _model.fields){  %>
                             <td>
@@ -24,13 +24,13 @@
                         <% } %>
                         <% if(_model.fields.namespace) { %>
                         <td>
-                            <a class='btn btn-default btn-sm' href='<%= _model.hjs_uri %>/{{ namespace }}'>
+                            <a class='btn btn-default btn-sm' href='{{ uri }}'>
                                 View
                             </a>
                         </td>
                         <% } %>
                     </tr>
-                {{/ <%= _model.name %> }}
+                {{/ <%= _model.name %>s }}
             </table>
         </div>
     </div>
