@@ -1,11 +1,17 @@
 {{> _header }}
 {{> _navbar }}
 <div class="page-header">
-    <h1>{{ <%= _model.name %>.name }}<small>{{ <%= _model.name %>.desc }}</small></h1>
+    <h1>{{ <%= _model.name %>.name }}<small>{{{ <%= _model.name %>.desc }}}</small></h1>
 </div>
 <% for(var name in _model.fields){  %>
     <h3><%= _.capitalize(name) %></h3>
-    {{ <%= _model.name %>.<%= name %> }}
+    <% if(_model.fields[name].type == 'md'){ %>
+        {{{ <%= _model.name %>.<%= name %> }}}
+    <% }else if(_model.fields[name].type == 's3-asset'){ %>
+        <img src="{{{ <%= _model.name %>.<%= name %>_s3 }}}" />
+    <% } else { %>
+        {{ <%= _model.name %>.<%= name %> }}
+    <% }
 <% } %>
 <a class='btn btn-default btn-sm' href='{{ <%= _model.name %>.uri }}/edit'>
     Edit
