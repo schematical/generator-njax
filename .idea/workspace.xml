@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs" />
-    </list>
+    <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="" />
     <ignored path="generator-njax.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,19 +32,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_edit.hjs" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_edit.hjs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="20" selection-start="537" selection-end="537" vertical-scroll-proportion="0.1182266" vertical-offset="90" max-vertical-offset="720">
+            <state line="9" column="20" selection-start="537" selection-end="537" vertical-scroll-proportion="-2.6666667" vertical-offset="90" max-vertical-offset="720">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.hjs" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="detail.hjs" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="46" selection-start="324" selection-end="324" vertical-scroll-proportion="-5.3333335" vertical-offset="0" max-vertical-offset="450">
+            <state line="10" column="22" selection-start="407" selection-end="440" vertical-scroll-proportion="0.28938907" vertical-offset="0" max-vertical-offset="622">
               <folding />
             </state>
           </provider>
@@ -95,7 +93,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1431" />
+    <option name="x" value="65" />
     <option name="y" value="792" />
     <option name="width" value="1301" />
     <option name="height" value="744" />
@@ -374,7 +372,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1431" y="792" width="1301" height="744" extended-state="6" />
+    <frame x="65" y="792" width="1301" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -585,13 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="46" selection-start="324" selection-end="324" vertical-scroll-proportion="-5.3333335" vertical-offset="0" max-vertical-offset="450">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="131" column="20" selection-start="5682" selection-end="5696" vertical-scroll-proportion="-9.888889" vertical-offset="2091" max-vertical-offset="2700">
@@ -601,7 +592,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="20" selection-start="537" selection-end="537" vertical-scroll-proportion="0.1182266" vertical-offset="90" max-vertical-offset="720">
+        <state line="9" column="20" selection-start="537" selection-end="537" vertical-scroll-proportion="-2.6666667" vertical-offset="90" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="22" selection-start="407" selection-end="440" vertical-scroll-proportion="0.28938907" vertical-offset="0" max-vertical-offset="622">
           <folding />
         </state>
       </provider>
