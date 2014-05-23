@@ -76,7 +76,12 @@ NJaxGenerator.prototype.frameworks = function(){
 
 }
 NJaxGenerator.prototype.dependencies = function(){
-
+    if(this.config.package.name == '?'){
+        this.config.package.name = this.config.app_name;
+    }
+    if(this.config.bower.name == '?'){
+        this.config.bower.name = this.config.app_name;
+    }
     this.writeFileFromString(
         JSON.stringify(this.config.package),
         'package.json'

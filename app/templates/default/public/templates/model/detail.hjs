@@ -11,7 +11,7 @@
         <img src="{{{ <%= _model.name %>.<%= name %>_s3 }}}" />
     <% } else { %>
         {{ <%= _model.name %>.<%= name %> }}
-    <% }
+    <% } %>
 <% } %>
 <a class='btn btn-default btn-sm' href='{{ <%= _model.name %>.uri }}/edit'>
     Edit

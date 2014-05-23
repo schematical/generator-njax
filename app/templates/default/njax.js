@@ -16,7 +16,7 @@ module.exports = {
         }
     },
     package:{
-        "name": "aaaa Name",
+        "name": "?",
         "version": "0.0.1",
         "private": true,
         "scripts": {
