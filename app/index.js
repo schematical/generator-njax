@@ -40,6 +40,7 @@ NJaxGenerator.prototype.app = function app() {
     this.mkdir('lib/model');
     this.mkdir('lib/routes');
     this.mkdir('lib/routes/model');
+    this._copyIfNew(this.default_tpl_dir + '.gitignore', '.gitignore');
     this._copyIfNew(this.default_tpl_dir + 'app.js', 'app.js');
     this._copyIfNew(this.default_tpl_dir + 'config.js', 'config.js');
     this._copyIfNew(this.default_tpl_dir + 'lib/routes/index.js', 'lib/routes/index.js');
@@ -121,11 +122,19 @@ NJaxGenerator.prototype._copyIfNew = function copyIfNew(source, destination){
         this.copy(source, destination)
     }
 }
+NJaxGenerator.prototype._templateIfNew = function templateIfNew(source, destination){
+    var destination = this.isPathAbsolute(destination) ? destination : path.join(this.destinationRoot(), destination);
+    if(!fs.existsSync(destination)){
+        this.template(source, destination)
+    }
+}
 NJaxGenerator.prototype._genSchema = function genSchema(model){
 
 
-    this.template(this.default_tpl_dir + 'lib/model/schema.js', 'lib/model/' + this._model.name + '.js');
+    this.template(this.default_tpl_dir + 'lib/model/schema.gen.js', 'lib/model/_gen/' + this._model.name + '_gen.js');
+    this._templateIfNew(this.default_tpl_dir + 'lib/model/schema.js', 'lib/model/' + this._model.name + '.js');
     this.template(this.default_tpl_dir + 'lib/routes/model/route.js', 'lib/routes/model/' + this._model.name + '.js');
+
     this.template(this.default_tpl_dir + 'public/templates/model/detail.hjs', 'public/templates/model/' + this._model.name + '_detail.hjs');
     this.template(this.default_tpl_dir + 'public/templates/model/edit.hjs', 'public/templates/model/' + this._model.name + '_edit.hjs');
     this.template(this.default_tpl_dir + 'public/templates/model/_edit.hjs', 'public/templates/model/_' + this._model.name + '_edit_form.hjs');
