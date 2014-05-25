@@ -166,7 +166,11 @@ NJaxGenerator.prototype._prepairModel = function(model){
         if(_.isString(fieldData)){
             fieldData = { type: fieldData };
         }
+        if(_.isArray(fieldData) && fieldData.length >= 1){
+            fieldData = { type: 'array', sub_type: fieldData[0] };
+        }
         if(!fieldData.type){
+            console.error(fieldData);
             throw new Error("Invalid Model > Field > Type in njax.json");
         }
 
