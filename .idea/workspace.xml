@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.js" afterPath="$PROJECT_DIR$/app/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="generator-njax.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,7 +92,7 @@
       <file leaf-file-name="route.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="71" selection-start="2836" selection-end="2836" vertical-scroll-proportion="0.7240204" vertical-offset="1087" max-vertical-offset="3582">
+            <state line="75" column="20" selection-start="2656" selection-end="2656" vertical-scroll-proportion="0.69335604" vertical-offset="943" max-vertical-offset="3510">
               <folding />
             </state>
           </provider>
@@ -103,7 +101,7 @@
       <file leaf-file-name="schema.gen.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="37" selection-start="836" selection-end="836" vertical-scroll-proportion="-9.888889" vertical-offset="201" max-vertical-offset="2700">
+            <state line="33" column="78" selection-start="1215" selection-end="1215" vertical-scroll-proportion="-15.222222" vertical-offset="183" max-vertical-offset="2844">
               <folding />
             </state>
           </provider>
@@ -146,8 +144,8 @@
         <option value="$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.js" />
         <option value="$PROJECT_DIR$/app/templates/default/config.js" />
-        <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
         <option value="$PROJECT_DIR$/app/index.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" />
       </list>
     </option>
@@ -155,7 +153,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="1431" />
-    <option name="y" value="-772" />
+    <option name="y" value="764" />
     <option name="width" value="1301" />
     <option name="height" value="772" />
   </component>
@@ -408,8 +406,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1431" y="-772" width="1301" height="772" extended-state="6" />
-    <editor active="true" />
+    <frame x="1431" y="764" width="1301" height="772" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -697,13 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="37" selection-start="836" selection-end="836" vertical-scroll-proportion="-9.888889" vertical-offset="201" max-vertical-offset="2700">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="20" selection-start="537" selection-end="537" vertical-scroll-proportion="-1.8888888" vertical-offset="111" max-vertical-offset="720">
@@ -753,9 +744,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="78" selection-start="1215" selection-end="1215" vertical-scroll-proportion="-15.222222" vertical-offset="183" max-vertical-offset="2844">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="71" selection-start="2836" selection-end="2836" vertical-scroll-proportion="0.7240204" vertical-offset="1087" max-vertical-offset="3582">
+        <state line="75" column="20" selection-start="2656" selection-end="2656" vertical-scroll-proportion="0.69335604" vertical-offset="943" max-vertical-offset="3510">
           <folding />
         </state>
       </provider>

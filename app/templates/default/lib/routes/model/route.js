@@ -67,25 +67,21 @@ module.exports = function(app, uri){
         })
         <% }else{ %>
             var model = null;
-            if(checkForHexRegExp.test(id)){
+
+            for(var i = 0; i < req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s.length; i++){
                 //it is an id
-                model = req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s.id(id);
+                if(checkForHexRegExp.test(id) && req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i]._id == id){
+                    model = req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i];
+                } <% if(_model.fields.namespace){ %>else if(req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i].namespace == id){
+                    model = req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i];
+                }  <% } %>
             }
-            <% if(_model.fields.namespace){ %>
 
-                for(var i = 0; i < req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s.length; i++){
-
-                    if(req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i].namespace == id){
-                        model = req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i];
-                    }
-
-                }
-            <% } %>
             if(model){
                 res.bootstrap('<%= _model.name.toLowerCase() %>', model);
             }
             return next();
-        }
+
 
         <% } %>
 
