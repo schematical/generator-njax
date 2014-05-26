@@ -153,8 +153,13 @@ NJaxGenerator.prototype._prepairModel = function(model){
         return model;
     }
 
-    if(model.parent && !this.config.models[model.parent]._prerendered){
-        this._prepairModel(this.config.models[model.parent])
+    if(model.parent){
+        if(!this.config.models[model.parent]){
+            throw new Error("Cannot find model : " + model.parent);
+        }
+        if(!this.config.models[model.parent]._prerendered){
+            this._prepairModel(this.config.models[model.parent]);
+        }
     }
     var uri = '';
     var hjs_uri = '';
@@ -182,7 +187,13 @@ NJaxGenerator.prototype._prepairModel = function(model){
             fieldData = { type: fieldData };
         }
         if(_.isArray(fieldData) && fieldData.length >= 1){
-            fieldData = { type: 'array', sub_type: fieldData[0] };
+            var sub_type = fieldData[0];
+            if(_.isObject(sub_type)){
+                if(sub_type.type == 'ref'){
+                    fieldData.mongo_type = "[{ type: Schema.Types.ObjectId, ref: '" + this._.capitalize(sub_type.ref) + "' }]"
+                }
+            }
+            fieldData = { type: 'array', sub_type: sub_type };
         }
         if(!fieldData.type){
             console.error(fieldData);
