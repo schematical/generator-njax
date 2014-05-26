@@ -34,7 +34,7 @@ NJaxGenerator.prototype.app = function app() {
 
     var _njax = require(__dirname + '/templates/' + this.default_tpl_dir + 'njax');
     _.extend(this.config, _njax);
-    console.log(this.config);
+
 
     this.mkdir('lib');
     this.mkdir('lib/model');
@@ -149,7 +149,13 @@ NJaxGenerator.prototype._prepairModels = function(){
     }
 }
 NJaxGenerator.prototype._prepairModel = function(model){
+    if(model._prerendered){
+        return model;
+    }
 
+    if(model.parent && !this.config.models[model.parent]._prerendered){
+        this._prepairModel(this.config.models[model.parent])
+    }
     var uri = '';
     var hjs_uri = '';
     if(model.parent){
@@ -239,6 +245,7 @@ NJaxGenerator.prototype._prepairModel = function(model){
 
 
     }
+    model._prerendered = true;
     return model;
 }
 

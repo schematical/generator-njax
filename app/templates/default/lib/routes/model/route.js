@@ -43,10 +43,10 @@ module.exports = function(app, uri){
 
 
     function populate(req, res, next, id){
+        var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
+        <% if(!_model.is_subdocument){ %>
         var or_condition = []
 
-
-        var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
         if(checkForHexRegExp.test(id)){
             or_condition.push({ _id:new ObjectId(id) });
         }
@@ -65,6 +65,31 @@ module.exports = function(app, uri){
             res.bootstrap('<%= _model.name.toLowerCase() %>', <%= _model.name.toLowerCase() %>);
             return next();
         })
+        <% }else{ %>
+            var model = null;
+            if(checkForHexRegExp.test(id)){
+                //it is an id
+                model = req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s.id(id);
+            }
+            <% if(_model.fields.namespace){ %>
+
+                for(var i = 0; i < req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s.length; i++){
+
+                    if(req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i].namespace == id){
+                        model = req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i];
+                    }
+
+                }
+            <% } %>
+            if(model){
+                res.bootstrap('<%= _model.name.toLowerCase() %>', model);
+            }
+            return next();
+        }
+
+        <% } %>
+
+
     }
 
     function render_list(req, res, next){
@@ -139,7 +164,8 @@ module.exports = function(app, uri){
             return res.redirect('/');
         }
         if(!req.<%= _model.name.toLowerCase() %>){
-            return next(new Error('<%= _.capitalize(_model.name) %> not found'));
+            return next();
+            //return next(new Error('<%= _.capitalize(_model.name) %> not found'));
         }
 
         <% for(var name in _model.fields){  %>

@@ -22,9 +22,9 @@ module.exports = function(app){
 
     <%= _model.name.toLowerCase() %>Schema.virtual('uri').get(function(){
         <% if(_model.fields.namespace){ %>
-            return '/<%= _model.name.toLowerCase() %>s/' + (this.namespace || this._id);
+            return '<%= _model.uri %>/' + (this.namespace || this._id);
         <% }else{ %>
-            return '/<%= _model.name.toLowerCase() %>s/' + this._id;
+            return '<%= _model.uri %>/' + this._id;
         <% } %>
     });
 
