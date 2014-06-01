@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="" />
+    <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/default/lib/routes/model/_route.bkup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="generator-njax.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,15 +27,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="schema.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="97" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/default/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
@@ -44,16 +39,7 @@
       <file leaf-file-name="config.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/default/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="28" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_edit.hjs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="20" selection-start="537" selection-end="537" vertical-scroll-proportion="-1.8888888" vertical-offset="111" max-vertical-offset="720">
+            <state line="5" column="28" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="270">
               <folding />
             </state>
           </provider>
@@ -62,7 +48,7 @@
       <file leaf-file-name="detail.hjs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="11" selection-start="524" selection-end="524" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="450">
+            <state line="13" column="11" selection-start="524" selection-end="524" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="450">
               <folding>
                 <marker date="1400884290999" expanded="true" signature="54:150" placeholder="..." />
                 <marker date="1400884290999" expanded="true" signature="607:621" placeholder="..." />
@@ -80,10 +66,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="191" column="41" selection-start="7565" selection-end="7565" vertical-scroll-proportion="-0.09199318" vertical-offset="3492" max-vertical-offset="4842">
+            <state line="191" column="41" selection-start="7565" selection-end="7565" vertical-scroll-proportion="0.0" vertical-offset="3492" max-vertical-offset="4842">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_route.bkup.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/_route.bkup.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3510">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="route.gen.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="107" column="14" selection-start="4059" selection-end="4065" vertical-scroll-proportion="0.3321976" vertical-offset="1731" max-vertical-offset="3600">
               <folding />
             </state>
           </provider>
@@ -92,7 +96,7 @@
       <file leaf-file-name="route.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="20" selection-start="2656" selection-end="2656" vertical-scroll-proportion="-15.074074" vertical-offset="943" max-vertical-offset="3510">
+            <state line="75" column="20" selection-start="2656" selection-end="2656" vertical-scroll-proportion="0.0" vertical-offset="943" max-vertical-offset="3510">
               <folding />
             </state>
           </provider>
@@ -101,7 +105,7 @@
       <file leaf-file-name="schema.gen.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="78" selection-start="1215" selection-end="1215" vertical-scroll-proportion="-15.222222" vertical-offset="183" max-vertical-offset="2844">
+            <state line="33" column="78" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0" vertical-offset="183" max-vertical-offset="2844">
               <folding />
             </state>
           </provider>
@@ -147,6 +151,7 @@
         <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" />
         <option value="$PROJECT_DIR$/app/index.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js" />
       </list>
     </option>
   </component>
@@ -183,6 +188,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -351,7 +357,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -362,11 +367,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/templates/default/lib/routes/model" />
       <recent name="$PROJECT_DIR$/app/templates/default" />
       <recent name="$PROJECT_DIR$/app/templates/default/lib/model" />
       <recent name="$PROJECT_DIR$/app/templates/default/public/templates/model" />
       <recent name="$PROJECT_DIR$/app/templates/ionic/web/templates" />
-      <recent name="$PROJECT_DIR$/app/templates/ionic/web" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/templates/default/public/templates/njax/oauth" />
@@ -411,25 +416,25 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32840237" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2490392" sideWeight="0.6704" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32840237" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -449,20 +454,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="5" selection-start="2959" selection-end="2959" vertical-scroll-proportion="0.0" vertical-offset="1741" max-vertical-offset="4284">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="131" column="20" selection-start="5682" selection-end="5696" vertical-scroll-proportion="0.0" vertical-offset="2091" max-vertical-offset="2700">
@@ -489,16 +480,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/services/model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="57" selection-start="39" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
-          <folding />
-        </state>
+        <state line="0" column="57" selection-start="39" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.js">
@@ -673,11 +660,6 @@
         <state line="26" column="77" selection-start="0" selection-end="1202" vertical-scroll-proportion="0.45016077" vertical-offset="188" max-vertical-offset="810" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/edit.hjs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="30" selection-start="226" selection-end="226" vertical-scroll-proportion="0.23151125" vertical-offset="0" max-vertical-offset="622" />
@@ -685,28 +667,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="16" selection-start="15" selection-end="18" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="378">
-          <folding />
-        </state>
+        <state line="1" column="16" selection-start="15" selection-end="18" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="378" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="26" selection-start="144" selection-end="144" vertical-scroll-proportion="0.2529274" vertical-offset="0" max-vertical-offset="427">
-          <folding />
-        </state>
+        <state line="6" column="26" selection-start="144" selection-end="144" vertical-scroll-proportion="0.2529274" vertical-offset="0" max-vertical-offset="427" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/services/model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="57" selection-start="39" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="649">
-          <folding />
-        </state>
+        <state line="0" column="57" selection-start="39" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="649" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="20" selection-start="537" selection-end="537" vertical-scroll-proportion="-1.8888888" vertical-offset="111" max-vertical-offset="720">
+        <state line="9" column="20" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
@@ -741,7 +717,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="11" selection-start="524" selection-end="524" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="450">
+        <state line="13" column="11" selection-start="524" selection-end="524" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="450">
           <folding>
             <marker date="1400884290999" expanded="true" signature="54:150" placeholder="..." />
             <marker date="1400884290999" expanded="true" signature="607:621" placeholder="..." />
@@ -751,21 +727,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="78" selection-start="1215" selection-end="1215" vertical-scroll-proportion="-15.222222" vertical-offset="183" max-vertical-offset="2844">
+        <state line="33" column="78" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0" vertical-offset="183" max-vertical-offset="2844">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="20" selection-start="2656" selection-end="2656" vertical-scroll-proportion="-15.074074" vertical-offset="943" max-vertical-offset="3510">
+        <state line="75" column="20" selection-start="2656" selection-end="2656" vertical-scroll-proportion="0.0" vertical-offset="943" max-vertical-offset="3510">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="191" column="41" selection-start="7565" selection-end="7565" vertical-scroll-proportion="-0.09199318" vertical-offset="3492" max-vertical-offset="4842">
+        <state line="191" column="41" selection-start="7565" selection-end="7565" vertical-scroll-proportion="0.0" vertical-offset="3492" max-vertical-offset="4842">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/_route.bkup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="627">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="14" selection-start="4059" selection-end="4065" vertical-scroll-proportion="0.3321976" vertical-offset="1731" max-vertical-offset="3600">
           <folding />
         </state>
       </provider>
