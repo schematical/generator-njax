@@ -40,6 +40,7 @@ NJaxGenerator.prototype.app = function app() {
     this.mkdir('lib/model');
     this.mkdir('lib/routes');
     this.mkdir('lib/routes/model');
+    this.mkdir('lib/routes/model/_gen');
     this._copyIfNew(this.default_tpl_dir + '.gitignore', '.gitignore');
     this._copyIfNew(this.default_tpl_dir + 'app.js', 'app.js');
     this._copyIfNew(this.default_tpl_dir + 'config.js', 'config.js');
@@ -133,7 +134,8 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
 
     this.template(this.default_tpl_dir + 'lib/model/schema.gen.js', 'lib/model/_gen/' + this._model.name + '_gen.js');
     this._templateIfNew(this.default_tpl_dir + 'lib/model/schema.js', 'lib/model/' + this._model.name + '.js');
-    this.template(this.default_tpl_dir + 'lib/routes/model/route.js', 'lib/routes/model/' + this._model.name + '.js');
+    this.template(this.default_tpl_dir + 'lib/routes/model/route.gen.js', 'lib/routes/model/_gen/' + this._model.name + '.gen.js');
+    this._templateIfNew(this.default_tpl_dir + 'lib/routes/model/route.js', 'lib/routes/model/' + this._model.name + '.js');
 
     this.template(this.default_tpl_dir + 'public/templates/model/detail.hjs', 'public/templates/model/' + this._model.name + '_detail.hjs');
     this.template(this.default_tpl_dir + 'public/templates/model/edit.hjs', 'public/templates/model/' + this._model.name + '_edit.hjs');

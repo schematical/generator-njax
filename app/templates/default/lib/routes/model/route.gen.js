@@ -4,10 +4,19 @@ var async = require('async');
 var ObjectId = require('mongoose').Types.ObjectId;
 module.exports = function(app){
 
-    app.routes.<%= _model.name.toLowerCase() %> = route  = {
+    app.njax.routes.<%= _model.name.toLowerCase() %> = route  = {
+        <% if(_model.fields.owner){ %>
+            owner_query:function(req){
+                return {
+                    owner:<%= _model.fields.owner.bootstrap_populate %>
+                }
+            },
+        <% } else { %>
+            owner_query:function(){
+                return { }
+            },
+        <% } %>
         init:function(uri){
-
-
 
             if(!uri) uri = '<%= _model.uri %>';
             app.locals.partials._<%= _model.name.toLowerCase() %>_edit_form = 'model/_<%= _model.name.toLowerCase() %>_edit_form';
@@ -94,7 +103,8 @@ module.exports = function(app){
 
         },
         render_list:function(req, res, next){
-            app.model.<%= _.capitalize(_model.name) %>.find({}, function(err, <%= _model.name %>s){
+            var query = _.clone(route.owner_query(req));
+            app.model.<%= _.capitalize(_model.name) %>.find(query, function(err, <%= _model.name %>s){
                 if(err) return next(err);
                 res.locals.<%= _model.name %>s = [];
                 for(var i in <%= _model.name %>s){
@@ -143,7 +153,7 @@ module.exports = function(app){
                     res.render('model/<%= _model.name.toLowerCase() %>_edit');
                 }
             ]);
-        }
+        },
         create:function(req, res, next){
             if(!req.user){
                 return res.redirect('/');
@@ -191,5 +201,6 @@ module.exports = function(app){
 
         }
     }
+    return route;
 
 }
