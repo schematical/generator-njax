@@ -1,14 +1,18 @@
 var path = require('path');
 var fs = require('fs');
 var async = require('async');
+var _ = require('underscore');
 var ObjectId = require('mongoose').Types.ObjectId;
 module.exports = function(app){
 
-    app.njax.routes.<%= _model.name.toLowerCase() %> = route  = {
+     var route = app.njax.routes.<%= _model.name.toLowerCase() %> = {
         <% if(_model.fields.owner){ %>
             owner_query:function(req){
+                if(!<%= _model.fields.owner.bootstrap_populate %>){
+                    return null;
+                }
                 return {
-                    owner:<%= _model.fields.owner.bootstrap_populate %>
+                    owner:<%= _model.fields.owner.bootstrap_populate %>._id
                 }
             },
         <% } else { %>
@@ -104,6 +108,9 @@ module.exports = function(app){
         },
         render_list:function(req, res, next){
             var query = _.clone(route.owner_query(req));
+            if(!query){
+                return next();
+            }
             app.model.<%= _.capitalize(_model.name) %>.find(query, function(err, <%= _model.name %>s){
                 if(err) return next(err);
                 res.locals.<%= _model.name %>s = [];
