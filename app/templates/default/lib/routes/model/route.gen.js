@@ -124,6 +124,7 @@ module.exports = function(app){
                         });
                     <% } else { %>
                         <%= _model.name %>s = _.clone(req.<%= _model.parent %>.<%= _model.name %>s);
+                        return cb();
                     <% } %>
                 },
                 function(cb){
