@@ -47,7 +47,8 @@ module.exports = function(app){
                     <% if(_model.file_fields){ %>
                         app.njax.s3.route(['<%= _model.file_fields %>']),
                     <% } %>
-                    route.create
+                    route.create,
+                    route.render_detail
                 ]
             );
             app.post(
@@ -56,7 +57,8 @@ module.exports = function(app){
                     <% if(_model.file_fields){ %>
                     app.njax.s3.route(['<%= _model.file_fields %>']),
                     <% } %>
-                    route.update
+                    route.update,
+                    route.render_detail
                 ]
             );
 
@@ -196,6 +198,9 @@ module.exports = function(app){
                     }else if(req.body.<%= name %>){
                         req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
                     }
+                <% }else if(_model.fields[name].type == 'array'){ %>
+                    //Do nothing it is an array
+                    //req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
                 <% }else{ %>
                     req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
                 <% } %>
@@ -203,7 +208,8 @@ module.exports = function(app){
 
             req.<%= _model.name.toLowerCase() %>.save(function(err, <%= _model.name.toLowerCase() %>){
                 //app._refresh_locals();
-                res.render('model/<%= _model.name.toLowerCase() %>_detail', { <%= _model.name.toLowerCase() %>: req.<%= _model.name.toLowerCase() %>.toObject() });
+                return next();
+                //res.render('model/<%= _model.name.toLowerCase() %>_detail', { <%= _model.name.toLowerCase() %>: req.<%= _model.name.toLowerCase() %>.toObject() });
             });
 
         }
