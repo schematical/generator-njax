@@ -113,16 +113,32 @@ module.exports = function(app){
             if(!query){
                 return next();
             }
-            app.model.<%= _.capitalize(_model.name) %>.find(query, function(err, <%= _model.name %>s){
-                if(err) return next(err);
-                res.locals.<%= _model.name %>s = [];
-                for(var i in <%= _model.name %>s){
-                    res.locals.<%= _model.name %>s.push(
-                        <%= _model.name %>s[i].toObject()
-                    );
+            var <%= _model.name %>s = null;
+            async.series([
+                function(cb){
+                    <% if(!_model.is_subdocument){ %>
+                        app.model.<%= _.capitalize(_model.name) %>.find(query, function(err, _<%= _model.name %>s){
+                            if(err) return next(err);
+                            <%= _model.name %>s = _<%= _model.name %>s;
+                            return cb();
+                        });
+                    <% } else { %>
+                        <%= _model.name %>s = _.clone(req.<%= _model.parent %>.<%= _model.name %>s);
+                    <% } %>
+                },
+                function(cb){
+                    res.locals.<%= _model.name %>s = [];
+                    for(var i in <%= _model.name %>s){
+                        res.locals.<%= _model.name %>s.push(
+                            <%= _model.name %>s[i].toObject()
+                        );
+                    }
+                    return cb();
+                },
+                function(cb){
+                    res.render('model/<%= _model.name.toLowerCase() %>_list');
                 }
-                res.render('model/<%= _model.name.toLowerCase() %>_list');
-            });
+            ]);
         },
         render_detail:function(req, res, next){
             if(!req.<%= _model.name.toLowerCase() %>){
