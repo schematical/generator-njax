@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "yeoman-generator": "~0.14.0",
-     "underscore":"*"
+    "underscore":"*",
+    "mkdirp":"*"
   },
   "devDependencies": {
     "mocha": "~1.14.0"

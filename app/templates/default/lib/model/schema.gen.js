@@ -1,6 +1,8 @@
 'use strict';
 var fs = require('fs');
 var async = require('async');
+
+
 module.exports = function(app){
 
     var Schema = app.mongoose.Schema;
@@ -51,10 +53,14 @@ module.exports = function(app){
 
         <% } if(_model.fields[name].type == 's3-asset'){ %>
             <%= _model.name.toLowerCase() %>Schema.virtual('<%= name %>_s3').get(function(){
+                var path = require('path');
+                var mkdirp = require('mkdirp');
+
                 var AWS = require('aws-sdk');
                 AWS.config.update(app.njax.config.aws);
                 var s3 = new AWS.S3();
                 var _this = this;
+                var image_s3_path = this.<%= name %>;
                 return {
                     url:'http://s3.amazonaws.com/' + app.njax.config.aws.bucket_name  +  '/' + this.<%= name %>,
                     getFile:function(file_path, callback){
@@ -62,6 +68,7 @@ module.exports = function(app){
                             callback = file_path;
                             file_path = path.join(app.njax.config.cache_dir,_this.<%= name %>);
                         }
+
                         async.series([
                             function(cb){
                                 mkdirp(path.dirname(file_path), function (err) {
@@ -73,7 +80,7 @@ module.exports = function(app){
                                 var stream = require('fs').createWriteStream(file_path);
                                 var params = {
                                     Bucket: app.njax.config.aws.bucket_name,
-                                    Key:this.<%= name %>
+                                    Key:image_s3_path
                                 }
                                 var body = '';
                                 s3.getObject(params).
