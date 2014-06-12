@@ -70,8 +70,12 @@ NJaxGenerator.prototype.frameworks = function(){
     }
     for(var i in this.config.frameworks){
         var framework = this.config.frameworks[i];
-        if(this['_' + framework]){
-            this['_' + framework]();
+        var destination = this.isPathAbsolute(framework) ? framework : path.join(__dirname, 'templates',framework);
+        var file_path = path.join(destination, 'index.js');
+
+        if(fs.existsSync(file_path)){
+            var framework_module = require(path.join(destination, 'index'));
+            framework_module(this, NJaxGenerator);
         }
     }
 
@@ -93,11 +97,7 @@ NJaxGenerator.prototype.dependencies = function(){
         'bower.json'
     );
 }
-NJaxGenerator.prototype._angular = function(){
-    this.angular_tpl_dir = 'angular/';
-    this.template(this.angular_tpl_dir + 'public/js/services/model.js', 'public/js/services.js');
-    this.template(this.angular_tpl_dir + 'public/js/app.js', 'public/js/app.js');
-}
+
 NJaxGenerator.prototype._ionic = function(){
     this.angular_tpl_dir = 'ionic/';
 

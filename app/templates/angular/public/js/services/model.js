@@ -1,11 +1,10 @@
-var phonecatServices = angular.module('<%= _model.name %>Services', ['ngResource']);
-
-phonecatServices.factory(
+var <%= config.app_name %>_services = angular.module('<%= config.app_name %>.<%= _model.name %>.service', ['ngResource']);
+<%= config.app_name %>_services.factory(
     '<%= _.capitalize(_model.name) %>',
     [
         '$resource',
         function($resource){
-            return $resource('<%= _model.uri %>s/:<%= _model.name %>_id', {}, {
+            return $resource('<%= _model.uri %>/:<%= _model.name %>_id', {}, {
                 query: {
                     method:'GET',
                     params:{

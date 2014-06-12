@@ -60,7 +60,7 @@ module.exports = function(app){
                 AWS.config.update(app.njax.config.aws);
                 var s3 = new AWS.S3();
                 var _this = this;
-                var image_s3_path = this.<%= name %>;
+
                 return {
                     url:'http://s3.amazonaws.com/' + app.njax.config.aws.bucket_name  +  '/' + this.<%= name %>,
                     getFile:function(file_path, callback){
@@ -80,10 +80,13 @@ module.exports = function(app){
                                 var stream = require('fs').createWriteStream(file_path);
                                 var params = {
                                     Bucket: app.njax.config.aws.bucket_name,
-                                    Key:image_s3_path
+                                    Key:_this.<%= name %>
                                 }
                                 var body = '';
                                 s3.getObject(params).
+                                    on('error', function(err, response) {
+                                        if(err) return callback(err, response);
+                                    }).
                                     on('httpData',function (chunk) {
                                         stream.write(chunk);
                                         body += chunk;
