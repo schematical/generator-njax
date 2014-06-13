@@ -42,6 +42,7 @@ NJaxGenerator.prototype.app = function app() {
     this.mkdir('lib/routes/model');
     this.mkdir('lib/routes/model/_gen');
     this._copyIfNew(this.default_tpl_dir + '.gitignore', '.gitignore');
+    this._copyIfNew(this.default_tpl_dir + '.bowerrc', '.bowerrc');
     this._copyIfNew(this.default_tpl_dir + 'app.js', 'app.js');
     this._copyIfNew(this.default_tpl_dir + 'config.js', 'config.js');
     this._copyIfNew(this.default_tpl_dir + 'lib/routes/index.js', 'lib/routes/index.js');

@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('<%= config.app_name; %>.<%= _model.name %>.controller', [])
+angular.module('<%= config.app_name %>.<%= _model.name %>.controller', [])
     .controller(
         'WelcomeCtl',
         [

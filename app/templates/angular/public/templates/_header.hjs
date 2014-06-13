@@ -1,0 +1,10 @@
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/directives.js"></script>
+<script src="/js/filters.js"></script>
+<% for(var i in config.models){ %>
+    <script src="/js/services/<%= i %>.js"></script>
+    <script src="/js/controllers/<%= i %>.js"></script>
+<% } %>

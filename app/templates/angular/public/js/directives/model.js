@@ -3,7 +3,7 @@
 /* Directives */
 
 
-angular.module('<%= config.app_name; %>.directives', []).
+angular.module('<%= config.app_name %>.directives', []).
     directive('appVersion', ['version', function(version) {
         return function(scope, elm, attrs) {
             elm.text(version);

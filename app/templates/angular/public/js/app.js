@@ -7,10 +7,12 @@ angular.module(
     [
         'ngRoute',
         'ngCookies',
+        <% for(var i in config.models){ %>
+            '<%= config.app_name %>.<%= i %>.service',
+            '<%= config.app_name %>.<%= i %>.controller',
+        <% } %>
         '<%= config.app_name %>.filters',
-        '<%= config.app_name %>.services',
-        '<%= config.app_name %>.directives',
-        '<%= config.app_name %>.controllers'
+        '<%= config.app_name %>.directives'
     ]
 ).config(
         [
