@@ -38,7 +38,8 @@ module.exports = function(app){
                     <% if(_model.file_fields){ %>
                         app.njax.s3.route(['<%= _model.file_fields %>']),
                     <% } %>
-                    route.create
+                    route.create,
+                    route.render_detail
                 ]
             );
             app.post(
