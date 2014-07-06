@@ -26,11 +26,6 @@ module.exports = function(app){
             app.locals.partials._<%= _model.name.toLowerCase() %>_edit_form = 'model/_<%= _model.name.toLowerCase() %>_edit_form';
             app.param('<%= _model.name.toLowerCase() %>', route.populate)
 
-            app.get(uri, route.render_list);
-            app.get(uri + '/new', route.render_edit);
-
-            app.get(uri + '/:<%= _model.name.toLowerCase() %>', route.render_detail);
-            app.get(uri + '/:<%= _model.name.toLowerCase() %>/edit', route.render_edit);
 
             app.post(
                 uri,
@@ -62,6 +57,13 @@ module.exports = function(app){
                     route.render_detail
                 ]
             );
+
+            app.all(uri, route.render_list);
+            app.all(uri + '/new', route.render_edit);
+
+            app.all(uri + '/:<%= _model.name.toLowerCase() %>', route.render_detail);
+            app.all(uri + '/:<%= _model.name.toLowerCase() %>/edit', route.render_edit);
+
 
         },
         populate:function(req, res, next, id){
@@ -138,7 +140,7 @@ module.exports = function(app){
                     return cb();
                 },
                 function(cb){
-                    res.render('model/<%= _model.name.toLowerCase() %>_list');
+                    res.render('model/<%= _model.name.toLowerCase() %>_list', res.locals.symbols);
                 }
             ]);
         },
@@ -146,7 +148,7 @@ module.exports = function(app){
             if(!req.<%= _model.name.toLowerCase() %>){
                 return next();
             }
-            res.render('model/<%= _model.name.toLowerCase() %>_detail');
+            res.render('model/<%= _model.name.toLowerCase() %>_detail', req.<%= _model.name.toLowerCase() %>.toObject());
         },
         render_edit:function(req, res, next){
             async.series([
