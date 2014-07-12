@@ -85,8 +85,9 @@ module.exports = function(app){
                 if(err){
                     return next(err);
                 }
-
-                res.bootstrap('<%= _model.name.toLowerCase() %>', <%= _model.name.toLowerCase() %>);
+                if(<%= _model.name.toLowerCase() %>){
+                    res.bootstrap('<%= _model.name.toLowerCase() %>', <%= _model.name.toLowerCase() %>);
+                }
                 return next();
             })
             <% }else{ %>
@@ -200,7 +201,7 @@ module.exports = function(app){
         },
         update:function(req, res, next){
             if(!req.user){
-                return res.redirect('/');
+                return next();//res.redirect('/');
             }
             if(!req.<%= _model.name.toLowerCase() %>){
                 return next();
