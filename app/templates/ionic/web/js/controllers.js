@@ -1,4 +1,4 @@
-angular.module('<%= config.name %>.controllers', [])
+angular.module('<%= config.app_name %>.controllers', [])
 
 <%
     for(var name in config.models){

@@ -6,19 +6,17 @@
 -->
 <ion-tabs tabs-style="tabs-icon-top" tabs-type="tabs-default">
 
-
-  <!-- Pets Tab -->
-  <ion-tab title="Pets" icon="icon ion-home" href="#/tab/pets">
-    <ion-nav-view name="pets-tab"></ion-nav-view>
-  </ion-tab>
-
-
-  <!-- Adopt Tab -->
-  <ion-tab title="Adopt" icon="icon ion-heart" href="#/tab/adopt">
-    <ion-nav-view name="adopt-tab"></ion-nav-view>
-  </ion-tab>
+    <%
+    for(var name in config.models){
+    var _model = config.models[name];
+    %>
+      <!-- Pets Tab -->
+      <ion-tab title="<%= _.capitalize(name) %>" icon="icon ion-home" href="#<%= _model.uri %>">
+        <ion-nav-view name="<%= name %>-list"></ion-nav-view>
+      </ion-tab>
 
 
+    <% } %>
   <!-- About Tab -->
   <ion-tab title="About" icon="icon ion-search" href="#/tab/about">
     <ion-nav-view name="about-tab"></ion-nav-view>

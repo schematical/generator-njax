@@ -67,8 +67,8 @@ module.exports = function(app){
                         if(!callback && _.isFunction(local_file_path)){
                             callback = local_file_path;
                             local_file_path = _this.<%= name %>;
-                        }
                         /*if(!local_file_path || (!app.njax.isTmpdir(local_file_path)){
+                        }
                             local_file_path = app.njax.tmpdir(local_file_path);
                         }*/
                         var dir_name = path.dirname(local_file_path);

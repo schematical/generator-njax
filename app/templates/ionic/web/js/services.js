@@ -1,9 +1,9 @@
-var <%= _model.name %>Services = angular.module('<%= _model.name %>.services', ['ngResource']);
+
 <%
     for(var name in config.models){
         var _model = config.models[name];
 %>
-
+var <%= _model.name %>Services = angular.module('<%= _model.name %>.services', ['ngResource']);
 <%= _model.name %>Services.factory(
     '<%= _.capitalize(_model.name) %>',
     [

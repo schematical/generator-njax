@@ -99,25 +99,7 @@ NJaxGenerator.prototype.dependencies = function(){
     );
 }
 
-NJaxGenerator.prototype._ionic = function(){
-    this.angular_tpl_dir = 'ionic/';
 
-    this.template(this.angular_tpl_dir + 'web/index.html', 'web/index.html');
-
-    this.template(this.angular_tpl_dir + 'web/js/app.js', 'web/js/app.js');
-    this.template(this.angular_tpl_dir + 'web/templates/about.html', 'web/templates/about.html');
-    this.template(this.angular_tpl_dir + 'web/templates/about.html', 'web/templates/tabs.html');
-
-    this.template(this.angular_tpl_dir + 'web/js/services.js', 'web/js/services.js');
-    this.template(this.angular_tpl_dir + 'web/js/controllers.js', 'web/js/controllers.js');
-
-    for(var i in this.config.models){
-        this._model = this.config.models[i];
-
-        this.template(this.angular_tpl_dir + 'web/templates/model-detail.html', 'web/templates/' + this._model.name + '-detail.html');
-        this.template(this.angular_tpl_dir + 'web/templates/model-list.html', 'web/templates/' + this._model.name + '-list.html');
-    }
-}
 NJaxGenerator.prototype._copyIfNew = function copyIfNew(source, destination){
     var destination = this.isPathAbsolute(destination) ? destination : path.join(this.destinationRoot(), destination);
     if(!fs.existsSync(destination)){
