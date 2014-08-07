@@ -1,4 +1,5 @@
-angular.module('<%= config.app_name %>.controllers', [])
+angular.module('<%= config.app_name %>.controllers', [
+])
 
 <%
     for(var name in config.models){
@@ -6,7 +7,7 @@ angular.module('<%= config.app_name %>.controllers', [])
 %>
 
 // A simple controller that fetches a list of data from a service
-.controller('<%= _.capitalize(_model.name) %>ListCtrl', function($scope, <%= _.capitalize(_model.name) %>Service) {
+.controller('<%= _.capitalize(_model.name) %>ListCtrl',  function($scope, <%= _.capitalize(_model.name) %>Service) {
   // "Pets" is a service returning mock data (services.js)
   $scope.<%= _model.name %> = <%= _.capitalize(_model.name) %>Service.all();
 })
