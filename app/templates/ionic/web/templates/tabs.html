@@ -11,7 +11,7 @@
     var _model = config.models[name];
     %>
       <!-- Pets Tab -->
-      <ion-tab title="<%= _.capitalize(name) %>" icon="icon ion-home" href="#<%= _model.uri %>">
+      <ion-tab title="<%= _.capitalize(name) %>" icon="icon ion-home" href="#/tab/<%= _model.uri %>">
         <ion-nav-view name="<%= name %>-list"></ion-nav-view>
       </ion-tab>
 

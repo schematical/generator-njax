@@ -15,14 +15,14 @@ angular.module('starter', ['ionic', '<%= config.app_name %>.services', '<%= conf
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-      .state('/', {
+     /* .state('/', {
           url: '/',
           views: {
               'about-tab': {
                   templateUrl: 'templates/index.html'
               }
           }
-      })
+      })*/
     .state('tab', {
         url: "/tab",
         abstract: true,
@@ -36,7 +36,7 @@ angular.module('starter', ['ionic', '<%= config.app_name %>.services', '<%= conf
 %>
 
 
-    .state('<%= name %>-list', {
+    .state('tab.<%= name %>-list', {
       url: '<%= _model.uri %>',
       views: {
         'pets-tab': {
@@ -46,7 +46,7 @@ angular.module('starter', ['ionic', '<%= config.app_name %>.services', '<%= conf
       }
     })
 
-    .state('<%= name %>-detail', {
+    .state('tab.<%= name %>-detail', {
       url: '<%= _model.uri %>/:<%= name %>_id',
       views: {
         'pets-tab': {
@@ -56,7 +56,7 @@ angular.module('starter', ['ionic', '<%= config.app_name %>.services', '<%= conf
       }
     })
 <% } %>
-    .state('about', {
+    .state('tab.about', {
         url: '/about',
         views: {
             'about-tab': {

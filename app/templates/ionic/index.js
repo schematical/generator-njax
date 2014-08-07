@@ -16,5 +16,7 @@ module.exports = function(generator, Class){
         generator.template(generator.angular_tpl_dir + 'web/templates/model-detail.html', 'web/templates/' + generator._model.name + '-detail.html');
         generator.template(generator.angular_tpl_dir + 'web/templates/model-list.html', 'web/templates/' + generator._model.name + '-list.html');
     }
-   
+    
+    //DEBUG SCRIPT
+    generator.template(generator.angular_tpl_dir + 'web/debug.js', 'web/templates/debug.js');
 }
