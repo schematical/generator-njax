@@ -24,6 +24,7 @@ module.exports = function(app){
 
             if(!uri) uri = '<%= _model.uri %>';
             app.locals.partials._<%= _model.name.toLowerCase() %>_edit_form = 'model/_<%= _model.name.toLowerCase() %>_edit_form';
+            app.locals.partials._<%= _model.name.toLowerCase() %>_list_single = 'model/_<%= _model.name.toLowerCase() %>_list_single';
             app.param('<%= _model.name.toLowerCase() %>', route.populate)
 
 

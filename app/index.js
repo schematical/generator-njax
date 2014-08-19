@@ -120,10 +120,11 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
     this.template(this.default_tpl_dir + 'lib/routes/model/route.gen.js', 'lib/routes/model/_gen/' + this._model.name + '.gen.js');
     this._templateIfNew(this.default_tpl_dir + 'lib/routes/model/route.js', 'lib/routes/model/' + this._model.name + '.js');
 
-    this.template(this.default_tpl_dir + 'public/templates/model/detail.hjs', 'public/templates/model/' + this._model.name + '_detail.hjs');
-    this.template(this.default_tpl_dir + 'public/templates/model/edit.hjs', 'public/templates/model/' + this._model.name + '_edit.hjs');
-    this.template(this.default_tpl_dir + 'public/templates/model/_edit.hjs', 'public/templates/model/_' + this._model.name + '_edit_form.hjs');
-    this.template(this.default_tpl_dir + 'public/templates/model/list.hjs', 'public/templates/model/' + this._model.name + '_list.hjs');
+    this._templateIfNew(this.default_tpl_dir + 'public/templates/model/detail.hjs', 'public/templates/model/' + this._model.name + '_detail.hjs');
+    this._templateIfNew(this.default_tpl_dir + 'public/templates/model/edit.hjs', 'public/templates/model/' + this._model.name + '_edit.hjs');
+    this._templateIfNew(this.default_tpl_dir + 'public/templates/model/_edit.hjs', 'public/templates/model/_' + this._model.name + '_edit_form.hjs');
+    this._templateIfNew(this.default_tpl_dir + 'public/templates/model/list.hjs', 'public/templates/model/' + this._model.name + '_list.hjs');
+    this._templateIfNew(this.default_tpl_dir + 'public/templates/model/_list_single.hjs', 'public/templates/model/_' + this._model.name + '_list_single.hjs');
 }
 NJaxGenerator.prototype._prepairModels = function(){
     for(var i in this.config.models){

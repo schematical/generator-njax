@@ -10,26 +10,19 @@
             <table class="table">
                 <tr>
                     <% for(var name in _model.fields){  %>
-                        <th>
-                            <%= name %>
-                        </th>
+                        <% if(_model.fields[name].type == 'md'){ %>
+                            <th>
+                                <%= name %>
+                            </th>
+                        <% }else{ %>
+                            <th>
+                                <%= name %>
+                            </th>
+                        <% } %>
                     <% } %>
                 </tr>
                 {{# <%= _model.name %>s }}
-                    <tr>
-                        <% for(var name in _model.fields){  %>
-                            <td>
-                                {{ <%= name %> }}
-                            </td>
-                        <% } %>
-                        <% if(_model.fields.namespace) { %>
-                        <td>
-                            <a class='btn btn-default btn-sm' href='{{ uri }}'>
-                                View
-                            </a>
-                        </td>
-                        <% } %>
-                    </tr>
+
                 {{/ <%= _model.name %>s }}
             </table>
         </div>

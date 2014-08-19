@@ -31,6 +31,7 @@ module.exports = {
             "markdown":"*",
             "connect-multiparty":"*",
             "aws-lib":"*",
+            "aws-sdk":"*",
             "socket.io":"*",
             "mkdirp":"*",
             "njax": "git+ssh://git@github.com:schematical/njax.git#master",
