@@ -32,6 +32,7 @@ module.exports = {
             "connect-multiparty":"*",
             "aws-lib":"*",
             "socket.io":"*",
+            "mkdirp":"*",
             "njax": "git+ssh://git@github.com:schematical/njax.git#master",
             "njax-bootstrap": "git+ssh://git@github.com:schematical/njax-bootstrap.git#master"
         }

@@ -1,7 +1,7 @@
 'use strict';
 var fs = require('fs');
 var async = require('async');
-
+var mkdirp = require('mkdirp');
 
 module.exports = function(app){
 
@@ -54,7 +54,6 @@ module.exports = function(app){
         <% } if(_model.fields[name].type == 's3-asset'){ %>
             <%= _model.name.toLowerCase() %>Schema.virtual('<%= name %>_s3').get(function(){
                 var path = require('path');
-                var mkdirp = require('mkdirp');
 
                 var AWS = require('aws-sdk');
                 AWS.config.update(app.njax.config.aws);

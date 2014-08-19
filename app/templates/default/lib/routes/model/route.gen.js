@@ -134,8 +134,14 @@ module.exports = function(app){
                 function(cb){
                     res.locals.<%= _model.name %>s = [];
                     for(var i in <%= _model.name %>s){
+                        var <%= _model.name %>_data = <%= _model.name %>s[i].toObject();
+                        <% if(_model.fields.owner){ %>
+                            if(req.user && (req.<%= _model.name.toLowerCase() %>.owner == req.user._id)){
+                                <%= _model.name %>_data._user_is_owner = true;
+                            }
+                        <% } %>
                         res.locals.<%= _model.name %>s.push(
-                            <%= _model.name %>s[i].toObject()
+                            <%= _model.name %>_data
                         );
                     }
                     return cb();
@@ -149,6 +155,13 @@ module.exports = function(app){
             if(!req.<%= _model.name.toLowerCase() %>){
                 return next();
             }
+
+            <% if(_model.fields.owner){ %>
+                if(req.user && req.<%= _model.name.toLowerCase() %>.owner == req.user._id){
+                    res.locals._user_is_owner = true;
+                }
+            <% } %>
+
             res.render('model/<%= _model.name.toLowerCase() %>_detail', req.<%= _model.name.toLowerCase() %>.toObject());
         },
         render_edit:function(req, res, next){
