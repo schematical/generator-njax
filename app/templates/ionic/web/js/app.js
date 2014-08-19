@@ -5,7 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', '<%= config.app_name %>.services', '<%= config.app_name %>.controllers'])
+angular.module('<%= config.app_name %>', ['ionic', '<%= config.app_name %>.services', '<%= config.app_name %>.controllers', '<%= config.app_name %>.directives'])
+
 
 
 .config(function($stateProvider, $urlRouterProvider) {

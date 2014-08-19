@@ -13,6 +13,7 @@ module.exports = {
             "ace":"*",
             "underscore":"*",
             "async":"*"
+
         }
     },
     package:{

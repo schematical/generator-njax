@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/ionic/web/debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/ionic/web/js/directives.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/ionic/web/js/app.js" afterPath="$PROJECT_DIR$/app/templates/ionic/web/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/ionic/web/js/controllers.js" afterPath="$PROJECT_DIR$/app/templates/ionic/web/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/ionic/web/index.html" afterPath="$PROJECT_DIR$/app/templates/ionic/web/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/ionic/index.js" afterPath="$PROJECT_DIR$/app/templates/ionic/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/ionic/web/templates/tabs.html" afterPath="$PROJECT_DIR$/app/templates/ionic/web/templates/tabs.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/ionic/web/templates/model-list.html" afterPath="$PROJECT_DIR$/app/templates/ionic/web/templates/model-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/njax.js" afterPath="$PROJECT_DIR$/app/templates/default/njax.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="generator-njax.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,91 +33,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="schema.gen.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="schema.gen.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="24" selection-start="2683" selection-end="2683" vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="3492">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model-list.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/templates/model-list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="432">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/templates/ionic/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="4" selection-start="1082" selection-end="1082" vertical-scroll-proportion="0.5519591" vertical-offset="0" max-vertical-offset="587">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="7" selection-start="515" selection-end="557" vertical-scroll-proportion="-11.333333" vertical-offset="0" max-vertical-offset="972">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/services.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="71" selection-start="705" selection-end="705" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/controllers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="73" selection-start="459" selection-end="459" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="16" selection-start="1719" selection-end="1719" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1458">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tabs.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/templates/tabs.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="82" selection-start="467" selection-end="467" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="576">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="debug.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/debug.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="70" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="route.gen.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="203" column="32" selection-start="8216" selection-end="8216" vertical-scroll-proportion="0.0" vertical-offset="3654" max-vertical-offset="4410">
+            <state line="74" column="28" selection-start="2952" selection-end="2952" vertical-scroll-proportion="0.6288998" vertical-offset="949" max-vertical-offset="3546">
               <folding />
             </state>
           </provider>
@@ -148,7 +71,6 @@
         <option value="$PROJECT_DIR$/app/templates/node-sdk/client.js" />
         <option value="$PROJECT_DIR$/app/templates/default/public/templates/model/list.hjs" />
         <option value="$PROJECT_DIR$/app/templates/default/public/templates/model/edit.hjs" />
-        <option value="$PROJECT_DIR$/app/templates/default/njax.js" />
         <option value="$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.js" />
         <option value="$PROJECT_DIR$/app/templates/default/config.js" />
@@ -164,15 +86,18 @@
         <option value="$PROJECT_DIR$/app/templates/angular/public/js/services/model.js" />
         <option value="$PROJECT_DIR$/app/templates/default/.gitignore" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js" />
-        <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
         <option value="$PROJECT_DIR$/app/index.js" />
-        <option value="$PROJECT_DIR$/app/templates/ionic/web/index.html" />
         <option value="$PROJECT_DIR$/app/templates/ionic/web/js/services.js" />
-        <option value="$PROJECT_DIR$/app/templates/ionic/web/js/controllers.js" />
-        <option value="$PROJECT_DIR$/app/templates/ionic/web/js/app.js" />
         <option value="$PROJECT_DIR$/app/templates/ionic/web/templates/tabs.html" />
         <option value="$PROJECT_DIR$/app/templates/ionic/web/debug.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/njax.js" />
+        <option value="$PROJECT_DIR$/app/templates/ionic/web/index.html" />
+        <option value="$PROJECT_DIR$/app/templates/ionic/web/js/app.js" />
         <option value="$PROJECT_DIR$/app/templates/ionic/index.js" />
+        <option value="$PROJECT_DIR$/app/templates/ionic/web/js/directives.js" />
+        <option value="$PROJECT_DIR$/app/templates/ionic/web/js/controllers.js" />
+        <option value="$PROJECT_DIR$/app/templates/ionic/web/templates/model-list.html" />
+        <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
       </list>
     </option>
   </component>
@@ -278,7 +203,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ionic" />
+              <option name="myItemId" value="default" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -300,11 +225,45 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ionic" />
+              <option name="myItemId" value="default" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generator-njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -381,13 +340,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32840237" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -407,11 +366,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/templates/default/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="19" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="78" column="24" selection-start="2498" selection-end="2504" vertical-scroll-proportion="0.0" vertical-offset="1043" max-vertical-offset="3078" />
@@ -522,11 +476,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="627" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/njax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="18" selection-start="403" selection-end="403" vertical-scroll-proportion="0.22342065" vertical-offset="179" max-vertical-offset="828" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="11" selection-start="524" selection-end="524" vertical-scroll-proportion="0.3762058" vertical-offset="0" max-vertical-offset="622" />
@@ -604,9 +553,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="32" selection-start="8216" selection-end="8216" vertical-scroll-proportion="0.0" vertical-offset="3654" max-vertical-offset="4410">
-          <folding />
-        </state>
+        <state line="203" column="32" selection-start="8216" selection-end="8216" vertical-scroll-proportion="0.0" vertical-offset="3654" max-vertical-offset="4410" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/.gitignore">
@@ -614,72 +561,78 @@
         <state line="30" column="6" selection-start="584" selection-end="584" vertical-scroll-proportion="0.7980769" vertical-offset="42" max-vertical-offset="666" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="24" selection-start="2683" selection-end="2683" vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="3492">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/templates/model-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="636">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="0" selection-start="3592" selection-end="3592" vertical-scroll-proportion="-7.5185184" vertical-offset="1615" max-vertical-offset="4572">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="7" selection-start="515" selection-end="557" vertical-scroll-proportion="-11.333333" vertical-offset="0" max-vertical-offset="972">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="73" selection-start="459" selection-end="459" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="71" selection-start="705" selection-end="705" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="16" selection-start="1719" selection-end="1719" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1458">
-          <folding />
-        </state>
+        <state line="101" column="0" selection-start="3592" selection-end="3592" vertical-scroll-proportion="-7.5185184" vertical-offset="1615" max-vertical-offset="4572" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/templates/tabs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="82" selection-start="467" selection-end="467" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="576">
+        <state line="13" column="82" selection-start="467" selection-end="467" vertical-scroll-proportion="0.3762058" vertical-offset="0" max-vertical-offset="622">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/debug.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="70" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+        <state line="6" column="70" selection-start="219" selection-end="219" vertical-scroll-proportion="0.16640987" vertical-offset="0" max-vertical-offset="649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="38" selection-start="841" selection-end="841" vertical-scroll-proportion="0.84" vertical-offset="0" max-vertical-offset="972" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="4" selection-start="531" selection-end="531" vertical-scroll-proportion="0.2931596" vertical-offset="0" max-vertical-offset="1476" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="71" selection-start="705" selection-end="705" vertical-scroll-proportion="0.44375962" vertical-offset="0" max-vertical-offset="649">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/ionic/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="4" selection-start="1082" selection-end="1082" vertical-scroll-proportion="0.5519591" vertical-offset="0" max-vertical-offset="587">
+        <state line="11" column="69" selection-start="745" selection-end="745" vertical-scroll-proportion="0.31132075" vertical-offset="0" max-vertical-offset="636">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="7" selection-start="211" selection-end="211" vertical-scroll-proportion="0.14354067" vertical-offset="0" max-vertical-offset="627" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/njax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="23" selection-start="353" selection-end="353" vertical-scroll-proportion="0.084745765" vertical-offset="197" max-vertical-offset="846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="24" selection-start="768" selection-end="768" vertical-scroll-proportion="0.509434" vertical-offset="0" max-vertical-offset="636">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/ionic/web/templates/model-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="18" selection-start="444" selection-end="444" vertical-scroll-proportion="0.2955665" vertical-offset="0" max-vertical-offset="609">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="28" selection-start="2952" selection-end="2952" vertical-scroll-proportion="0.6288998" vertical-offset="949" max-vertical-offset="3546">
           <folding />
         </state>
       </provider>

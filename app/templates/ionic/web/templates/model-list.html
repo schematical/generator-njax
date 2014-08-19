@@ -8,7 +8,7 @@
         <h3>{{<%= _model.name %>.name}}</h3>
         <% for(var field_name in _model.fields){
           var field = _model.fields[field_name]; %>
-            <p>{{%= _model.name %>.<%= field_name %>}}</p>
+            <p>{{<%= _model.name %>.<%= field_name %>}}</p>
         <% } %>
       </ion-item>
       
