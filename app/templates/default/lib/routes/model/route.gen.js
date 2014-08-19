@@ -148,7 +148,7 @@ module.exports = function(app){
                     return cb();
                 },
                 function(cb){
-                    res.render('model/<%= _model.name.toLowerCase() %>_list', res.locals.symbols);
+                    res.render('model/<%= _model.name.toLowerCase() %>_list', res.locals.<%= _model.name.toLowerCase() %>s);
                 }
             ]);
         },

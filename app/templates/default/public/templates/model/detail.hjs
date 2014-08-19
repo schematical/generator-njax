@@ -8,7 +8,7 @@
     <% if(_model.fields[name].type == 'md'){ %>
         {{{ <%= _model.name %>.<%= name %> }}}
     <% }else if(_model.fields[name].type == 's3-asset'){ %>
-        <img src="{{{ <%= _model.name %>.<%= name %>_s3 }}}" />
+        <img src="{{{ <%= _model.name %>.<%= name %>_s3.url }}}" />
     <% } else { %>
         {{ <%= _model.name %>.<%= name %> }}
     <% } %>

@@ -22,7 +22,7 @@
                     <% } %>
                 </tr>
                 {{# <%= _model.name %>s }}
-
+                  {{> _<%= _model.name %>_list_single }}
                 {{/ <%= _model.name %>s }}
             </table>
         </div>
