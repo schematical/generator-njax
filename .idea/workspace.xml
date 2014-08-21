@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/public/templates/model/list.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/model/list.hjs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/default/lib/model/account.default.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.js" afterPath="$PROJECT_DIR$/app/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/njax.js" afterPath="$PROJECT_DIR$/app/templates/default/njax.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/lib/model/schema.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/model/schema.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="generator-njax.iws" />
@@ -31,16 +34,25 @@
       <file leaf-file-name="schema.gen.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="35" selection-start="2301" selection-end="2306" vertical-scroll-proportion="-8.0" vertical-offset="918" max-vertical-offset="3528">
+            <state line="6" column="0" selection-start="133" selection-end="133" vertical-scroll-proportion="108.92593" vertical-offset="3049" max-vertical-offset="3636">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="route.gen.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="account.default.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/account.default.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="0" selection-start="408" selection-end="408" vertical-scroll-proportion="0.5119617" vertical-offset="21" max-vertical-offset="648">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="route.gen.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="121" selection-start="6078" selection-end="6078" vertical-scroll-proportion="0.62068963" vertical-offset="2322" max-vertical-offset="4662">
+            <state line="155" column="50" selection-start="6211" selection-end="6211" vertical-scroll-proportion="-18.185184" vertical-offset="2299" max-vertical-offset="4662">
               <folding />
             </state>
           </provider>
@@ -55,10 +67,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="njax.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/default/njax.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="36" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1908">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="23" selection-start="5328" selection-end="5328" vertical-scroll-proportion="-10.185185" vertical-offset="1993" max-vertical-offset="4590">
+            <state line="129" column="39" selection-start="4718" selection-end="4718" vertical-scroll-proportion="-11.222222" vertical-offset="2019" max-vertical-offset="4932">
               <folding />
             </state>
           </provider>
@@ -86,16 +107,13 @@
         <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/_list_single.hjs">
           <provider selected="true" editor-type-id="text-editor">
             <state line="20" column="5" selection-start="396" selection-end="396" vertical-scroll-proportion="-13.333333" vertical-offset="0" max-vertical-offset="468">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/default/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="19" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-              <folding />
+              <folding>
+                <marker date="1408485649511" expanded="true" signature="3:395" placeholder="..." />
+                <marker date="1408485649511" expanded="true" signature="103:141" placeholder="..." />
+                <marker date="1408485649511" expanded="true" signature="167:203" placeholder="..." />
+                <marker date="1408485649511" expanded="true" signature="277:377" placeholder="..." />
+                <marker date="1408485649511" expanded="true" signature="337:367" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -128,7 +146,6 @@
         <option value="$PROJECT_DIR$/app/templates/default/public/templates/njax/dialog.hjs" />
         <option value="$PROJECT_DIR$/app/templates/node-sdk/client.js" />
         <option value="$PROJECT_DIR$/app/templates/default/public/templates/model/edit.hjs" />
-        <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.js" />
         <option value="$PROJECT_DIR$/app/templates/default/config.js" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -150,14 +167,17 @@
         <option value="$PROJECT_DIR$/app/templates/ionic/web/js/directives.js" />
         <option value="$PROJECT_DIR$/app/templates/ionic/web/js/controllers.js" />
         <option value="$PROJECT_DIR$/app/templates/ionic/web/templates/model-list.html" />
-        <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
-        <option value="$PROJECT_DIR$/app/templates/default/njax.js" />
         <option value="$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs" />
         <option value="$PROJECT_DIR$/app/templates/default/public/templates/model/list_single.hjs" />
-        <option value="$PROJECT_DIR$/app/index.js" />
         <option value="$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs" />
         <option value="$PROJECT_DIR$/app/templates/default/public/templates/model/list.hjs" />
+        <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/lib/model/frmwk/Account.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/njax.js" />
+        <option value="$PROJECT_DIR$/app/index.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/lib/model/account.default.js" />
       </list>
     </option>
   </component>
@@ -289,11 +309,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -319,105 +335,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generator-njax" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generator-njax" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generator-njax" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generator-njax" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generator-njax" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generator-njax" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -433,11 +355,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/templates/default/lib/model" />
       <recent name="$PROJECT_DIR$/app/templates/ionic/web" />
       <recent name="$PROJECT_DIR$/app/templates/ionic" />
       <recent name="$PROJECT_DIR$/app/templates/angular" />
       <recent name="$PROJECT_DIR$/app/templates/default" />
-      <recent name="$PROJECT_DIR$/app/templates/angular/public/js/filters" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/templates/default/public/templates/njax/oauth" />
@@ -478,7 +400,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="764" width="1301" height="772" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -520,16 +442,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/edit.hjs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="30" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="450" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/list.hjs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="77" selection-start="0" selection-end="1202" vertical-scroll-proportion="0.0" vertical-offset="468" max-vertical-offset="810" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720" />
@@ -593,11 +505,6 @@
     <entry file="file://$PROJECT_DIR$/app/templates/default/bower.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="16" selection-start="15" selection-end="18" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="378" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="97" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/_route.bkup.js">
@@ -742,51 +649,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/_list_single.hjs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="5" selection-start="396" selection-end="396" vertical-scroll-proportion="-13.333333" vertical-offset="0" max-vertical-offset="468">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="19" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/njax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="20" selection-start="782" selection-end="782" vertical-scroll-proportion="0.6117103" vertical-offset="197" max-vertical-offset="882">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="20" selection-start="1320" selection-end="1333" vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="23" selection-start="5328" selection-end="5328" vertical-scroll-proportion="-10.185185" vertical-offset="1993" max-vertical-offset="4590">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/detail.hjs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="59" selection-start="444" selection-end="444" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="450">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="35" selection-start="2301" selection-end="2306" vertical-scroll-proportion="-8.0" vertical-offset="918" max-vertical-offset="3528">
           <folding />
         </state>
       </provider>
@@ -798,9 +663,78 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="19" selection-start="265" selection-end="265" vertical-scroll-proportion="0.27734977" vertical-offset="0" max-vertical-offset="649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/_list_single.hjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="5" selection-start="396" selection-end="396" vertical-scroll-proportion="-13.333333" vertical-offset="0" max-vertical-offset="468">
+          <folding>
+            <marker date="1408485649511" expanded="true" signature="3:395" placeholder="..." />
+            <marker date="1408485649511" expanded="true" signature="103:141" placeholder="..." />
+            <marker date="1408485649511" expanded="true" signature="167:203" placeholder="..." />
+            <marker date="1408485649511" expanded="true" signature="277:377" placeholder="..." />
+            <marker date="1408485649511" expanded="true" signature="337:367" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="20" selection-start="1320" selection-end="1333" vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="121" selection-start="6078" selection-end="6078" vertical-scroll-proportion="0.62068963" vertical-offset="2322" max-vertical-offset="4662">
+        <state line="155" column="50" selection-start="6211" selection-end="6211" vertical-scroll-proportion="-18.185184" vertical-offset="2299" max-vertical-offset="4662">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="627">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/njax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="36" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1908">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="39" selection-start="4718" selection-end="4718" vertical-scroll-proportion="-11.222222" vertical-offset="2019" max-vertical-offset="4932">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="106" selection-start="444" selection-end="548" vertical-scroll-proportion="0.38110748" vertical-offset="0" max-vertical-offset="614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="133" selection-end="133" vertical-scroll-proportion="108.92593" vertical-offset="3049" max-vertical-offset="3636">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/account.default.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="408" selection-end="408" vertical-scroll-proportion="0.5119617" vertical-offset="21" max-vertical-offset="648">
           <folding />
         </state>
       </provider>

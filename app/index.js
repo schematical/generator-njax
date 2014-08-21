@@ -33,7 +33,13 @@ NJaxGenerator.prototype.app = function app() {
     this.default_tpl_dir = 'default/';
 
     var _njax = require(__dirname + '/templates/' + this.default_tpl_dir + 'njax');
+    var njax_models = _.clone(_njax.models);
+
+    var unique_models = _.clone(this.config.models);
     _.extend(this.config, _njax);
+
+    this.config.models = _.extend(njax_models, unique_models);
+    //console.log(Object.keys(this.config.models));
 
 
     this.mkdir('lib');
@@ -56,11 +62,14 @@ NJaxGenerator.prototype.app = function app() {
     this._copyIfNew( this.default_tpl_dir +'public/templates/register.hjs', 'public/templates/register.hjs');
 
     for(var i in this.config.models){
+
         this._model = this.config.models[i];
 
         this._genSchema(this._model);
 
     }
+
+
 
     this.template(this.default_tpl_dir + 'lib/model/index.js', 'lib/model/index.js');
 
@@ -113,11 +122,18 @@ NJaxGenerator.prototype._templateIfNew = function templateIfNew(source, destinat
     }
 }
 NJaxGenerator.prototype._genSchema = function genSchema(model){
+    var schema_template = this.default_tpl_dir + 'lib/model/schema.js';
+    if(this._model.tpl_override && this._model.tpl_override.schema){
+        schema_template = this.default_tpl_dir + this._model.tpl_override.schema;
+    }
 
+    this._templateIfNew(schema_template, 'lib/model/' + this._model.name + '.js');
 
-    this.template(this.default_tpl_dir + 'lib/model/schema.gen.js', 'lib/model/_gen/' + this._model.name + '_gen.js');
-    this._templateIfNew(this.default_tpl_dir + 'lib/model/schema.js', 'lib/model/' + this._model.name + '.js');
-    this.template(this.default_tpl_dir + 'lib/routes/model/route.gen.js', 'lib/routes/model/_gen/' + this._model.name + '.gen.js');
+    if(!this._model.default){
+
+        this.template(this.default_tpl_dir + 'lib/model/schema.gen.js', 'lib/model/_gen/' + this._model.name + '_gen.js');
+        this.template(this.default_tpl_dir + 'lib/routes/model/route.gen.js', 'lib/routes/model/_gen/' + this._model.name + '.gen.js');
+    }
     this._templateIfNew(this.default_tpl_dir + 'lib/routes/model/route.js', 'lib/routes/model/' + this._model.name + '.js');
 
     this._templateIfNew(this.default_tpl_dir + 'public/templates/model/detail.hjs', 'public/templates/model/' + this._model.name + '_detail.hjs');
@@ -178,6 +194,9 @@ NJaxGenerator.prototype._prepairModel = function(model){
                 if(sub_type.type == 'ref'){
                     fieldData.mongo_type = "[{ type: Schema.Types.ObjectId, ref: '" + this._.capitalize(sub_type.ref) + "' }]"
                 }
+            }
+            if(_.isString(sub_type)){
+                sub_type = '"' + sub_type + '"';
             }
             fieldData = { type: 'array', sub_type: sub_type };
         }

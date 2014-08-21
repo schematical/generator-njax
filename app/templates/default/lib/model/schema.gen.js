@@ -59,9 +59,14 @@ module.exports = function(app){
                 AWS.config.update(app.njax.config.aws);
                 var s3 = new AWS.S3();
                 var _this = this;
+                if(!app.njax.config.local_file_cache){
+                    var url = 'http://s3.amazonaws.com/' + app.njax.config.aws.bucket_name  +  '/' + this.<%= name %>;
+                }else{
+                    var url = '/cache/' + this.<%= name %>;
+                }
 
                 return {
-                    url:'http://s3.amazonaws.com/' + app.njax.config.aws.bucket_name  +  '/' + this.<%= name %>,
+                    url:url,
                     getFile:function(local_file_path, callback){
                         if(!callback && _.isFunction(local_file_path)){
                             callback = local_file_path;
@@ -176,7 +181,8 @@ module.exports = function(app){
         <% for(var name in _model.fields){  %>
             <% if(_model.fields[name].type == 's3-asset'){ %>
                 ret.<%= name %>_s3 = {
-                    url:doc.<%= name %>_s3.url
+                    url:doc.<%= name %>_s3.url,
+                    path:doc.<%= name %>
                 }
             <% }else if(_model.fields[name].type == 'md'){ %>
                 ret.<%= name %> = doc.<%= name %>_rendered;

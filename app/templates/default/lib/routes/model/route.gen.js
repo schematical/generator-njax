@@ -137,7 +137,7 @@ module.exports = function(app){
                     for(var i in <%= _model.name %>s){
                         var <%= _model.name %>_data = <%= _model.name %>s[i].toObject();
                         <% if(_model.fields.owner){ %>
-                            if(req.user && (req.<%= _model.name.toLowerCase() %>.owner == req.user._id)){
+                            if(req.user && (<%= _model.name %>s[i].owner == req.user._id)){
                                 <%= _model.name %>_data._user_is_owner = true;
                             }
                         <% } %>
@@ -158,7 +158,7 @@ module.exports = function(app){
             }
 
             <% if(_model.fields.owner){ %>
-                if(req.user && req.<%= _model.name.toLowerCase() %>.owner == req.user._id){
+                if(req.user && req.<%= _model.name.toLowerCase() %> && req.<%= _model.name.toLowerCase() %>.owner == req.user._id){
                     res.locals._user_is_owner = true;
                 }
             <% } %>
