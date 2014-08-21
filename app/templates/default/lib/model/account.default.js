@@ -13,6 +13,19 @@ module.exports = function(app){
 
 
 
+
+
+
+
+
+
+
+    /*
+     * END CUSTOM CODE
+     *
+     */
+
+      /* HERE IS THE AUTH STUFF CUSTOM TO THE ACCOUNT */
     var passport = acountSchema._passport;
     var LocalStrategy = acountSchema._LocalStrategy;
 

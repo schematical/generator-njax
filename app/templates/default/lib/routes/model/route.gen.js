@@ -243,6 +243,7 @@ module.exports = function(app){
 
             req.<%= _model.name.toLowerCase() %>.save(function(err, <%= _model.name.toLowerCase() %>){
                 //app._refresh_locals();
+                res.bootstrap('<%= _model.name.toLowerCase() %>', req.<%= _model.name.toLowerCase() %>);
                 return next();
                 //res.render('model/<%= _model.name.toLowerCase() %>_detail', { <%= _model.name.toLowerCase() %>: req.<%= _model.name.toLowerCase() %>.toObject() });
             });

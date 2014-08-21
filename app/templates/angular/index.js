@@ -4,7 +4,7 @@ module.exports = function(generator, Class){
     generator._templateIfNew(generator.angular_tpl_dir + 'public/js/app.js', 'public/js/app.js');
     generator._templateIfNew(generator.angular_tpl_dir + 'public/js/directives/model.js', 'public/js/directives.js');
     generator._templateIfNew(generator.angular_tpl_dir + 'public/js/filters/model.js', 'public/js/filters.js');
-    generator.template(generator.angular_tpl_dir + 'public/templates/_header.hjs', 'public/templates/_header.angular.hjs');
+    generator.template(generator.angular_tpl_dir + 'public/templates/_header.hjs', 'public/templates/_meta_angular.hjs');
 
     for(var i in generator.config.models){
 
