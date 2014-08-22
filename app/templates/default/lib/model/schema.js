@@ -3,7 +3,7 @@ var fs = require('fs');
 var async = require('async');
 module.exports = function(app){
     <% if(!_model.default){ %>
-        var <%= _model.name.toLowerCase() %>Schema = require('./_gen/<%= _model.name.toLowerCase() %>_gen')(app);
+        var <%= _model.name.toLowerCase() %>Schema = require('./_gen/<%= _model.name %>_gen')(app);
     <% }else{ %>
         var <%= _model.name.toLowerCase() %>Schema = require(app.njax.config.njax_dir + '/lib/model/<%= _model.name %>')(app);
     <% } %>
