@@ -14,9 +14,10 @@ module.exports = {
         },
         "application":{
             "name":"application",
+            "uri_prefix":"/apps",
             "default":true,
             "fields":{
-                "username":"namespace",
+                "namespace":"namespace",
                 "name":"string",
                 "desc":"md",
                 "url":"string",
@@ -29,6 +30,7 @@ module.exports = {
             }
         },
         "accessToken":{
+            "uri_prefix":"/access_tokens",
             "name":"accessToken",
             "default":true,
             "fields":{
@@ -45,6 +47,7 @@ module.exports = {
             }
         },
         "requestCode":{
+            "uri_prefix":"/request_codes",
             "name":"requestCode",
             "default":true,
             "fields":{
