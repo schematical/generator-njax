@@ -167,6 +167,14 @@ module.exports = function(app){
 
     <% } %>
 
+    <% if(_model.fields.archiveDate){ %>
+        <%= _model.name.toLowerCase() %>Schema.virtual('archive').get(function(){
+            return function(callback){
+                this.archiveDate = new Date();
+                this.save(callback);
+            }
+        });
+    <% } %>
 
     <%= _model.name.toLowerCase() %>Schema.pre('save', function(next){
         if(!this._id){

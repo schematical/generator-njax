@@ -20,6 +20,7 @@ module.exports = function(app){
                 return { }
             },
         <% } %>
+
         init:function(uri){
 
             if(!uri) uri = '<%= _model.uri %>';
@@ -44,6 +45,7 @@ module.exports = function(app){
                     <% if(_model.file_fields){ %>
                         app.njax.s3.route(['<%= _model.file_fields %>']),
                     <% } %>
+                    route.validate,
                     route.create,
                     route.render_detail
                 ]
@@ -54,10 +56,21 @@ module.exports = function(app){
                     <% if(_model.file_fields){ %>
                     app.njax.s3.route(['<%= _model.file_fields %>']),
                     <% } %>
+                    route.validate,
                     route.update,
                     route.render_detail
                 ]
             );
+            <% if(_model.fields.archiveDate){ %>
+                app.delete(
+                    uri + '/:<%= _model.name.toLowerCase() %>',
+                    [
+                        //TODO: Check owner
+                        route.remove,
+                        route.render_detail
+                    ]
+                );
+            <% } %>
 
             app.all(uri, route.render_list);
             app.all(uri + '/new', route.render_edit);
@@ -70,27 +83,40 @@ module.exports = function(app){
         populate:function(req, res, next, id){
             var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
             <% if(!_model.is_subdocument){ %>
-            var or_condition = []
+                var or_condition = []
 
-            if(checkForHexRegExp.test(id)){
-                or_condition.push({ _id:new ObjectId(id) });
-            }
-            <% if(_model.fields.namespace){ %>
-                or_condition.push({ namespace:id });
-            <% } %>
-            if(or_condition.length == 0){
-                return next();
-            }
-            var query = { $or: or_condition };
-            app.model.<%= _.capitalize(_model.name) %>.findOne(query, function(err, <%= _model.name.toLowerCase() %>){
-                if(err){
-                    return next(err);
+                if(checkForHexRegExp.test(id)){
+                    or_condition.push({ _id:new ObjectId(id) });
                 }
-                if(<%= _model.name.toLowerCase() %>){
-                    res.bootstrap('<%= _model.name.toLowerCase() %>', <%= _model.name.toLowerCase() %>);
+                <% if(_model.fields.namespace){ %>
+                    or_condition.push({ namespace:id });
+                <% } %>
+                if(or_condition.length == 0){
+                    return next();
                 }
-                return next();
-            })
+                var query = {
+                    $and:[
+                        { $or: or_condition }
+
+                    <% if(_model.fields.archiveDate){ %>
+                        ,
+                        { $or: [
+                            { archiveDate: { $gt: new Date() } },
+                            { archiveDate: null }
+                        ] }
+
+                    <% } %>
+                     ]
+                };
+                app.model.<%= _.capitalize(_model.name) %>.findOne(query, function(err, <%= _model.name.toLowerCase() %>){
+                    if(err){
+                        return next(err);
+                    }
+                    if(<%= _model.name.toLowerCase() %>){
+                        res.bootstrap('<%= _model.name.toLowerCase() %>', <%= _model.name.toLowerCase() %>);
+                    }
+                    return next();
+                });
             <% }else{ %>
                 var model = null;
 
@@ -114,7 +140,7 @@ module.exports = function(app){
 
         },
         render_list:function(req, res, next){
-            var query = _.clone(route.owner_query(req));
+            var query = _.clone(route.read_query(req));
             if(!query){
                 return next();
             }
@@ -248,8 +274,26 @@ module.exports = function(app){
                 //res.render('model/<%= _model.name.toLowerCase() %>_detail', { <%= _model.name.toLowerCase() %>: req.<%= _model.name.toLowerCase() %>.toObject() });
             });
 
-        }
+        },
+        validate:function(req, res,next){
+            return next();
+        },
+        <% if(_model.fields.archiveDate){ %>
+            remove:function(req, res,next){
+                if(!req.user){
+                    return next();
+                }
+                req.<%= _model.name.toLowerCase() %>.archive(function(err){
+                    if(err) return next(err);
+                    return next();
+                });
+            }
+        <% } %>
     }
+
+    route.read_query = route.owner_query;
+    route.write_query = route.owner_query;
+
     return route;
 
 }
