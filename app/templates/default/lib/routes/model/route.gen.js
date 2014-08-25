@@ -113,7 +113,7 @@ module.exports = function(app){
                         return next(err);
                     }
                     if(<%= _model.name.toLowerCase() %>){
-                        res.bootstrap('<%= _model.name.toLowerCase() %>', <%= _model.name.toLowerCase() %>);
+                        res.bootstrap('<%= _model.name %>', <%= _model.name.toLowerCase() %>);
                     }
                     return next();
                 });
@@ -130,7 +130,7 @@ module.exports = function(app){
                 }
 
                 if(model){
-                    res.bootstrap('<%= _model.name.toLowerCase() %>', model);
+                    res.bootstrap('<%= _model.name %>', model);
                 }
                 return next();
 
@@ -269,7 +269,7 @@ module.exports = function(app){
 
             req.<%= _model.name.toLowerCase() %>.save(function(err, <%= _model.name.toLowerCase() %>){
                 //app._refresh_locals();
-                res.bootstrap('<%= _model.name.toLowerCase() %>', req.<%= _model.name.toLowerCase() %>);
+                res.bootstrap('<%= _model.name %>', req.<%= _model.name.toLowerCase() %>);
                 return next();
                 //res.render('model/<%= _model.name.toLowerCase() %>_detail', { <%= _model.name.toLowerCase() %>: req.<%= _model.name.toLowerCase() %>.toObject() });
             });
@@ -283,7 +283,7 @@ module.exports = function(app){
                 if(!req.user){
                     return next();
                 }
-                req.<%= _model.name.toLowerCase() %>.archive(function(err){
+                req.<%= _model.name %>.archive(function(err){
                     if(err) return next(err);
                     return next();
                 });
