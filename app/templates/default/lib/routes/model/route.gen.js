@@ -35,7 +35,9 @@ module.exports = function(app){
                     <% if(_model.file_fields){ %>
                         app.njax.s3.route(['<%= _model.file_fields %>']),
                     <% } %>
+                    route.pre_create,
                     route.create,
+                    route.post_create,
                     route.render_detail
                 ]
             );
@@ -46,7 +48,10 @@ module.exports = function(app){
                         app.njax.s3.route(['<%= _model.file_fields %>']),
                     <% } %>
                     route.validate,
+                    route.pre_create,
                     route.create,
+                    route.post_create,
+                    route.bootstrap_detail,
                     route.render_detail
                 ]
             );
@@ -57,7 +62,10 @@ module.exports = function(app){
                     app.njax.s3.route(['<%= _model.file_fields %>']),
                     <% } %>
                     route.validate,
+                    route.pre_update,
                     route.update,
+                    route.post_update,
+                    route.bootstrap_detail,
                     route.render_detail
                 ]
             );
@@ -66,17 +74,32 @@ module.exports = function(app){
                     uri + '/:<%= _model.name.toLowerCase() %>',
                     [
                         //TODO: Check owner
+                        route.pre_remove,
                         route.remove,
+                        route.post_remove,
+                        route.bootstrap_detail,
                         route.render_detail
                     ]
                 );
             <% } %>
 
-            app.all(uri, route.render_list);
-            app.all(uri + '/new', route.render_edit);
+            app.all(uri, [
+                route.bootstrap_list,
+                route.render_list
+            ]);
+            app.all(uri + '/new', [
+                route.bootstrap_edit,
+                route.render_edit
+            ]);
 
-            app.all(uri + '/:<%= _model.name.toLowerCase() %>', route.render_detail);
-            app.all(uri + '/:<%= _model.name.toLowerCase() %>/edit', route.render_edit);
+            app.all(uri + '/:<%= _model.name.toLowerCase() %>', [
+                route.bootstrap_detail,
+                route.render_detail
+            ]);
+            app.all(uri + '/:<%= _model.name.toLowerCase() %>/edit', [
+                route.bootstrap_edit,
+                route.render_edit
+            ]);
 
 
         },
@@ -275,8 +298,49 @@ module.exports = function(app){
             });
 
         },
-        validate:function(req, res,next){
+        bootstrap_list:function(req, res, next){
             return next();
+        },
+        bootstrap_detail:function(req, res, next){
+            return next();
+        },
+        bootstrap_edit:function(req, res, next){
+            return next();
+        },
+        validate:function(req, res, next){
+            return next();
+        },
+        pre_update:function(req, res, next){
+            return next();
+        },
+        pre_create:function(req, res, next){
+            return next();
+        },
+        pre_remove:function(req, res, next){
+            return next();
+        },
+        post_update:function(req, res, next){
+            return next();
+        },
+        post_create:function(req, res, next){
+            return next();
+        },
+        post_remove:function(req, res, next){
+                return next();
+        },
+        broadcast_create:function(req, res, next){
+            <% if(_model.fields.owner){ %>
+                //<%= _model.fields.owner.bootstrap_populate %>
+                return next();
+            <% } else { %>
+                return next();
+            <% } %>
+        },
+        broadcast_update:function(req, res, next){
+                return next();
+        },
+        broadcast_remove:function(req, res, next){
+                return next();
         },
         <% if(_model.fields.archiveDate){ %>
             remove:function(req, res,next){
