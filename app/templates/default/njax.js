@@ -23,6 +23,7 @@ module.exports = {
                 "url":"string",
                 "secret":"string",
                 "level":"level",
+                "callback_url":"string",
                 "owner":{
                     "type":"ref",
                     "ref":"account"

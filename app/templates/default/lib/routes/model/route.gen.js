@@ -330,17 +330,27 @@ module.exports = function(app){
         },
         broadcast_create:function(req, res, next){
             <% if(_model.fields.owner){ %>
-                //<%= _model.fields.owner.bootstrap_populate %>
+                app.njax.broadcast([ req.user ], '<%= _model.name %>.create', { <%= _model.name %>: req.<%= _model.name %>.toObject() });
                 return next();
             <% } else { %>
                 return next();
             <% } %>
         },
         broadcast_update:function(req, res, next){
+            <% if(_model.fields.owner){ %>
+                app.njax.broadcast([ req.usyoer ], '<%= _model.name %>.update', { <%= _model.name %>: req.<%= _model.name %>.toObject() });
                 return next();
+            <% } else { %>
+                return next();
+            <% } %>
         },
         broadcast_remove:function(req, res, next){
+            <% if(_model.fields.owner){ %>
+                app.njax.broadcast([ req.user ], '<%= _model.name %>.remove', { <%= _model.name %>: req.<%= _model.name %>.toObject() });
                 return next();
+            <% } else { %>
+                return next();
+            <% } %>
         },
         <% if(_model.fields.archiveDate){ %>
             remove:function(req, res,next){
