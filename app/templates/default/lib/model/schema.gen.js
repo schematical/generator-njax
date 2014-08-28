@@ -23,17 +23,23 @@ module.exports = function(app){
     var <%= _model.name.toLowerCase() %>Schema = new Schema(fields);
 
     <%= _model.name.toLowerCase() %>Schema.virtual('uri').get(function(){
-        <% if(!_model.is_subdocument){ %>
+        <% if(_model.is_subdocument){ %>
+            <% if(_model.fields.namespace){ %>
+                    return this.parent().uri + '/<%= _model.name.toLowerCase() %>s/' + (this.namespace || this._id);
+            <% }else{ %>
+                return this.parent().uri + '/<%= _model.name.toLowerCase() %>s/' + this._id;
+            <% } %>
+        <% } else if(_model.parent_field){ %>
+            <% if(_model.fields.namespace){ %>
+                return '<%= _model.parent_field.uri_prefix %>' +  this.<%= _model.parent %> + '<%= _model.uri_prefix %>/' + (this.namespace || this._id);
+            <% }else{ %>
+                return '<%= _model.parent_field.uri_prefix %>' +  this.<%= _model.parent %> + '<%= _model.uri_prefix %>/' + this._id;
+            <% } %>
+        <% } else { %>
             <% if(_model.fields.namespace){ %>
                 return '<%= _model.uri %>/' + (this.namespace || this._id);
             <% }else{ %>
                 return '<%= _model.uri %>/' + this._id;
-            <% } %>
-        <% } else { %>
-            <% if(_model.fields.namespace){ %>
-                return this.parent().uri + '/<%= _model.name.toLowerCase() %>s/' + (this.namespace || this._id);
-            <% }else{ %>
-                return this.parent().uri + '/<%= _model.name.toLowerCase() %>s/' + this._id;
             <% } %>
         <% } %>
     });

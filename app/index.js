@@ -26,7 +26,7 @@ var NJaxGenerator = module.exports = function SchemaGenerator(args, options, con
 util.inherits(NJaxGenerator, yeoman.generators.Base);
 
 NJaxGenerator.prototype.app = function app() {
-    this._prepairModels();
+
 
 
 
@@ -41,6 +41,7 @@ NJaxGenerator.prototype.app = function app() {
     this.config.models = _.extend(njax_models, unique_models);
     //console.log(Object.keys(this.config.models));
 
+    this._prepairModels();
 
     this.mkdir('lib');
     this.mkdir('lib/model');
@@ -160,29 +161,41 @@ NJaxGenerator.prototype._prepairModel = function(model){
     }
 
     if(model.parent){
-        if(!this.config.models[model.parent]){
-            throw new Error("Cannot find model : " + model.parent);
+        var parent_field = model.fields[model.parent];
+
+        if(!parent_field){
+            throw new Error("No parent field '" + model.parent + "' exists in model '" + model.name + "'");
         }
-        if(!this.config.models[model.parent]._prerendered){
+        if(!parent_field.ref){
+            throw new Error("Parent field must be a ref. Field: '" + model.parent + "' in model '" + model.name + "'");
+        }
+        if(!this.config.models[parent_field.ref]){
+            console.error(Object.keys(this.config.models));
+            throw new Error("Cannot find model : " + parent_field.ref);
+        }
+        if(!this.config.models[parent_field.ref]._prerendered){
             this._prepairModel(this.config.models[model.parent]);
         }
+        model.parent_field = this.config.models[parent_field.ref];
     }
     var uri = '';
+    var schema_uri = '';
+    var route = '';
     var hjs_uri = '';
     if(model.parent){
 
-        uri +=  this.config.models[model.parent].uri + '/:' + model.parent;
-        hjs_uri += '{{ ' + model.parent + '.uri }}';
+        route +=  this.config.models[parent_field.ref].route + '/:' + parent_field.ref;
+        hjs_uri += '{{ ' + parent_field.ref + '.uri }}';
     }
     if(typeof(model.uri_prefix) == 'undefined'){
-        uri += '/' + model.name + 's';
+        route += '/' + model.name + 's';
         hjs_uri += '/' + model.name + 's';
     }else{
-        uri += model.uri_prefix;
+        route += model.uri_prefix;
         hjs_uri += model.uri_prefix;
     }
     //uri += '/:' + model.name;
-    model.uri = uri;
+    model.uri = route;//SHITTY HACK
     model.hjs_uri = hjs_uri;
     model._files = [];
     model._rels = [];

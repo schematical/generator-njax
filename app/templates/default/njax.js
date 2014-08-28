@@ -1,6 +1,7 @@
 module.exports = {
     "models":{
         "account":{
+            "uri_prefix":"",
             "name":"account",
             "tpl_override":{
                 "schema":"lib/model/account.default.js"

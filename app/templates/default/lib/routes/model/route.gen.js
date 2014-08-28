@@ -37,6 +37,9 @@ module.exports = function(app){
                     <% } %>
                     route.pre_create,
                     route.create,
+                    route.update,
+                    route.pre_update_save,
+                    route.update_save,
                     route.post_create,
                     route.render_detail
                 ]
@@ -50,6 +53,9 @@ module.exports = function(app){
                     route.validate,
                     route.pre_create,
                     route.create,
+                    route.update,
+                    route.pre_update_save,
+                    route.update_save,
                     route.post_create,
                     route.bootstrap_detail,
                     route.render_detail
@@ -64,6 +70,8 @@ module.exports = function(app){
                     route.validate,
                     route.pre_update,
                     route.update,
+                    route.pre_update_save,
+                    route.update_save,
                     route.post_update,
                     route.bootstrap_detail,
                     route.render_detail
@@ -78,12 +86,14 @@ module.exports = function(app){
                         route.remove,
                         route.post_remove,
                         route.bootstrap_detail,
-                        route.render_detail
+                        route.render_remove
                     ]
                 );
             <% } %>
 
             app.all(uri, [
+                route.populate_list_query,
+                route.populate_list,
                 route.bootstrap_list,
                 route.render_list
             ]);
@@ -162,8 +172,39 @@ module.exports = function(app){
 
 
         },
+        render_remove:function(req, res, next){
+            res.render('model/<%= _model.name.toLowerCase() %>_list', res.locals.<%= _model.name %>s);
+        },
         render_list:function(req, res, next){
+            res.render('model/<%= _model.name.toLowerCase() %>_list', res.locals.<%= _model.name %>s);
+        },
+        populate_list_query:function(req, res, next){
             var query = _.clone(route.read_query(req));
+            var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
+            <% for(var name in _model.fields){  %>
+                <% if(_model.fields[name].type == 's3-asset'){ %>
+                <% }else if(_model.fields[name].type == 'ref'){ %>
+                if(req.query.<%= name %>){
+                    if(checkForHexRegExp.test(req.query.<%= name %>)){
+                        query['<%= name %>'] = req.query.<%= name %>;
+                    }
+                }
+                <% }else if(_model.fields[name].type == 'array'){ %>
+                <% }else if(_model.fields[name].type == 'array'){ %>
+                <% }else if(_model.fields[name].type == 'date'){ %>
+                <% }else{ %>
+                    if(req.query.<%= name %>){
+                        query['<%= name %>'] =   new RegExp('/^' + req.query.<%= name %> + '/', 'i');
+                    }
+                <% } %>
+            <% } %>
+
+
+            req._list_query = query;
+            return next();
+        },
+        populate_list:function(req, res, next){
+            var query = req._list_query;
             if(!query){
                 return next();
             }
@@ -197,22 +238,22 @@ module.exports = function(app){
                     return cb();
                 },
                 function(cb){
-                    res.render('model/<%= _model.name.toLowerCase() %>_list', res.locals.<%= _model.name.toLowerCase() %>s);
+                    return next();
                 }
             ]);
         },
         render_detail:function(req, res, next){
-            if(!req.<%= _model.name.toLowerCase() %>){
+            if(!req.<%= _model.name %>){
                 return next();
             }
 
             <% if(_model.fields.owner){ %>
-                if(req.user && req.<%= _model.name.toLowerCase() %> && req.<%= _model.name.toLowerCase() %>.owner == req.user._id){
+                if(req.user && req.<%= _model.name %> && req.<%= _model.name %>.owner == req.user._id){
                     res.locals._user_is_owner = true;
                 }
             <% } %>
 
-            res.render('model/<%= _model.name.toLowerCase() %>_detail', req.<%= _model.name.toLowerCase() %>.toObject());
+            res.render('model/<%= _model.name.toLowerCase() %>_detail', req.<%= _model.name %>.toObject());
         },
         render_edit:function(req, res, next){
             async.series([
@@ -251,22 +292,22 @@ module.exports = function(app){
             if(!req.user){
                 return res.redirect('/');
             }
-            if(!req.<%= _model.name.toLowerCase() %>){
-                req.<%= _model.name.toLowerCase() %> = new app.model.<%= _.capitalize(_model.name) %>({
+            if(!req.<%= _model.name %>){
+                req.<%= _model.name %> = new app.model.<%= _.capitalize(_model.name) %>({
                     <% for(var i in _model._rels){ %>
                             <%= _model._rels[i].ref %>:(req.<%= _model._rels[i].ref %> || null),
                     <% } %>
                     cre_date:new Date()
                 });
             }
-            return route.update(req, res, next);
+            return next();
 
         },
         update:function(req, res, next){
             if(!req.user){
                 return next();//res.redirect('/');
             }
-            if(!req.<%= _model.name.toLowerCase() %>){
+            if(!req.<%= _model.name %>){
                 return next();
                 //return next(new Error('<%= _.capitalize(_model.name) %> not found'));
             }
@@ -274,29 +315,37 @@ module.exports = function(app){
             <% for(var name in _model.fields){  %>
                 <% if(_model.fields[name].type == 's3-asset'){ %>
                     if(req.files.<%= name %>){
-                        req.<%= _model.name.toLowerCase() %>.<%= name %> = req.files.<%= name %>.s3_path;
+                        req.<%= _model.name %>.<%= name %> = req.files.<%= name %>.s3_path;
                     }
                 <% }else if(_model.fields[name].type == 'ref'){ %>
                     if(req.<%= _model.fields[name].ref %>){
-                        req.<%= _model.name.toLowerCase() %>.<%= name %> = req.<%= _model.fields[name].ref %>._id;
+                        req.<%= _model.name %>.<%= name %> = req.<%= _model.fields[name].ref %>._id;
                     }else if(req.body.<%= name %>){
-                        req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
+                        req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
                     }
                 <% }else if(_model.fields[name].type == 'array'){ %>
                     //Do nothing it is an array
                     //req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
                 <% }else{ %>
-                    req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
+                    req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
                 <% } %>
             <% } %>
 
-            req.<%= _model.name.toLowerCase() %>.save(function(err, <%= _model.name.toLowerCase() %>){
-                //app._refresh_locals();
-                res.bootstrap('<%= _model.name %>', req.<%= _model.name.toLowerCase() %>);
-                return next();
-                //res.render('model/<%= _model.name.toLowerCase() %>_detail', { <%= _model.name.toLowerCase() %>: req.<%= _model.name.toLowerCase() %>.toObject() });
-            });
+            return next();
 
+        },
+        update_save:function(req, res, next){
+            req.<%= _model.name %>.save(function(err, <%= _model.name %>){
+                //app._refresh_locals();
+                res.bootstrap('<%= _model.name %>', req.<%= _model.name %>);
+                return next();
+            });
+        },
+        query:function(req, res, next){
+            return next();
+        },
+        pre_update_save:function(req, res, next){
+            return next();
         },
         bootstrap_list:function(req, res, next){
             return next();
@@ -314,6 +363,9 @@ module.exports = function(app){
             return next();
         },
         pre_create:function(req, res, next){
+            return next();
+        },
+        pre_create_properties:function(req, res, next){
             return next();
         },
         pre_remove:function(req, res, next){
