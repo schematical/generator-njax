@@ -13,6 +13,6 @@ module.exports = function(generator, Class){
         generator._templateIfNew(generator.angular_tpl_dir + 'public/js/controllers/model.js', 'public/js/controllers/' + generator._model.name + '.js');
         generator._templateIfNew(generator.angular_tpl_dir + 'public/js/directives/model.js', 'public/js/directives/' + generator._model.name + '.js');
 
-        generator._templateIfNew(generator.angular_tpl_dir + 'public/templates/directives/model.html', 'public/templates/directives/' + generator._model.name + '.html');
+        generator._templateIfNew(generator.angular_tpl_dir + 'public/templates/directives/model.html', 'public/templates/directives/' + generator._model.name + 'Picker.html');
     }
 }
