@@ -295,7 +295,7 @@ module.exports = function(app){
             if(!req.<%= _model.name %>){
                 req.<%= _model.name %> = new app.model.<%= _.capitalize(_model.name) %>({
                     <% for(var i in _model._rels){ %>
-                            <%= _model._rels[i].ref %>:(req.<%= _model._rels[i].ref %> || null),
+                            <%= _model._rels[i].name %>:(<%= _model._rels[i].bootstrap_populate %> && <%= _model._rels[i].bootstrap_populate %>._id || null),
                     <% } %>
                     cre_date:new Date()
                 });
@@ -351,6 +351,13 @@ module.exports = function(app){
             return next();
         },
         bootstrap_detail:function(req, res, next){
+            <% if(_model.fields.owner){ %>
+                if(req.user && req.<%= _model.name %> && req.<%= _model.name %>.owner && (req.<%= _model.name %>.owner.equals(req.user._id)){
+                    res.bootstrap('is_owner', true);
+                }else{
+                    res.bootstrap('is_owner', false);
+                }
+            <% } %>
             return next();
         },
         bootstrap_edit:function(req, res, next){

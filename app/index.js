@@ -232,6 +232,7 @@ NJaxGenerator.prototype._prepairModel = function(model){
 
             case 'ref':
                 model._rels.push({
+                    name: key,
                     ref: fieldData.ref,
                     bootstrap_populate:fieldData.bootstrap_populate
                 });
