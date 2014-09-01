@@ -11,5 +11,8 @@ module.exports = function(generator, Class){
         generator._model = generator.config.models[i];
         generator._templateIfNew(generator.angular_tpl_dir + 'public/js/services/model.js', 'public/js/services/' + generator._model.name + '.js');
         generator._templateIfNew(generator.angular_tpl_dir + 'public/js/controllers/model.js', 'public/js/controllers/' + generator._model.name + '.js');
+        generator._templateIfNew(generator.angular_tpl_dir + 'public/js/directives/model.js', 'public/js/directives/' + generator._model.name + '.js');
+
+        generator._templateIfNew(generator.angular_tpl_dir + 'public/templates/directives/model.html', 'public/templates/directives/' + generator._model.name + '.html');
     }
 }

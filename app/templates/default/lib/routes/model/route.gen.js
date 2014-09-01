@@ -352,7 +352,7 @@ module.exports = function(app){
         },
         bootstrap_detail:function(req, res, next){
             <% if(_model.fields.owner){ %>
-                if(req.user && req.<%= _model.name %> && req.<%= _model.name %>.owner && (req.<%= _model.name %>.owner.equals(req.user._id)){
+                if(req.user && req.<%= _model.name %> && req.<%= _model.name %>.owner && (req.<%= _model.name %>.owner.equals(req.user._id))){
                     res.bootstrap('is_owner', true);
                 }else{
                     res.bootstrap('is_owner', false);

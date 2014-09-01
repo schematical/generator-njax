@@ -9,4 +9,5 @@
 <% for(var i in config.models){ %>
     <script src="/js/services/<%= i %>.js"></script>
     <script src="/js/controllers/<%= i %>.js"></script>
+    <script src="/js/directives/<%= i %>.js"></script>
 <% } %>

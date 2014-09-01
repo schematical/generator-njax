@@ -143,7 +143,7 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
 
     this._templateIfNew(this.default_tpl_dir + 'public/templates/model/detail.hjs', tpl_dir_root +  '/' +this._model.name + '_detail.hjs');
     this._templateIfNew(this.default_tpl_dir + 'public/templates/model/edit.hjs', tpl_dir_root +  '/' +this._model.name + '_edit.hjs');
-    this._templateIfNew(this.default_tpl_dir + 'public/templates/model/_edit.hjs', tpl_dir_root + '/' + this._model.name + '_edit_form.hjs');
+    this._templateIfNew(this.default_tpl_dir + 'public/templates/model/_edit.hjs', tpl_dir_root + '/_' + this._model.name + '_edit_form.hjs');
     this._templateIfNew(this.default_tpl_dir + 'public/templates/model/list.hjs', tpl_dir_root + '/' + this._model.name + '_list.hjs');
     this._templateIfNew(this.default_tpl_dir + 'public/templates/model/_list_single.hjs', tpl_dir_root +'/_' + this._model.name + '_list_single.hjs');
 }
