@@ -31,9 +31,11 @@ module.exports = function(app){
             <% } %>
         <% } else if(_model.parent_field){ %>
             <% if(_model.fields.namespace){ %>
-                return '<%= _model.parent_field.uri_prefix %>' +  this.<%= _model.parent %> + '<%= _model.uri_prefix %>/' + (this.namespace || this._id);
+                var parent_id = (this.<%= _model.parent %>.uri || ('/' + this.<%= _model.parent %>));
+                return '<%= _model.parent_field.uri_prefix %>' + parent_id   + '<%= _model.uri_prefix %>/' + (this.namespace || this._id);
             <% }else{ %>
-                return '<%= _model.parent_field.uri_prefix %>' +  this.<%= _model.parent %> + '<%= _model.uri_prefix %>/' + this._id;
+                var parent_id = (this.<%= _model.parent %>.uri || ('/' + this.<%= _model.parent %>));
+                return '<%= _model.parent_field.uri_prefix %>' +  parent_id + '<%= _model.uri_prefix %>/' + this._id;
             <% } %>
         <% } else { %>
             <% if(_model.fields.namespace){ %>

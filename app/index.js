@@ -195,7 +195,7 @@ NJaxGenerator.prototype._prepairModel = function(model){
         hjs_uri += model.uri_prefix;
     }
     //uri += '/:' + model.name;
-    model.uri = route;//SHITTY HACK
+    model.uri = model.route = route;//SHITTY HACK
     model.hjs_uri = hjs_uri;
     model._files = [];
     model._rels = [];
