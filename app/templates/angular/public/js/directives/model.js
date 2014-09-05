@@ -11,24 +11,11 @@ angular.module('<%= config.app_name %>.<%= _model.name %>.directives', [])
             scope:{ },
             templateUrl: '/templates/directives/<%= _model.name %>Picker.html',
             link: function($scope, element, attributes) {
-                var entity = attributes.<%= _.capitalize(_model.name) %>Type;
+                $scope.ele_name = attributes.name;
+                //var entity = attributes.<%= _.capitalize(_model.name) %>Type;
 
-                var <%= _.capitalize(_model.name) %>s = [];
-                for(var i in window.njax_bootstrap.<%= _.capitalize(_model.name) %>s){
-                    <%= _.capitalize(_model.name) %>s.push({
-                        label: window.njax_bootstrap.<%= _.capitalize(_model.name) %>s[i].name,
-                        value: window.njax_bootstrap.<%= _.capitalize(_model.name) %>s[i]._id
-                    });
-                }
-                $scope.<%= _.capitalize(_model.name) %>s = <%= _.capitalize(_model.name) %>s;
-                $scope.<%= _.capitalize(_model.name) %> = window.njax_bootstrap['<%= _.capitalize(_model.name) %>'];
-                for(var i in $scope.<%= _.capitalize(_model.name) %>s){
-                    for(var ii in window.njax_bootstrap.<%= _.capitalize(_model.name) %>s){
-                        if($scope.<%= _.capitalize(_model.name) %>s[i].<%= _.capitalize(_model.name) %> == window.njax_bootstrap.<%= _.capitalize(_model.name) %>s[ii]._id){
-                            $scope.<%= _.capitalize(_model.name) %>s[i].name =  window.njax_bootstrap.<%= _.capitalize(_model.name) %>s[ii].name;
-                        }
-                    }
-                }
+                $scope.<%= _model.name %>s = window.njax_bootstrap.<%= _model.name %>s;
+
 
                 /*
                 $scope.add<%= _.capitalize(_model.name) %> = function(){

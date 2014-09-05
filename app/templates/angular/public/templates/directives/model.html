@@ -2,11 +2,13 @@
     <label><i class="fa fa-globe"></i> <%= _model.name %></label>
     <div class="input-group">
 
-        <input type="text" class="form-control" ng-model="<%= _model.name %>" ng-options="_<%= _model.name %> as _<%= _model.name %>.name for _<%= _model.name %> in <%= _model.name %>s" placeholder="Enter <%= _model.name %>" bs-typeahead>
+        <input type="text" class="form-control" ng-model="selected<%= _.capitalize(_model.name) %>" ng-options="<%= _model.name %> as <%= _model.name %>.name for <%= _model.name %> in <%= _model.name %>s" placeholder="Enter <%= _model.name %>" bs-typeahead>
         <div class="input-group-btn">
             <button type="button" class="btn btn-default" ng-click="addSkill();" >Add</button>
         </div><!-- /btn-group -->
     </div><!-- /input-group -->
+
+    <input type="hidden" name="{{ ele_name }}" ng-value="selected<%= _.capitalize(_model.name) %>._id" />
 
     <div class="input-group" ng-repeat="entitySkill in entitySkills">
 

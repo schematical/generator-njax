@@ -64,6 +64,7 @@ module.exports = function(app){
             app.post(
                 uri + '/:<%= _model.name.toLowerCase() %>',
                 [
+                    route.auth_update,
                     <% if(_model.file_fields){ %>
                     app.njax.s3.route(['<%= _model.file_fields %>']),
                     <% } %>
@@ -81,7 +82,7 @@ module.exports = function(app){
                 app.delete(
                     uri + '/:<%= _model.name.toLowerCase() %>',
                     [
-                        //TODO: Check owner
+                        route.auth_update,
                         route.pre_remove,
                         route.remove,
                         route.post_remove,
@@ -107,11 +108,20 @@ module.exports = function(app){
                 route.render_detail
             ]);
             app.all(uri + '/:<%= _model.name.toLowerCase() %>/edit', [
+                route.auth_update,
                 route.bootstrap_edit,
                 route.render_edit
             ]);
 
 
+        },
+        auth_update:function(req, res, next){
+            <% if(_model.fields.owner){ %>
+                if(req.user && (req.<%= _model.name %>.owner == req.user._id) || (req.is_admin)){
+                    return  next();//We have a legit users
+                }
+                return next(404);//We do not have a legit user
+            <% } %>
         },
         populate:function(req, res, next, id){
             var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
@@ -194,7 +204,7 @@ module.exports = function(app){
                 <% }else if(_model.fields[name].type == 'date'){ %>
                 <% }else{ %>
                     if(req.query.<%= name %>){
-                        query['<%= name %>'] =   new RegExp('/^' + req.query.<%= name %> + '/', 'i');
+                        query['<%= name %>'] =   { $regex: new RegExp('^' + req.query.<%= name %> + '', 'i') };
                     }
                 <% } %>
             <% } %>
@@ -314,8 +324,8 @@ module.exports = function(app){
 
             <% for(var name in _model.fields){  %>
                 <% if(_model.fields[name].type == 's3-asset'){ %>
-                    if(req.files.<%= name %>){
-                        req.<%= _model.name %>.<%= name %> = req.files.<%= name %>.s3_path;
+                    if(req.njax.files && req.njax.files.<%= name %>){
+                        req.<%= _model.name %>.<%= name %> = req.njax.files.<%= name %>;
                     }
                 <% }else if(_model.fields[name].type == 'ref'){ %>
                     if(req.<%= _model.fields[name].ref %>){
