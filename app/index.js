@@ -133,11 +133,12 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
     if(!this._model.default){
         var tpl_dir_root = 'public/templates/model/';
         this.template(this.default_tpl_dir + 'lib/model/schema.gen.js', 'lib/model/_gen/' + this._model.name + '_gen.js');
-        this.template(this.default_tpl_dir + 'lib/routes/model/route.gen.js', 'lib/routes/model/_gen/' + this._model.name + '.gen.js');
+        //this.template(this.default_tpl_dir + 'lib/routes/model/route.gen.js', 'lib/routes/model/_gen/' + this._model.name + '.gen.js');
 
     }else{
         var tpl_dir_root = 'public/templates/model/_njax';
     }
+
     this._templateIfNew(this.default_tpl_dir + 'lib/routes/model/route.js', 'lib/routes/model/' + this._model.name + '.js');
 
 
@@ -234,7 +235,7 @@ NJaxGenerator.prototype._prepairModel = function(model){
                 model._rels.push({
                     name: key,
                     ref: fieldData.ref,
-                    bootstrap_populate:fieldData.bootstrap_populate
+                    bootstrap_populate:fieldData.bootstrap_populate || ('req.' + fieldData.ref)
                 });
                 fieldData.mongo_type = "{ type: Schema.Types.ObjectId, ref: '" + this._.capitalize(fieldData.ref) + "' }"
                 break

@@ -2,9 +2,9 @@ var path = require('path');
 var fs = require('fs');
 var async = require('async');
 var _ = require('underscore');
-var ObjectId = require('mongoose').Types.ObjectId;
-module.exports = function(app){
 
+module.exports = function(app){
+    var ObjectId = app.mongoose.Types.ObjectId;
      var route = app.njax.routes.<%= _model.name.toLowerCase() %> = {
         <% if(_model.fields.owner){ %>
             owner_query:function(req){
@@ -32,21 +32,7 @@ module.exports = function(app){
             app.post(
                 uri,
                 [
-                    <% if(_model.file_fields){ %>
-                        app.njax.s3.route(['<%= _model.file_fields %>']),
-                    <% } %>
-                    route.pre_create,
-                    route.create,
-                    route.update,
-                    route.pre_update_save,
-                    route.update_save,
-                    route.post_create,
-                    route.render_detail
-                ]
-            );
-            app.post(
-                uri + '/new',
-                [
+                    route.auth_create,
                     <% if(_model.file_fields){ %>
                         app.njax.s3.route(['<%= _model.file_fields %>']),
                     <% } %>
@@ -58,6 +44,26 @@ module.exports = function(app){
                     route.update_save,
                     route.post_create,
                     route.bootstrap_detail,
+                    route.broadcast_create,
+                    route.render_detail
+                ]
+            );
+            app.post(
+                uri + '/new',
+                [
+                    route.auth_create,
+                    <% if(_model.file_fields){ %>
+                        app.njax.s3.route(['<%= _model.file_fields %>']),
+                    <% } %>
+                    route.validate,
+                    route.pre_create,
+                    route.create,
+                    route.update,
+                    route.pre_update_save,
+                    route.update_save,
+                    route.post_create,
+                    route.bootstrap_detail,
+                    route.broadcast_create,
                     route.render_detail
                 ]
             );
@@ -75,6 +81,7 @@ module.exports = function(app){
                     route.update_save,
                     route.post_update,
                     route.bootstrap_detail,
+                    route.broadcast_update,
                     route.render_detail
                 ]
             );
@@ -87,6 +94,7 @@ module.exports = function(app){
                         route.remove,
                         route.post_remove,
                         route.bootstrap_detail,
+                        route.broadcast_remove,
                         route.render_remove
                     ]
                 );
@@ -117,11 +125,18 @@ module.exports = function(app){
         },
         auth_update:function(req, res, next){
             <% if(_model.fields.owner){ %>
-                if(req.user && ((req.<%= _model.name %>.owner == req.user._id) || (req.is_admin))){
+                if(req.user && ((req.<%= _model.name %> && (req.<%= _model.name %>.owner == req.user._id)) || (req.is_admin))){
                     return  next();//We have a legit users
                 }
                 return next(404);//We do not have a legit user
-            <% } %>
+            <% }else{ %>
+             return next();
+             <% } %>
+        },
+        auth_create:function(req, res, next){
+             //ENtities that have not been created do not have an owner to manage
+             return next();
+
         },
         populate:function(req, res, next, id){
             var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
@@ -399,7 +414,14 @@ module.exports = function(app){
         },
         broadcast_create:function(req, res, next){
             <% if(_model.fields.owner){ %>
-                app.njax.broadcast([ req.user ], '<%= _model.name %>.create', { <%= _model.name %>: req.<%= _model.name %>.toObject() });
+                app.njax.broadcast(
+                    [ req.user ],
+                    '<%= _model.name %>.update',
+                    {
+                        user:req.user.toObject(),
+                        <%= _model.name %>: req.<%= _model.name %>.toObject()
+                    }
+                );
                 return next();
             <% } else { %>
                 return next();
@@ -407,7 +429,16 @@ module.exports = function(app){
         },
         broadcast_update:function(req, res, next){
             <% if(_model.fields.owner){ %>
-                app.njax.broadcast([ req.usyoer ], '<%= _model.name %>.update', { <%= _model.name %>: req.<%= _model.name %>.toObject() });
+
+                    app.njax.broadcast(
+                        [ req.user ],
+                        '<%= _model.name %>.update',
+                        {
+                            user:req.user.toObject(),
+                            <%= _model.name %>: req.<%= _model.name %>.toObject()
+                        }
+                    );
+
                 return next();
             <% } else { %>
                 return next();
@@ -415,7 +446,15 @@ module.exports = function(app){
         },
         broadcast_remove:function(req, res, next){
             <% if(_model.fields.owner){ %>
-                app.njax.broadcast([ req.user ], '<%= _model.name %>.remove', { <%= _model.name %>: req.<%= _model.name %>.toObject() });
+
+                app.njax.broadcast(
+                    [ req.user ],
+                    '<%= _model.name %>.remove',
+                    {
+                        user:req.user.toObject(),
+                        <%= _model.name %>: req.<%= _model.name %>.toObject()
+                    }
+                );
                 return next();
             <% } else { %>
                 return next();
