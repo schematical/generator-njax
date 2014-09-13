@@ -1,3 +1,10 @@
+/**
+ * GIANT TODO: Merge this with the other NODE SDK
+ * @type {request|exports}
+ */
+
+
+
 var request = require('request');
 var _ = require('underscore');
 var querystring = require('querystring');
