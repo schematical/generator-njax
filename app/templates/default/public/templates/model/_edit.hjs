@@ -20,7 +20,19 @@
                 </select>
             </div>
              {{/ <%= _model.fields[name].ref %> }}
-
+        <% }else if(_model.fields[name].type == 'tpcd'){ %>
+<hr>
+            <div class="form-group">
+                <h4><%= _model.fields[name].label || name %></h4>
+                <% for(var value in _model.fields[name].options){ %>
+                    <div class="radio">
+                        <label>
+        <input type="radio" name="<%= name %>" id="<%= name %>_<%= value %>" value="<%= value %>" {{# <%= name %>_<%= value %>_selected }}checked{{/<%= name %>_<%= value %>_selected}}>
+                            <%= _model.fields[name].options[value] %>
+                        </label>
+                    </div>
+                <% } %>
+            </div>
         <% }else{ %>
             <div class="form-group">
                 <label for="<%= name %>"><%= name %></label>

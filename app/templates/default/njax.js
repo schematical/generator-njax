@@ -25,6 +25,7 @@ module.exports = {
                 "secret":"string",
                 "level":"level",
                 "callback_url":"string",
+                "iframes":"object",
                 "owner":{
                     "type":"ref",
                     "ref":"account"

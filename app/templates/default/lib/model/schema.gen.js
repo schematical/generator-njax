@@ -66,6 +66,14 @@ module.exports = function(app){
                 this.<%= name %>_raw = value;
                 this.<%= name %>_rendered = markdown.toHTML(value);
             });
+        <% } if(_model.fields[name].type == 'tpcd'){ %>
+         <%= _model.name.toLowerCase() %>Schema.virtual('<%= name %>_tpcds').get(function(){
+            return {
+                <% for(var value in _model.fields[name].options){ %>
+                    <%= value %>:'<%= _model.fields[name].options[value] %>',
+                <% } %>
+            }
+        });
 
         <% } if(_model.fields[name].type == 's3-asset'){ %>
             <%= _model.name.toLowerCase() %>Schema.virtual('<%= name %>_s3').get(function(){
@@ -192,9 +200,12 @@ module.exports = function(app){
         });
     <% } %>
 
+
+
     <%= _model.name.toLowerCase() %>Schema.pre('save', function(next){
         if(!this._id){
             this._id = new app.mongoose.Types.ObjectId();
+            this.creDate = new Date();
         }
         return next();
     });

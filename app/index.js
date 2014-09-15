@@ -33,9 +33,12 @@ NJaxGenerator.prototype.app = function app() {
     this.default_tpl_dir = 'default/';
 
     var _njax = require(__dirname + '/templates/' + this.default_tpl_dir + 'njax');
-    var njax_models = _.clone(_njax.models);
-
     var unique_models = _.clone(this.config.models);
+    if(this.config.is_platform){
+        var njax_models = _.clone(_njax.models);
+    }else{
+        var njax_models = {};
+    }
     _.extend(this.config, _njax);
 
     this.config.models = _.extend(njax_models, unique_models);
@@ -133,20 +136,21 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
     if(!this._model.default){
         var tpl_dir_root = 'public/templates/model/';
         this.template(this.default_tpl_dir + 'lib/model/schema.gen.js', 'lib/model/_gen/' + this._model.name + '_gen.js');
-        //this.template(this.default_tpl_dir + 'lib/routes/model/route.gen.js', 'lib/routes/model/_gen/' + this._model.name + '.gen.js');
+        this.template(this.default_tpl_dir + 'lib/routes/model/route.gen.js', 'lib/routes/model/_gen/' + this._model.name + '.gen.js');
 
     }else{
         var tpl_dir_root = 'public/templates/model/_njax';
     }
+    if(!this._model.default || this.config.platform){
+        this._templateIfNew(this.default_tpl_dir + 'lib/routes/model/route.js', 'lib/routes/model/' + this._model.name + '.js');
 
-    this._templateIfNew(this.default_tpl_dir + 'lib/routes/model/route.js', 'lib/routes/model/' + this._model.name + '.js');
 
-
-    this._templateIfNew(this.default_tpl_dir + 'public/templates/model/detail.hjs', tpl_dir_root +  '/' +this._model.name + '_detail.hjs');
-    this._templateIfNew(this.default_tpl_dir + 'public/templates/model/edit.hjs', tpl_dir_root +  '/' +this._model.name + '_edit.hjs');
-    this._templateIfNew(this.default_tpl_dir + 'public/templates/model/_edit.hjs', tpl_dir_root + '/_' + this._model.name + '_edit_form.hjs');
-    this._templateIfNew(this.default_tpl_dir + 'public/templates/model/list.hjs', tpl_dir_root + '/' + this._model.name + '_list.hjs');
-    this._templateIfNew(this.default_tpl_dir + 'public/templates/model/_list_single.hjs', tpl_dir_root +'/_' + this._model.name + '_list_single.hjs');
+        this._templateIfNew(this.default_tpl_dir + 'public/templates/model/detail.hjs', tpl_dir_root +  '/' +this._model.name + '_detail.hjs');
+        this._templateIfNew(this.default_tpl_dir + 'public/templates/model/edit.hjs', tpl_dir_root +  '/' +this._model.name + '_edit.hjs');
+        this._templateIfNew(this.default_tpl_dir + 'public/templates/model/_edit.hjs', tpl_dir_root + '/_' + this._model.name + '_edit_form.hjs');
+        this._templateIfNew(this.default_tpl_dir + 'public/templates/model/list.hjs', tpl_dir_root + '/' + this._model.name + '_list.hjs');
+        this._templateIfNew(this.default_tpl_dir + 'public/templates/model/_list_single.hjs', tpl_dir_root +'/_' + this._model.name + '_list_single.hjs');
+    }
 }
 NJaxGenerator.prototype._prepairModels = function(){
     for(var i in this.config.models){
@@ -239,6 +243,9 @@ NJaxGenerator.prototype._prepairModel = function(model){
                 });
                 fieldData.mongo_type = "{ type: Schema.Types.ObjectId, ref: '" + this._.capitalize(fieldData.ref) + "' }"
                 break
+            case 'api-ref':
+                fieldData.mongo_type.type = "String";
+                break
             case 'objectid':
                 fieldData.mongo_type.type = 'ObjectId'
                 fieldData.mongo_type.ipsum = 'id';
@@ -269,6 +276,12 @@ NJaxGenerator.prototype._prepairModel = function(model){
             case 'buffer':
             case 'mixed':
                 break;
+            case 'tpcd':
+                fieldData.mongo_type.type = "String";
+
+
+                break;
+
         }
         if(model._files.length > 0){
             model.file_fields =  model._files.join("','");

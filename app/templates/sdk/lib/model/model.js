@@ -6,5 +6,5 @@ module.exports = function(sdk){
         Custom Code goes here
     */
 
-    return sdk;
+    return <%= _model.name %>;
 }

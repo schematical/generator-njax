@@ -24,8 +24,8 @@ module.exports = function(app){
         init:function(uri){
 
             if(!uri) uri = '<%= _model.uri %>';
-            app.locals.partials._<%= _model.name.toLowerCase() %>_edit_form = 'model/_<%= _model.name %>_edit_form';
-            app.locals.partials._<%= _model.name.toLowerCase() %>_list_single = 'model/_<%= _model.name %>_list_single';
+            app.locals.partials._<%= _model.name %>_edit_form = 'model/_<%= _model.name %>_edit_form';
+            app.locals.partials._<%= _model.name %>_list_single = 'model/_<%= _model.name %>_list_single';
             app.param('<%= _model.name.toLowerCase() %>', route.populate)
 
 
@@ -198,10 +198,10 @@ module.exports = function(app){
 
         },
         render_remove:function(req, res, next){
-            res.render('model/<%= _model.name.toLowerCase() %>_list', res.locals.<%= _model.name %>s);
+            res.render('model/<%= _model.name %>_list', res.locals.<%= _model.name %>s);
         },
         render_list:function(req, res, next){
-            res.render('model/<%= _model.name.toLowerCase() %>_list', res.locals.<%= _model.name %>s);
+            res.render('model/<%= _model.name %>_list', res.locals.<%= _model.name %>s);
         },
         populate_list_query:function(req, res, next){
             var query = _.clone(route.read_query(req));
@@ -278,7 +278,7 @@ module.exports = function(app){
                 }
             <% } %>
 
-            res.render('model/<%= _model.name.toLowerCase() %>_detail', req.<%= _model.name %>.toObject());
+            res.render('model/<%= _model.name %>_detail', req.<%= _model.name %>.toObject());
         },
         render_edit:function(req, res, next){
             async.series([
@@ -309,7 +309,7 @@ module.exports = function(app){
                 <% } %>
                 function(cb){
 
-                    res.render('model/<%= _model.name.toLowerCase() %>_edit');
+                    res.render('model/<%= _model.name %>_edit');
                 }
             ]);
         },

@@ -16,7 +16,19 @@ module.exports = function(sdk){
 
     <%= _model.name %>.prototype.base_uri = '<%= _model.uri %>';
 
-    <%= _model.name %>.prototype.find = function(callback){
+    <%= _model.name %>.find = function(query, callback){
+        if(_.isFunction(query)){
+            callback = query;
+            query = null;
+        }
+        sdk.find(<%= _model.name %>.prototype.base_uri, query, function(err, <%= _model.name %>_records){
+            if(err) return callback(err);
+            var <%= _model.name %>s = [];
+            for(var i in <%= _model.name %>_records){
+                <%= _model.name %>s.push(new <%= _model.name %>(<%= _model.name %>_records[i]));
+            }
+            return callback(null, <%= _model.name %>s);
+        });
 
     }
 
