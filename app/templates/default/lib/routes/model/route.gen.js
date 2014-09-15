@@ -360,6 +360,9 @@ module.exports = function(app){
 
         },
         update_save:function(req, res, next){
+            if(!req.account){
+                return next();
+            }
             req.<%= _model.name %>.save(function(err, <%= _model.name %>){
                 //app._refresh_locals();
                 res.bootstrap('<%= _model.name %>', req.<%= _model.name %>);

@@ -51,8 +51,9 @@ module.exports = function(options){
             }
             return callback(err, data, response);
         },
-        find:function(data, callback){
+        find:function(uri, data, callback){
 
+        this.call('get', uri, data, callback)
         },
         save:function(data, callback){
 
