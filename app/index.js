@@ -51,6 +51,7 @@ NJaxGenerator.prototype.app = function app() {
     this.mkdir('lib/routes');
     this.mkdir('lib/routes/model');
     this.mkdir('lib/routes/model/_gen');
+    //if(!this.config)
     this._copyIfNew(this.default_tpl_dir + '.gitignore', '.gitignore');
     this._copyIfNew(this.default_tpl_dir + '.bowerrc', '.bowerrc');
     this._copyIfNew(this.default_tpl_dir + 'app.js', 'app.js');
@@ -275,6 +276,9 @@ NJaxGenerator.prototype._prepairModel = function(model){
                 break;
             case 'buffer':
             case 'mixed':
+                break;
+            case 'object':
+                fieldData.mongo_type.type = "Object";
                 break;
             case 'tpcd':
                 fieldData.mongo_type.type = "String";

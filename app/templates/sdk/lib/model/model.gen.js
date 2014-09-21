@@ -61,7 +61,8 @@ module.exports = function(sdk){
         var ret = {};
         ret._id = this._id;
         ret.uri = this.uri;
-
+        ret.url = this.url;
+        ret.api_url = this.api_url;
         <% for(var name in _model.fields){ %>
             ret.<%= name %> = this.<%= name %>;
         <% } %>

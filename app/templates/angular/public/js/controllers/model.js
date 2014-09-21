@@ -4,21 +4,39 @@
 
 angular.module('<%= config.app_name %>.<%= _model.name %>.controller', [])
     .controller(
-        'WelcomeCtl',
+        '<%= _model.name %>EditForm',
         [
             '$scope',
             '$cookies',
-            function($scope, $cookies) {
+            '<%= _.capitalize(_model.name) %>Service'
+            function($scope, $cookies, <%= _.capitalize(_model.name) %>Service) {
 
-                $scope.enter = function(){
+                $scope.validate = function(){
 
-                    $cookies.name = $scope.name;
-                    $cookies.color = $scope.colors[Math.floor(Math.random()  * $scope.colors.length)]
-                    socket.emit('join', {
-                        name: $cookies.name,
-                        color: $cookies.color
-                    });
-                    document.location = '#draw';
+
+                }
+                $scope.save = function(){
+
+
+                }
+            }
+        ]
+    )
+    .controller(
+        '<%= _model.name %>List',
+        [
+            '$scope',
+            '$cookies',
+            '<%= _.capitalize(_model.name) %>Service'
+            function($scope, $cookies, <%= _.capitalize(_model.name) %>Service) {
+
+                $scope.validate = function(){
+
+
+                }
+                $scope.save = function(){
+
+
                 }
             }
         ]

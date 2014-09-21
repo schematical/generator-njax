@@ -1,4 +1,4 @@
-var <%= _model.name %>Services = angular.module('<%= config.app_name %>.<%= _model.name %>.services', ['ngResource']);
+var <%= _model.name %>Services = angular.module('<%= config.app_name %>.<%= _model.name %>.service', ['ngResource']);
 <%= _model.name %>Services.factory(
     '<%= _.capitalize(_model.name) %>Service',
     [

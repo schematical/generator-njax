@@ -10,7 +10,9 @@ module.exports = {
             "fields":{
                 "email":"email",
                 "name":"string",
-                "namespace":"namespace"
+                "namespace":"namespace",
+                "active":{ "type":"boolean" },
+                "forgot_pass_code":{ "type":"string" }
             }
         },
         "application":{
@@ -30,7 +32,8 @@ module.exports = {
                     "type":"ref",
                     "ref":"account"
                 }
-            }
+            },
+            "active":{ "type":"boolean" }
         },
         "accessToken":{
             "uri_prefix":"/access_tokens",
@@ -55,6 +58,21 @@ module.exports = {
             "default":true,
             "fields":{
                 "code":"string",
+                "application":{
+                    "type":"ref",
+                    "ref":"application"
+                }
+            }
+        },
+
+        "event":{
+            "uri_prefix":"/events",
+            "name":"Event",
+            "default":true,
+            "fields":{
+                "event_namespace":"string",
+                "entity_url":"string",
+                "data":{ "type":"object" },
                 "application":{
                     "type":"ref",
                     "ref":"application"

@@ -130,7 +130,9 @@ module.exports = function(app){
                 }
                 return next(404);//We do not have a legit user
             <% }else{ %>
-             return next();
+                if(!req.user){
+                    return next(404);//res.redirect('/');
+                }
              <% } %>
         },
         auth_create:function(req, res, next){
@@ -329,9 +331,7 @@ module.exports = function(app){
 
         },
         update:function(req, res, next){
-            if(!req.user){
-                return next();//res.redirect('/');
-            }
+
             if(!req.<%= _model.name %>){
                 return next();
                 //return next(new Error('<%= _.capitalize(_model.name) %> not found'));
@@ -351,6 +351,9 @@ module.exports = function(app){
                 <% }else if(_model.fields[name].type == 'array'){ %>
                     //Do nothing it is an array
                     //req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
+                <% }else if(_model.fields[name].type == 'object'){ %>
+                    req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
+                    req.<%= _model.name %>.markModified('<%= name %>');
                 <% }else{ %>
                     req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
                 <% } %>
@@ -360,7 +363,7 @@ module.exports = function(app){
 
         },
         update_save:function(req, res, next){
-            if(!req.account){
+            if(!req.<%= _model.name %>){
                 return next();
             }
             req.<%= _model.name %>.save(function(err, <%= _model.name %>){

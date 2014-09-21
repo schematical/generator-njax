@@ -75,7 +75,13 @@ module.exports = function(app){
             }
         });
 
-        <% } if(_model.fields[name].type == 's3-asset'){ %>
+        <% for(var value in _model.fields[name].options){ %>
+            <%= _model.name.toLowerCase() %>Schema.virtual('is_<%= value %>').get(function(){
+                return (this.<%= name %> == '<%= value %>');
+            });
+        <% } %>
+
+                            <% } if(_model.fields[name].type == 's3-asset'){ %>
             <%= _model.name.toLowerCase() %>Schema.virtual('<%= name %>_s3').get(function(){
                 var path = require('path');
 
@@ -213,6 +219,8 @@ module.exports = function(app){
     if (!<%= _model.name.toLowerCase() %>Schema.options.toObject) <%= _model.name.toLowerCase() %>Schema.options.toObject = {};
     <%= _model.name.toLowerCase() %>Schema.options.toObject.transform = function (doc, ret, options) {
         ret.uri = doc.uri;
+        ret.url = app.njax.config.domain + ':' + (app.njax.config.public_port || app.njax.config.port) + doc.uri;
+        ret.api_url = 'api.' +  ret.url;
         <% for(var name in _model.fields){  %>
             <% if(_model.fields[name].type == 's3-asset'){ %>
                 ret.<%= name %>_s3 = {
@@ -222,6 +230,10 @@ module.exports = function(app){
             <% }else if(_model.fields[name].type == 'md'){ %>
                 ret.<%= name %> = doc.<%= name %>_rendered;
                 ret.<%= name %>_raw = doc.<%= name %>_raw;
+            <% }else if(_model.fields[name].type == 'tpcd'){ %>
+                <% for(var value in _model.fields[name].options){ %>
+                    ret.is_<%= value %> = doc.is_<%= value %>;
+                <% } %>
             <% }else{ %>
 
             <% } %>
