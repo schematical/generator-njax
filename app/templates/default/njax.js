@@ -23,14 +23,16 @@ module.exports = {
                 "namespace":"namespace",
                 "name":"string",
                 "desc":"md",
-                "url":"string",
+                "app_url":"string",
+                "domain":"string",
                 "secret":"string",
                 "level":"level",
                 "callback_url":"string",
                 "iframes":"object",
                 "owner":{
                     "type":"ref",
-                    "ref":"account"
+                    "ref":"account",
+                    "bootstrap_populate":"req.user"
                 }
             },
             "active":{ "type":"boolean" }
@@ -44,11 +46,13 @@ module.exports = {
                 "token":"string",
                 "application":{
                     "type":"ref",
-                    "ref":"application"
+                    "ref":"application",
+                    "bootstrap_populate":"req.application"
                 },
                 "account":{
                     "type":"ref",
-                    "ref":"account"
+                    "ref":"account",
+                    "bootstrap_populate":"req.user"
                 }
             }
         },
@@ -60,23 +64,27 @@ module.exports = {
                 "code":"string",
                 "application":{
                     "type":"ref",
-                    "ref":"application"
+                    "ref":"application",
+                    "bootstrap_populate":"req.user"
                 }
             }
         },
 
         "event":{
             "uri_prefix":"/events",
-            "name":"Event",
+            "name":"event",
             "default":true,
             "fields":{
                 "event_namespace":"string",
+                "short_namespace":"string",
                 "entity_url":"string",
                 "data":{ "type":"object" },
                 "application":{
                     "type":"ref",
-                    "ref":"application"
-                }
+                    "ref":"application",
+                    "bootstrap_populate":"req.application"
+                },
+                "accounts":{ "type":"array" }
             }
         }
     },

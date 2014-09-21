@@ -17,7 +17,7 @@ module.exports = function(app){
             <%= name %>:<%= _model.fields[name].mongo_type %>,
         <% } %>
     <% } %>
-        cre_date:Date
+        creDate:Date
     };
 
     var <%= _model.name.toLowerCase() %>Schema = new Schema(fields);

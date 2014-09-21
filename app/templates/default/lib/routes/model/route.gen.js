@@ -133,6 +133,7 @@ module.exports = function(app){
                 if(!req.user){
                     return next(404);//res.redirect('/');
                 }
+                return next();
              <% } %>
         },
         auth_create:function(req, res, next){

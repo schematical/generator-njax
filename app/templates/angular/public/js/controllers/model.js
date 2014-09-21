@@ -8,7 +8,7 @@ angular.module('<%= config.app_name %>.<%= _model.name %>.controller', [])
         [
             '$scope',
             '$cookies',
-            '<%= _.capitalize(_model.name) %>Service'
+            '<%= _.capitalize(_model.name) %>Service',
             function($scope, $cookies, <%= _.capitalize(_model.name) %>Service) {
 
                 $scope.validate = function(){
@@ -27,7 +27,7 @@ angular.module('<%= config.app_name %>.<%= _model.name %>.controller', [])
         [
             '$scope',
             '$cookies',
-            '<%= _.capitalize(_model.name) %>Service'
+            '<%= _.capitalize(_model.name) %>Service',
             function($scope, $cookies, <%= _.capitalize(_model.name) %>Service) {
 
                 $scope.validate = function(){

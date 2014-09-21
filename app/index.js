@@ -34,7 +34,7 @@ NJaxGenerator.prototype.app = function app() {
 
     var _njax = require(__dirname + '/templates/' + this.default_tpl_dir + 'njax');
     var unique_models = _.clone(this.config.models);
-    if(this.config.is_platform){
+    if(this.config.is_platform || this.config.njax_module){
         var njax_models = _.clone(_njax.models);
     }else{
         var njax_models = {};
@@ -51,21 +51,22 @@ NJaxGenerator.prototype.app = function app() {
     this.mkdir('lib/routes');
     this.mkdir('lib/routes/model');
     this.mkdir('lib/routes/model/_gen');
-    //if(!this.config)
-    this._copyIfNew(this.default_tpl_dir + '.gitignore', '.gitignore');
-    this._copyIfNew(this.default_tpl_dir + '.bowerrc', '.bowerrc');
-    this._copyIfNew(this.default_tpl_dir + 'app.js', 'app.js');
-    this._copyIfNew(this.default_tpl_dir + 'config.js', 'config.js');
-    this._copyIfNew(this.default_tpl_dir + 'lib/routes/index.js', 'lib/routes/index.js');
-    this._copyIfNew( this.default_tpl_dir + 'lib/routes/model/index.js', 'lib/routes/model/index.js');
-    this._copyIfNew( this.default_tpl_dir +'public/templates/_meta.hjs', 'public/templates/_meta.hjs');
-    this._copyIfNew( this.default_tpl_dir +'public/templates/_meta_footer.hjs', 'public/templates/_meta_footer.hjs');
-    this._copyIfNew( this.default_tpl_dir +'public/templates/_modal.hjs', 'public/templates/_modal.hjs');
-    this._copyIfNew( this.default_tpl_dir +'public/templates/_navbar.hjs', 'public/templates/_navbar.hjs');
-    this._copyIfNew( this.default_tpl_dir +'public/templates/index.hjs', 'public/templates/index.hjs');
-    this._copyIfNew( this.default_tpl_dir +'public/templates/auth.hjs', 'public/templates/auth.hjs');
-    this._copyIfNew( this.default_tpl_dir +'public/templates/register.hjs', 'public/templates/register.hjs');
+    if(!this.config.njax_module){
+        this._copyIfNew(this.default_tpl_dir + '.gitignore', '.gitignore');
+        this._copyIfNew(this.default_tpl_dir + '.bowerrc', '.bowerrc');
+        this._copyIfNew(this.default_tpl_dir + 'app.js', 'app.js');
+        this._copyIfNew(this.default_tpl_dir + 'config.js', 'config.js');
 
+        this._copyIfNew(this.default_tpl_dir + 'lib/routes/index.js', 'lib/routes/index.js');
+        this._copyIfNew( this.default_tpl_dir + 'lib/routes/model/index.js', 'lib/routes/model/index.js');
+        this._copyIfNew( this.default_tpl_dir +'public/templates/_meta.hjs', 'public/templates/_meta.hjs');
+        this._copyIfNew( this.default_tpl_dir +'public/templates/_meta_footer.hjs', 'public/templates/_meta_footer.hjs');
+        this._copyIfNew( this.default_tpl_dir +'public/templates/_modal.hjs', 'public/templates/_modal.hjs');
+        this._copyIfNew( this.default_tpl_dir +'public/templates/_navbar.hjs', 'public/templates/_navbar.hjs');
+        this._copyIfNew( this.default_tpl_dir +'public/templates/index.hjs', 'public/templates/index.hjs');
+        this._copyIfNew( this.default_tpl_dir +'public/templates/auth.hjs', 'public/templates/auth.hjs');
+        this._copyIfNew( this.default_tpl_dir +'public/templates/register.hjs', 'public/templates/register.hjs');
+    }
     for(var i in this.config.models){
 
         this._model = this.config.models[i];
@@ -134,7 +135,7 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
 
     this._templateIfNew(schema_template, 'lib/model/' + this._model.name + '.js');
 
-    if(!this._model.default){
+    if(!this._model.default || this.config.njax_module){
         var tpl_dir_root = 'public/templates/model/';
         this.template(this.default_tpl_dir + 'lib/model/schema.gen.js', 'lib/model/_gen/' + this._model.name + '_gen.js');
         this.template(this.default_tpl_dir + 'lib/routes/model/route.gen.js', 'lib/routes/model/_gen/' + this._model.name + '.gen.js');
@@ -142,7 +143,7 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
     }else{
         var tpl_dir_root = 'public/templates/model/_njax';
     }
-    if(!this._model.default || this.config.platform){
+    if(!this._model.default || this.config.platform || this.config.njax_module){
         this._templateIfNew(this.default_tpl_dir + 'lib/routes/model/route.js', 'lib/routes/model/' + this._model.name + '.js');
 
 

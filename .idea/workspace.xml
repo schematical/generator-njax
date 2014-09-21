@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs" afterPath="$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.js" afterPath="$PROJECT_DIR$/app/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/sdk/lib/model/model.gen.js" afterPath="$PROJECT_DIR$/app/templates/sdk/lib/model/model.gen.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/angular/index.js" afterPath="$PROJECT_DIR$/app/templates/angular/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/angular/public/js/controllers/model.js" afterPath="$PROJECT_DIR$/app/templates/angular/public/js/controllers/model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/angular/public/js/services/model.js" afterPath="$PROJECT_DIR$/app/templates/angular/public/js/services/model.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/njax.js" afterPath="$PROJECT_DIR$/app/templates/default/njax.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/lib/model/schema.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/model/schema.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="generator-njax.iws" />
@@ -36,25 +36,7 @@
       <file leaf-file-name="route.gen.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="366" column="30" selection-start="14825" selection-end="14825" vertical-scroll-proportion="0.0" vertical-offset="6349" max-vertical-offset="8856">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/services/model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="49" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="6" selection-start="1434" selection-end="1434" vertical-scroll-proportion="0.5863192" vertical-offset="594" max-vertical-offset="5580">
+            <state line="135" column="30" selection-start="4849" selection-end="4849" vertical-scroll-proportion="-14.185185" vertical-offset="2047" max-vertical-offset="8874">
               <folding />
             </state>
           </provider>
@@ -63,52 +45,16 @@
       <file leaf-file-name="njax.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/default/njax.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2340">
+            <state line="26" column="23" selection-start="803" selection-end="803" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="2484">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="model.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/controllers/model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="21" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="882">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="schema.gen.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="221" column="8" selection-start="9546" selection-end="9692" vertical-scroll-proportion="0.0" vertical-offset="3833" max-vertical-offset="4482">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model.gen.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/sdk/lib/model/model.gen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="35" selection-start="1974" selection-end="1974" vertical-scroll-proportion="0.0" vertical-offset="719" max-vertical-offset="1386">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="njax.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/sdk/njax.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_header.hjs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/angular/public/templates/_header.hjs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="4" selection-start="0" selection-end="296" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
+            <state line="15" column="0" selection-start="405" selection-end="405" vertical-scroll-proportion="0.41602466" vertical-offset="0" max-vertical-offset="882">
               <folding />
             </state>
           </provider>
@@ -159,36 +105,36 @@
         <option value="$PROJECT_DIR$/app/templates/default/public/templates/model/list.hjs" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/model/frmwk/Account.js" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/model/account.default.js" />
-        <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.js" />
         <option value="$PROJECT_DIR$/app/templates/default/public/templates/register.hjs" />
         <option value="$PROJECT_DIR$/app/templates/angular/public/js/app.js" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/routes/index.js" />
         <option value="$PROJECT_DIR$/app/templates/angular/public/js/directives/model.js" />
         <option value="$PROJECT_DIR$/app/templates/angular/public/templates/directives/model.html" />
-        <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" />
         <option value="$PROJECT_DIR$/app/templates/node-sdk/client.js" />
         <option value="$PROJECT_DIR$/app/templates/sdk/package.json" />
         <option value="$PROJECT_DIR$/app/templates/sdk/index.gen.js" />
         <option value="$PROJECT_DIR$/app/templates/sdk/index.js" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/index.js" />
-        <option value="$PROJECT_DIR$/app/templates/angular/index.js" />
         <option value="$PROJECT_DIR$/app/templates/sdk/lib/model/model.js" />
         <option value="$PROJECT_DIR$/app/templates/sdk/lib/index.js" />
         <option value="$PROJECT_DIR$/app/templates/angular/public/templates/_header.hjs" />
-        <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js" />
         <option value="$PROJECT_DIR$/app/templates/angular/public/js/services/model.js" />
-        <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
         <option value="$PROJECT_DIR$/app/templates/sdk/lib/model/model.gen.js" />
         <option value="$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs" />
-        <option value="$PROJECT_DIR$/app/templates/angular/public/js/controllers/model.js" />
-        <option value="$PROJECT_DIR$/app/templates/default/njax.js" />
         <option value="$PROJECT_DIR$/app/index.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
+        <option value="$PROJECT_DIR$/app/templates/angular/index.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/njax.js" />
+        <option value="$PROJECT_DIR$/app/templates/angular/public/js/controllers/model.js" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
+    <option name="x" value="1431" />
     <option name="y" value="764" />
     <option name="width" value="1301" />
     <option name="height" value="772" />
@@ -303,6 +249,294 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generator-njax">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="default">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generator-njax">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="default">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public/templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generator-njax">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="default">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="lib">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="routes">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generator-njax">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="default">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="lib">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="routes">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="model">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generator-njax">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="default">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="lib">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="model">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generator-njax">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="angular">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generator-njax">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="angular">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generator-njax">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="angular">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generator-njax">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="angular">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="services">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generator-njax">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="angular">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="controllers">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -558,8 +792,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="764" width="1301" height="772" extended-state="6" />
-    <editor active="true" />
+    <frame x="1431" y="764" width="1301" height="772" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988167" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -567,7 +801,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24673328" sideWeight="0.6704" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24673328" sideWeight="0.6704" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988167" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -575,13 +809,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32840237" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -691,11 +925,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="627" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/account.default.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="56" selection-start="248" selection-end="351" vertical-scroll-proportion="0.7488444" vertical-offset="0" max-vertical-offset="882" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/angular/njax.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="29" selection-start="162" selection-end="178" vertical-scroll-proportion="0.16640987" vertical-offset="0" max-vertical-offset="649" />
@@ -719,16 +948,6 @@
     <entry file="file://$PROJECT_DIR$/app/templates/angular/public/templates/directives/model.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="97" selection-start="677" selection-end="677" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="468" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="4" selection-start="104" selection-end="386" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="100" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/app.js">
@@ -766,11 +985,6 @@
         <state line="11" column="26" selection-start="601" selection-end="609" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/angular/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="584" selection-end="584" vertical-scroll-proportion="0.254717" vertical-offset="0" max-vertical-offset="636" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="69" selection-start="118" selection-end="180" vertical-scroll-proportion="0.13867489" vertical-offset="0" max-vertical-offset="649" />
@@ -796,37 +1010,36 @@
         <state line="0" column="0" selection-start="0" selection-end="829" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/directives/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1188" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/angular/public/templates/_header.hjs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="4" selection-start="0" selection-end="296" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="622">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="366" column="30" selection-start="14825" selection-end="14825" vertical-scroll-proportion="0.0" vertical-offset="6349" max-vertical-offset="8856">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="221" column="8" selection-start="9546" selection-end="9692" vertical-scroll-proportion="0.0" vertical-offset="3833" max-vertical-offset="4482">
-          <folding />
-        </state>
+        <state line="0" column="4" selection-start="0" selection-end="296" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="622" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/sdk/lib/model/model.gen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="35" selection-start="1974" selection-end="1974" vertical-scroll-proportion="0.0" vertical-offset="719" max-vertical-offset="1386">
+        <state line="64" column="35" selection-start="1974" selection-end="1974" vertical-scroll-proportion="0.0" vertical-offset="719" max-vertical-offset="1386" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="164" selection-start="166" selection-end="166" vertical-scroll-proportion="0.06428572" vertical-offset="0" max-vertical-offset="1116" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="649" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="3" selection-start="36" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="52" selection-start="152" selection-end="152" vertical-scroll-proportion="0.117263846" vertical-offset="0" max-vertical-offset="614" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/sdk/njax.js">
@@ -836,44 +1049,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/services/model.js">
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="49" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/controllers/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="21" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="882">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/public/templates/model/_edit.hjs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="164" selection-start="166" selection-end="166" vertical-scroll-proportion="0.06428572" vertical-offset="0" max-vertical-offset="1116">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="649">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/njax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2340">
+        <state line="12" column="51" selection-start="332" selection-end="332" vertical-scroll-proportion="0.36797273" vertical-offset="0" max-vertical-offset="4482">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="6" selection-start="1434" selection-end="1434" vertical-scroll-proportion="0.5863192" vertical-offset="594" max-vertical-offset="5580">
+        <state line="75" column="5" selection-start="2896" selection-end="2896" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="5598">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/account.default.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="882">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/directives/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="31" selection-start="140" selection-end="140" vertical-scroll-proportion="0.17589577" vertical-offset="0" max-vertical-offset="1188">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/angular/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="188" selection-end="188" vertical-scroll-proportion="0.11320755" vertical-offset="0" max-vertical-offset="636">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="30" selection-start="4849" selection-end="4849" vertical-scroll-proportion="-14.185185" vertical-offset="2047" max-vertical-offset="8874">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/services/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="46" selection-start="200" selection-end="200" vertical-scroll-proportion="0.056603774" vertical-offset="0" max-vertical-offset="636">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/njax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="23" selection-start="803" selection-end="803" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="2484">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/controllers/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="405" selection-end="405" vertical-scroll-proportion="0.41602466" vertical-offset="0" max-vertical-offset="882">
           <folding />
         </state>
       </provider>
