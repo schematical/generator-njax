@@ -138,6 +138,9 @@ module.exports = function(app){
         },
         auth_create:function(req, res, next){
              //ENtities that have not been created do not have an owner to manage
+             if(!req.user){
+                 return res.redirect('/');
+             }
              return next();
 
         },
@@ -317,9 +320,7 @@ module.exports = function(app){
             ]);
         },
         create:function(req, res, next){
-            if(!req.user){
-                return res.redirect('/');
-            }
+
             if(!req.<%= _model.name %>){
                 req.<%= _model.name %> = new app.model.<%= _.capitalize(_model.name) %>({
                     <% for(var i in _model._rels){ %>

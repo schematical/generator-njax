@@ -84,14 +84,14 @@ NJaxGenerator.prototype.frameworks = function(){
     if(!this.config.frameworks){
        return;
     }
-    for(var i in this.config.frameworks){
-        var framework = this.config.frameworks[i];
+    for(var framework in this.config.frameworks){
+        //var framework = this.config.frameworks[i];
         var destination = this.isPathAbsolute(framework) ? framework : path.join(__dirname, 'templates',framework);
         var file_path = path.join(destination, 'index.js');
 
         if(fs.existsSync(file_path)){
             var framework_module = require(path.join(destination, 'index'));
-            framework_module(this, NJaxGenerator);
+            framework_module(this, NJaxGenerator, this.config.frameworks[framework]);
         }
     }
 
@@ -143,7 +143,7 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
     }else{
         var tpl_dir_root = 'public/templates/model/_njax';
     }
-    if(!this._model.default || this.config.platform || this.config.njax_module){
+    if(!this._model.default || this.config.is_platform || this.config.njax_module){
         this._templateIfNew(this.default_tpl_dir + 'lib/routes/model/route.js', 'lib/routes/model/' + this._model.name + '.js');
 
 

@@ -26,8 +26,8 @@ module.exports = function(app){
      */
 
       /* HERE IS THE AUTH STUFF CUSTOM TO THE ACCOUNT */
-    var passport = acountSchema._passport;
-    var LocalStrategy = acountSchema._LocalStrategy;
+    var passport = accountSchema._passport;
+    var LocalStrategy = accountSchema._LocalStrategy;
 
     var AccountModel = app.mongoose.model('Account', accountSchema);
 
