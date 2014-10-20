@@ -125,7 +125,7 @@ module.exports = function(app){
         },
         auth_update:function(req, res, next){
             <% if(_model.fields.owner){ %>
-                if(req.user && ((req.<%= _model.name %> && (req.<%= _model.name %>.owner == req.user._id)) || (req.is_admin))){
+                if(req.user && (req.<%= _model.name %> && (req.<%= _model.name %>.owner && req.<%= _model.name %>.owner.equals(req.user._id)) || (req.is_admin))){
                     return  next();//We have a legit users
                 }
                 return next(404);//We do not have a legit user

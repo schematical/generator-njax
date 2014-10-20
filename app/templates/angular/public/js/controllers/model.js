@@ -4,12 +4,11 @@
 
 angular.module('<%= config.app_name %>.<%= _model.name %>.controller', [])
     .controller(
-        '<%= _model.name %>EditForm',
+        '<%= _.capitalize(_model.name) %>EditForm',
         [
             '$scope',
-            '$cookies',
             '<%= _.capitalize(_model.name) %>Service',
-            function($scope, $cookies, <%= _.capitalize(_model.name) %>Service) {
+            function($scope, <%= _.capitalize(_model.name) %>Service) {
 
                 $scope.validate = function(){
 
@@ -22,19 +21,25 @@ angular.module('<%= config.app_name %>.<%= _model.name %>.controller', [])
             }
         ]
     )
-    .controller(
-        '<%= _model.name %>List',
+	.controller(
+		'<%= _.capitalize(_model.name) %>EditForm',
         [
             '$scope',
-            '$cookies',
             '<%= _.capitalize(_model.name) %>Service',
-            function($scope, $cookies, <%= _.capitalize(_model.name) %>Service) {
-
-                $scope.validate = function(){
+            function($scope, <%= _.capitalize(_model.name) %>Service) {
 
 
-                }
-                $scope.save = function(){
+            }
+        ]
+    )
+    .controller(
+        '<%= _.capitalize(_model.name) %>List',
+        [
+            '$scope',
+            '<%= _.capitalize(_model.name) %>Service',
+            function($scope, <%= _.capitalize(_model.name) %>Service) {
+
+                $scope.search = function(){
 
 
                 }

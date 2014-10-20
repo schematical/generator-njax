@@ -2,7 +2,8 @@ module.exports = function(generator, Class, framework_config){
 
     generator.sdk_tpl_dir = 'sdk/';
     var sdk_path = 'node_modules/' + (framework_config.node_module && framework_config.node_module.name) || 'njax-sdk';
-    generator._templateIfNew(generator.sdk_tpl_dir + '/index.gen.js', sdk_path +'/index.js');
+	generator._templateIfNew(generator.sdk_tpl_dir + '/README.md', sdk_path +'/README.md');
+	generator._templateIfNew(generator.sdk_tpl_dir + '/index.gen.js', sdk_path +'/index.js');
     generator._templateIfNew(generator.sdk_tpl_dir + 'lib/index.js', sdk_path + '/lib/index.js');
     generator._templateIfNew(generator.sdk_tpl_dir + 'package.json', sdk_path + '/lib/package.json');
 

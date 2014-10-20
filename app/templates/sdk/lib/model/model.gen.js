@@ -32,6 +32,21 @@ module.exports = function(sdk){
 
     }
 
+	<%= _model.name %>.findOne = function(query, callback){
+		if(_.isFunction(query)){
+		callback = query;
+		query = null;
+		}
+		<%= _model.name %>.find(query, function(err, <%= _model.name %>s){
+			if(err) return callback(err);
+			if(!<%= _model.name %>s || <%= _model.name %>s.length == 0){
+				return null;
+			}
+			return callback(null, <%= _model.name %>s[0]);
+		});
+
+	}
+
     <%= _model.name %>.prototype.save = function(callback){
         if(!this.uri){
 

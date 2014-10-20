@@ -92,7 +92,7 @@ module.exports = function(app){
                 if(!app.njax.config.local_file_cache){
                     var url = 'http://s3.amazonaws.com/' + app.njax.config.aws.bucket_name  +  '/' + this.<%= name %>;
                 }else{
-                    var url = '/cache/' + this.<%= name %>;
+                    var url = app.njax.config.www_url + '/cache/' + this.<%= name %>;
                 }
 
                 return {
@@ -219,8 +219,16 @@ module.exports = function(app){
     if (!<%= _model.name.toLowerCase() %>Schema.options.toObject) <%= _model.name.toLowerCase() %>Schema.options.toObject = {};
     <%= _model.name.toLowerCase() %>Schema.options.toObject.transform = function (doc, ret, options) {
         ret.uri = doc.uri;
-        ret.url = app.njax.config.domain + ':' + (app.njax.config.public_port || app.njax.config.port) + doc.uri;
-        ret.api_url = 'api.' +  ret.url;
+        var port_str = '';
+        if(!app.njax.config.hide_port){
+            port_str = ':' + app.njax.config.port;
+        }
+        ret.url = app.njax.config.domain + port_str + doc.uri;
+        <% if (config.is_platform || config.njax_module) { %>
+            ret.api_url = app.njax.config.core.api.host  + doc.uri;
+        <% } else { %>
+            ret.api_url = app.njax.config.api.host  + doc.uri;
+        <% } %>
         <% for(var name in _model.fields){  %>
             <% if(_model.fields[name].type == 's3-asset'){ %>
                 ret.<%= name %>_s3 = {

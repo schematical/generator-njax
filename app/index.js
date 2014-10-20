@@ -104,10 +104,14 @@ NJaxGenerator.prototype.dependencies = function(){
     if(this.config.bower.name == '?'){
         this.config.bower.name = this.config.app_name;
     }
-    this.writeFileFromString(
-        JSON.stringify(this.config.package),
-        'package.json'
-    );
+    var destination = this.isPathAbsolute( 'package.json') ?  'package.json' : path.join(this.destinationRoot(),  'package.json');
+    if(!fs.existsSync(destination)){
+        this.writeFileFromString(
+            JSON.stringify(this.config.package),
+            'package.json'
+        );
+    }
+
     this.writeFileFromString(
         JSON.stringify(this.config.bower),
         'bower.json'
@@ -147,6 +151,9 @@ NJaxGenerator.prototype._genSchema = function genSchema(model){
         this._templateIfNew(this.default_tpl_dir + 'lib/routes/model/route.js', 'lib/routes/model/' + this._model.name + '.js');
 
 
+        if(model.relationship && model.relationship != 'assoc'){
+            //Blah
+        }
         this._templateIfNew(this.default_tpl_dir + 'public/templates/model/detail.hjs', tpl_dir_root +  '/' +this._model.name + '_detail.hjs');
         this._templateIfNew(this.default_tpl_dir + 'public/templates/model/edit.hjs', tpl_dir_root +  '/' +this._model.name + '_edit.hjs');
         this._templateIfNew(this.default_tpl_dir + 'public/templates/model/_edit.hjs', tpl_dir_root + '/_' + this._model.name + '_edit_form.hjs');
