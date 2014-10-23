@@ -21,7 +21,9 @@ module.exports = function(app){
     };
 
     var <%= _model.name.toLowerCase() %>Schema = new Schema(fields);
-
+	<%= _model.name.toLowerCase() %>Schema.virtual('_njax_type').get(function(){
+		return '<%= _.capitalize(_model.name) %>';
+	});
     <%= _model.name.toLowerCase() %>Schema.virtual('uri').get(function(){
         <% if(_model.is_subdocument){ %>
             <% if(_model.fields.namespace){ %>
@@ -216,19 +218,48 @@ module.exports = function(app){
         return next();
     });
 
+
+
+     <%= _model.name.toLowerCase() %>Schema.virtual('tags').get(function(){
+		return function(callback){
+			return app.njax.tag.query(this, callback);
+		}
+	});
+	<%= _model.name.toLowerCase() %>Schema.virtual('addTag').get(function(){
+		return function(tag_data, callback){
+			return app.njax.tag.add(tag_data, this, callback);
+		}
+	});
+
+
+
+    <%= _model.name.toLowerCase() %>Schema.virtual('url').get(function(){
+     	var port_str = '';
+        if(!app.njax.config.hide_port){
+            port_str = ':' + app.njax.config.port;
+		}
+		return app.njax.config.domain + port_str + this.uri;
+	});
+
+   <%= _model.name.toLowerCase() %>Schema.virtual('api_url').get(function(){
+    	var port_str = '';
+        if(!app.njax.config.hide_port){
+            port_str = ':' + app.njax.config.port;
+		}
+		<% if (config.is_platform || config.njax_module) { %>
+           return app.njax.config.core.api.host  + this.uri;
+        <% } else { %>
+            return app.njax.config.api.host  + this.uri;
+        <% } %>
+	});
+
+
     if (!<%= _model.name.toLowerCase() %>Schema.options.toObject) <%= _model.name.toLowerCase() %>Schema.options.toObject = {};
     <%= _model.name.toLowerCase() %>Schema.options.toObject.transform = function (doc, ret, options) {
         ret.uri = doc.uri;
-        var port_str = '';
-        if(!app.njax.config.hide_port){
-            port_str = ':' + app.njax.config.port;
-        }
-        ret.url = app.njax.config.domain + port_str + doc.uri;
-        <% if (config.is_platform || config.njax_module) { %>
-            ret.api_url = app.njax.config.core.api.host  + doc.uri;
-        <% } else { %>
-            ret.api_url = app.njax.config.api.host  + doc.uri;
-        <% } %>
+
+        ret.url = doc.url;
+        ret.api_url = doc.api_url;
         <% for(var name in _model.fields){  %>
             <% if(_model.fields[name].type == 's3-asset'){ %>
                 ret.<%= name %>_s3 = {

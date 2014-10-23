@@ -86,7 +86,32 @@ module.exports = {
                 },
                 "accounts":{ "type":"array" }
             }
-        }
+        },
+		"tag":{
+			"uri_prefix":"/tags",
+			"name":"tag",
+			"relationship":"assoc",
+			"default":true,
+			"fields":{
+				"type":"string",
+				"sub_type":"string",
+				"value":"string",
+				"entity_type":"string",
+				"entity_url":"string",
+				"_entity_name":"strings",
+				"_entity_namespace":"strings",
+				"application":{
+					"type":"ref",
+					"ref":"application",
+					"bootstrap_populate":"req.application"
+				},
+				"account":{
+					"type":"ref",
+						"ref":"account",
+						"bootstrap_populate":"req.user"
+				}
+			}
+		}
     },
     bower:{
         "name": "nde",

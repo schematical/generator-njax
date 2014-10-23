@@ -15,7 +15,16 @@ module.exports = function(app){
                     owner:<%= _model.fields.owner.bootstrap_populate %>._id
                 }
             },
-        <% } else { %>
+        <% } else if(_model.parent){ %>
+			owner_query:function(req){
+				if(!<%= _model.fields[_model.parent].bootstrap_populate %>){
+					return null;
+				}
+				return {
+					<%=_model.parent %>:<%= _model.fields[_model.parent].bootstrap_populate %>._id
+				}
+			},
+		<% } else { %>
             owner_query:function(){
                 return { }
             },
@@ -32,6 +41,14 @@ module.exports = function(app){
             app.post(
                 uri,
                 [
+					function(req, res, next){
+						if(!req.njax){
+							req.njax = {};
+						}
+						req.njax.action = 'create';
+						req.njax.entity = '<%= _model.name %>';
+						return next();
+					},
                     route.auth_create,
                     <% if(_model.file_fields){ %>
                         app.njax.s3.route(['<%= _model.file_fields %>']),
@@ -45,12 +62,20 @@ module.exports = function(app){
                     route.post_create,
                     route.bootstrap_detail,
                     route.broadcast_create,
-                    route.render_detail
+                    route.redirect_detail
                 ]
             );
             app.post(
                 uri + '/new',
                 [
+                	function(req, res, next){
+						if(!req.njax){
+							req.njax = {};
+						}
+						req.njax.action = 'create';
+						req.njax.entity = '<%= _model.name %>';
+						return next();
+                	},
                     route.auth_create,
                     <% if(_model.file_fields){ %>
                         app.njax.s3.route(['<%= _model.file_fields %>']),
@@ -64,12 +89,20 @@ module.exports = function(app){
                     route.post_create,
                     route.bootstrap_detail,
                     route.broadcast_create,
-                    route.render_detail
+                    route.redirect_detail
                 ]
             );
             app.post(
                 uri + '/:<%= _model.name.toLowerCase() %>',
                 [
+					function(req, res, next){
+						if(!req.njax){
+							req.njax = {};
+						}
+						req.njax.action = 'update';
+						req.njax.entity = '<%= _model.name %>';
+						return next();
+					},
                     route.auth_update,
                     <% if(_model.file_fields){ %>
                     app.njax.s3.route(['<%= _model.file_fields %>']),
@@ -89,6 +122,14 @@ module.exports = function(app){
                 app.delete(
                     uri + '/:<%= _model.name.toLowerCase() %>',
                     [
+						function(req, res, next){
+							if(!req.njax){
+								req.njax = {};
+							}
+							req.njax.action = 'remove';
+							req.njax.entity = '<%= _model.name %>';
+							return next();
+						},
                         route.auth_update,
                         route.pre_remove,
                         route.remove,
@@ -120,6 +161,37 @@ module.exports = function(app){
                 route.bootstrap_edit,
                 route.render_edit
             ]);
+            <% if(_model.relationship != 'assoc'){ %>
+            	app.post(uri +  '/:<%= _model.name.toLowerCase() %>/tags',[
+					route.create_tag,
+					route.broadcast_update,
+					route.render_tag
+				]);
+				app.delete(uri +  '/:<%= _model.name.toLowerCase() %>/tags/:tag',[
+					function(req, res, next){
+						if(!req.tag){
+							return next(new Error(404));
+						}
+						return next();
+					},
+					route.remove_tag,
+					route.render_tag
+				]);
+				app.all(uri +  '/:<%= _model.name.toLowerCase() %>/tags',[
+					route.list_tags,
+					route.render_tags
+				]);
+				app.all(uri +  '/:<%= _model.name.toLowerCase() %>/tags/:tag',[
+					function(req, res, next){
+						if(!req.tag){
+							return next(new Error(404));
+						}
+						return next();
+					},
+					route.render_tag
+				]);
+
+            <% } %>
 
 
         },
@@ -128,10 +200,10 @@ module.exports = function(app){
                 if(req.user && (req.<%= _model.name %> && (req.<%= _model.name %>.owner && req.<%= _model.name %>.owner.equals(req.user._id)) || (req.is_admin))){
                     return  next();//We have a legit users
                 }
-                return next(404);//We do not have a legit user
+                return next(new Error(404));//We do not have a legit user
             <% }else{ %>
                 if(!req.user){
-                    return next(404);//res.redirect('/');
+                    return next(new Error(404));//res.redirect('/');
                 }
                 return next();
              <% } %>
@@ -246,10 +318,12 @@ module.exports = function(app){
                         app.model.<%= _.capitalize(_model.name) %>.find(query, function(err, _<%= _model.name %>s){
                             if(err) return next(err);
                             <%= _model.name %>s = _<%= _model.name %>s;
+							res.bootstrap('<%= _model.name %>s', <%= _model.name %>s);
                             return cb();
                         });
                     <% } else { %>
                         <%= _model.name %>s = _.clone(req.<%= _model.parent %>.<%= _model.name %>s);
+						res.bootstrap('<%= _model.name %>s', <%= _model.name %>s);
                         return cb();
                     <% } %>
                 },
@@ -266,9 +340,11 @@ module.exports = function(app){
                             <%= _model.name %>_data
                         );
                     }
+
                     return cb();
                 },
                 function(cb){
+
                     return next();
                 }
             ]);
@@ -285,6 +361,23 @@ module.exports = function(app){
             <% } %>
 
             res.render('model/<%= _model.name %>_detail', req.<%= _model.name %>.toObject());
+        },
+        redirect_detail:function(req, res, next){
+  			if(!req.<%= _model.name %>){
+                return next();
+            }
+            if(req.njax.call_type == 'www'){
+				return res.redirect(req.<%= _model.name %>.uri);
+            }
+            return route.render_detail(req, res, next);
+
+        },
+        redirect_edit:function(req, res, next){
+  			if(!req.<%= _model.name %>){
+                return next();
+            }
+
+            res.redirect(req.<%= _model.name %>.uri + '/edit');
         },
         render_edit:function(req, res, next){
             async.series([
@@ -418,8 +511,45 @@ module.exports = function(app){
             return next();
         },
         post_remove:function(req, res, next){
-                return next();
+			return next();
         },
+		create_tag:function(req, res, next){
+			if(!req.<%= _model.name %>){
+				return next(new Error(404));
+			}
+			//TODO: Add validation
+			return app.njax.tags.add(
+				req.body,
+				req.<%= _model.name %>,
+				function(err, tag){
+					if(err) return next(err);
+					res.bootstrap('tag', tag);
+					return next();
+				}
+			);
+		},
+		remove_tag:function(req, res, next){
+			if(!req.tag){
+				return next(new Error(404));
+			}
+			return req.tag.remove(function(err){
+				if(err) return next(err);
+				return next();
+			});
+		},
+		list_tags:function(req, res, next){
+			app.njax.tags.query(req.<%= _model.name %>, function(err, tags){
+				if(err) return next(err);
+				res.bootstrap('tags', tags);
+				return next();
+			});
+		},
+		render_tags:function(req, res, next){
+			return res.render('model/tags_list', res.locals.tags);
+		},
+		render_tag:function(req, res, next){
+			return res.render('model/tag_detail', res.locals.tag);
+		},
         broadcast_create:function(req, res, next){
             <% if(_model.fields.owner){ %>
                 app.njax.broadcast(

@@ -16,7 +16,7 @@
 
 #####NodeJS:
 ```
-sdk100.find({ }, function(err, <%= config.models[i].name %>s){
+sdk100.<%= _.capitalize(config.models[i].name) %>.find({ }, function(err, <%= config.models[i].name %>s){
     if(err) throw err;//Error
     console.log(<%= config.models[i].name %>s);//Success
 });
@@ -27,7 +27,7 @@ sdk100.find({ }, function(err, <%= config.models[i].name %>s){
 
 #####NodeJS:
 ```
-sdk100.findOne({ _id:'<%= config.models[i].name %>_id' }, function(err, <%= config.models[i].name %>){
+sdk100.<%= _.capitalize(config.models[i].name) %>.findOne({ _id:'<%= config.models[i].name %>_id' }, function(err, <%= config.models[i].name %>){
     if(err) throw err;//Error
     if(!<%= config.models[i].name %>) throw new Error("No <%= _.capitalize(config.models[i].name) %>");
 
@@ -39,7 +39,7 @@ sdk100.findOne({ _id:'<%= config.models[i].name %>_id' }, function(err, <%= conf
 `POST <%= config.models[i].uri %>/:<%= config.models[i].name %>_id`
 #####NodeJS:
 ```
-sdk100.findOne({ _id:'<%= config.models[i].name %>_id' }, function(err, <%= config.models[i].name %>){
+sdk100.<%= _.capitalize(config.models[i].name) %>.findOne({ _id:'<%= config.models[i].name %>_id' }, function(err, <%= config.models[i].name %>){
     if(err) throw err;//Error
     if(!<%= config.models[i].name %>) throw new Error("No <%= _.capitalize(config.models[i].name) %>");
 
