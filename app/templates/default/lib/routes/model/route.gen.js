@@ -175,6 +175,7 @@ module.exports = function(app){
 						return next();
 					},
 					route.remove_tag,
+					route.broadcast_update,
 					route.render_tag
 				]);
 				app.all(uri +  '/:<%= _model.name.toLowerCase() %>/tags',[
@@ -190,6 +191,44 @@ module.exports = function(app){
 					},
 					route.render_tag
 				]);
+
+
+
+
+				/*
+				//For now we will use the trigger event
+				app.post(uri +  '/:<%= _model.name.toLowerCase() %>/events',[
+					route.create_event,
+					route.broadcast_event,
+					route.render_tag
+				]);
+				//We dont need to remove events at this point
+				app.delete(uri +  '/:<%= _model.name.toLowerCase() %>/events/:event',[
+					function(req, res, next){
+						if(!req.tag){
+							return next(new Error(404));
+						}
+						return next();
+					},
+					route.remove_event,
+					route.render_event
+				]);
+				*/
+
+				app.all(uri +  '/:<%= _model.name.toLowerCase() %>/events',[
+					route.list_events,
+					route.render_events
+				]);
+				app.all(uri +  '/:<%= _model.name.toLowerCase() %>/events/:event',[
+					function(req, res, next){
+						if(!req.tag){
+							return next(new Error(404));
+						}
+						return next();
+					},
+					route.render_events
+				]);
+
 
             <% } %>
 
@@ -550,6 +589,49 @@ module.exports = function(app){
 		render_tag:function(req, res, next){
 			return res.render('model/tag_detail', res.locals.tag);
 		},
+
+
+
+		/*
+		create_event:function(req, res, next){
+			if(!req.<%= _model.name %>){
+				return next(new Error(404));
+			}
+			//TODO: Add validation
+			return app.njax.tags.add(
+				req.body,
+				req.<%= _model.name %>,
+				function(err, tag){
+					if(err) return next(err);
+					res.bootstrap('event', event);
+					return next();
+				}
+			);
+		},
+		remove_event:function(req, res, next){
+			if(!req.event){
+				return next(new Error(404));
+			}
+			return req.event.remove(function(err){
+				if(err) return next(err);
+				return next();
+			});
+		},
+		*/
+		list_events:function(req, res, next){
+			app.njax.events.query(req.<%= _model.name %>, function(err, events){
+				if(err) return next(err);
+				res.bootstrap('events', events);
+				return next();
+			});
+		},
+		render_events:function(req, res, next){
+			return res.render('model/event_list', res.locals.events);
+		},
+		render_event:function(req, res, next){
+			return res.render('model/event_detail', res.locals.event);
+		},
+
         broadcast_create:function(req, res, next){
             <% if(_model.fields.owner){ %>
                 app.njax.broadcast(
@@ -557,7 +639,9 @@ module.exports = function(app){
                     '<%= _model.name %>.update',
                     {
                         user:req.user.toObject(),
-                        <%= _model.name %>: req.<%= _model.name %>.toObject()
+                        <%= _model.name %>: req.<%= _model.name %>.toObject(),
+						_url:req.<%= _model.name %>.url,
+						_entity_type:req.<%= _model.name %>._njax_type
                     }
                 );
                 return next();
@@ -573,7 +657,9 @@ module.exports = function(app){
                         '<%= _model.name %>.update',
                         {
                             user:req.user.toObject(),
-                            <%= _model.name %>: req.<%= _model.name %>.toObject()
+                            <%= _model.name %>: req.<%= _model.name %>.toObject(),
+							_url:req.<%= _model.name %>.url,
+							_entity_type:req.<%= _model.name %>._njax_type
                         }
                     );
 
@@ -590,7 +676,9 @@ module.exports = function(app){
                     '<%= _model.name %>.remove',
                     {
                         user:req.user.toObject(),
-                        <%= _model.name %>: req.<%= _model.name %>.toObject()
+                        <%= _model.name %>: req.<%= _model.name %>.toObject(),
+						_url:req.<%= _model.name %>.url,
+						_entity_type:req.<%= _model.name %>._njax_type
                     }
                 );
                 return next();

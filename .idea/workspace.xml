@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8992653a-a613-47ab-a867-0cca798236cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/sdk/README.md" afterPath="$PROJECT_DIR$/app/templates/sdk/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/sdk/lib/model/model.gen.js" afterPath="$PROJECT_DIR$/app/templates/sdk/lib/model/model.gen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/angular/public/js/services/model.js" afterPath="$PROJECT_DIR$/app/templates/angular/public/js/services/model.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/njax.js" afterPath="$PROJECT_DIR$/app/templates/default/njax.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" afterPath="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="generator-njax.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +29,7 @@
       <file leaf-file-name="route.gen.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="178" column="19" selection-start="5835" selection-end="5835" vertical-scroll-proportion="0.8449612" vertical-offset="2877" max-vertical-offset="11232">
+            <state line="311" column="0" selection-start="10268" selection-end="10268" vertical-scroll-proportion="1.9612403" vertical-offset="4839" max-vertical-offset="12816">
               <folding />
             </state>
           </provider>
@@ -43,7 +38,7 @@
       <file leaf-file-name="njax.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/default/njax.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="33" selection-start="2920" selection-end="2920" vertical-scroll-proportion="-7.703704" vertical-offset="1538" max-vertical-offset="2934">
+            <state line="80" column="28" selection-start="2457" selection-end="2457" vertical-scroll-proportion="-33.333332" vertical-offset="540" max-vertical-offset="2952">
               <folding />
             </state>
           </provider>
@@ -122,11 +117,11 @@
         <option value="$PROJECT_DIR$/app/templates/angular/public/js/controllers/model.js" />
         <option value="$PROJECT_DIR$/app/templates/angular/index.js" />
         <option value="$PROJECT_DIR$/app/templates/sdk/README.md" />
-        <option value="$PROJECT_DIR$/app/templates/default/njax.js" />
         <option value="$PROJECT_DIR$/app/templates/sdk/lib/model/model.gen.js" />
         <option value="$PROJECT_DIR$/app/templates/angular/public/js/services/model.js" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js" />
         <option value="$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js" />
+        <option value="$PROJECT_DIR$/app/templates/default/njax.js" />
       </list>
     </option>
   </component>
@@ -529,96 +524,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="generator-njax">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="templates">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="default">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="lib">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="routes">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="generator-njax">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="templates">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="default">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="lib">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="routes">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="model">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="generator-njax">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="templates">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="default">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="lib">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -900,11 +805,6 @@
         <state line="4" column="52" selection-start="152" selection-end="152" vertical-scroll-proportion="0.117263846" vertical-offset="0" max-vertical-offset="614" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/sdk/njax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/angular/public/js/directives/model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="31" selection-start="140" selection-end="140" vertical-scroll-proportion="0.17589577" vertical-offset="0" max-vertical-offset="1188" />
@@ -994,13 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/default/njax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="33" selection-start="2920" selection-end="2920" vertical-scroll-proportion="-7.703704" vertical-offset="1538" max-vertical-offset="2934">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/model/schema.gen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="247" column="8" selection-start="10222" selection-end="10222" vertical-scroll-proportion="-6.0425534" vertical-offset="4162" max-vertical-offset="5184">
@@ -1008,9 +901,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/sdk/njax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="427">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/default/njax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="28" selection-start="2457" selection-end="2457" vertical-scroll-proportion="-33.333332" vertical-offset="540" max-vertical-offset="2952">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/default/lib/routes/model/route.gen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="178" column="19" selection-start="5835" selection-end="5835" vertical-scroll-proportion="0.8449612" vertical-offset="2877" max-vertical-offset="11232">
+        <state line="311" column="0" selection-start="10268" selection-end="10268" vertical-scroll-proportion="1.9612403" vertical-offset="4839" max-vertical-offset="12816">
           <folding />
         </state>
       </provider>

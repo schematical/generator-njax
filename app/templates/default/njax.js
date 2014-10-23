@@ -78,6 +78,7 @@ module.exports = {
                 "event_namespace":"string",
                 "short_namespace":"string",
                 "entity_url":"string",
+				"entity_type":"string",
                 "data":{ "type":"object" },
                 "application":{
                     "type":"ref",
