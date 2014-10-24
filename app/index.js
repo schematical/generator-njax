@@ -111,11 +111,13 @@ NJaxGenerator.prototype.dependencies = function(){
             'package.json'
         );
     }
-
-    this.writeFileFromString(
-        JSON.stringify(this.config.bower),
-        'bower.json'
-    );
+	var destination = this.isPathAbsolute( 'bower.json') ?  'bower.json' : path.join(this.destinationRoot(),  'bower.json');
+	if(!fs.existsSync(destination)){
+		this.writeFileFromString(
+			JSON.stringify(this.config.bower),
+			'bower.json'
+		);
+	}
 }
 
 
