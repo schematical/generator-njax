@@ -30,8 +30,11 @@ angular.module('<%= config.app_name %>.<%= _model.name %>.controller', [])
         [
             '$scope',
             '<%= _.capitalize(_model.name) %>Service',
-            function($scope, <%= _.capitalize(_model.name) %>Service) {
-
+            'NJaxBootstrap',
+            function($scope, <%= _.capitalize(_model.name) %>Service, NJaxBootstrap) {
+				if( NJaxBootstrap.<%= _model.name %>){
+					$scope.<%= _model.name %> = new <%= _.capitalize(_model.name) %>Service(NJaxBootstrap.<%= _model.name %>);
+				}
 
             }
         ]

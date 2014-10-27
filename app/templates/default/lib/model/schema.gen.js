@@ -218,7 +218,12 @@ module.exports = function(app){
         return next();
     });
 
-
+ 	<%= _model.name.toLowerCase() %>Schema.virtual('events').get(function(){
+		return function(callback){
+			return app.njax.event.query(this, callback);
+		}
+	});
+	
 
      <%= _model.name.toLowerCase() %>Schema.virtual('tags').get(function(){
 		return function(callback){

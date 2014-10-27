@@ -148,6 +148,7 @@ module.exports = function(app){
                 route.render_list
             ]);
             app.all(uri + '/new', [
+            	route.auth_create,
                 route.bootstrap_edit,
                 route.render_edit
             ]);
@@ -250,7 +251,7 @@ module.exports = function(app){
         auth_create:function(req, res, next){
              //ENtities that have not been created do not have an owner to manage
              if(!req.user){
-                 return res.redirect('/');
+                 return next(new Error(404));//res.redirect('/');
              }
              return next();
 
@@ -636,7 +637,7 @@ module.exports = function(app){
             <% if(_model.fields.owner){ %>
                 app.njax.broadcast(
                     [ req.user ],
-                    '<%= _model.name %>.update',
+                    '<%= _model.name %>.create',
                     {
                         user:req.user.toObject(),
                         <%= _model.name %>: req.<%= _model.name %>.toObject(),
