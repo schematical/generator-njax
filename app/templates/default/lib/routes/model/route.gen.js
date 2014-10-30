@@ -21,7 +21,7 @@ module.exports = function(app){
 					return null;
 				}
 				return {
-					<%=_model.parent %>:<%= _model.fields[_model.parent].bootstrap_populate %>._id
+					<%=_model.parent %>:<%= _model.fields[_model.parent].bootstrap_populate %>._id.toString()
 				}
 			},
 		<% } else { %>

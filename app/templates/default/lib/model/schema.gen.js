@@ -220,10 +220,10 @@ module.exports = function(app){
 
  	<%= _model.name.toLowerCase() %>Schema.virtual('events').get(function(){
 		return function(callback){
-			return app.njax.event.query(this, callback);
+			return app.njax.events.query(this, callback);
 		}
 	});
-	
+
 
      <%= _model.name.toLowerCase() %>Schema.virtual('tags').get(function(){
 		return function(callback){
@@ -265,6 +265,8 @@ module.exports = function(app){
 
         ret.url = doc.url;
         ret.api_url = doc.api_url;
+		ret._njax_type = doc._njax_type;
+		
         <% for(var name in _model.fields){  %>
             <% if(_model.fields[name].type == 's3-asset'){ %>
                 ret.<%= name %>_s3 = {
@@ -274,7 +276,9 @@ module.exports = function(app){
             <% }else if(_model.fields[name].type == 'md'){ %>
                 ret.<%= name %> = doc.<%= name %>_rendered;
                 ret.<%= name %>_raw = doc.<%= name %>_raw;
-            <% }else if(_model.fields[name].type == 'tpcd'){ %>
+            <% }else if(_model.fields[name].type == 'object'){ %>
+				ret.<%= name %> = doc.<%= name %>;
+			<% }if(_model.fields[name].type == 'tpcd'){ %>
                 <% for(var value in _model.fields[name].options){ %>
                     ret.is_<%= value %> = doc.is_<%= value %>;
                 <% } %>
