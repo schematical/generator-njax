@@ -79,6 +79,7 @@ module.exports = {
                 "short_namespace":"string",
                 "entity_url":"string",
 				"entity_type":"string",
+				"entity_id":"string",
                 "data":{ "type":"object" },
                 "application":{
                     "type":"ref",
@@ -99,8 +100,10 @@ module.exports = {
 				"value":"string",
 				"entity_type":"string",
 				"entity_url":"string",
+				"entity_id":"string",
 				"_entity_name":"strings",
 				"_entity_namespace":"strings",
+
 				"application":{
 					"type":"ref",
 					"ref":"application",

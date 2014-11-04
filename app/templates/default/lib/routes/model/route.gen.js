@@ -142,6 +142,7 @@ module.exports = function(app){
             <% } %>
 
             app.all(uri, [
+				route.populate_tag_query,
                 route.populate_list_query,
                 route.populate_list,
                 route.bootstrap_list,
@@ -164,6 +165,7 @@ module.exports = function(app){
             ]);
             <% if(_model.relationship != 'assoc'){ %>
             	app.post(uri +  '/:<%= _model.name.toLowerCase() %>/tags',[
+            		route.validate_tag,
 					route.create_tag,
 					route.broadcast_update,
 					route.render_tag
@@ -321,15 +323,64 @@ module.exports = function(app){
         render_list:function(req, res, next){
             res.render('model/<%= _model.name %>_list', res.locals.<%= _model.name %>s);
         },
+		populate_tag_query:function(req, res, next){
+
+			if(!req.query.tags){
+				return next();
+			}
+			if(!req._list_query){
+				req._list_query = _.clone(route.read_query(req));
+			}
+			var tag_query = [];
+			var tags = req.query.tags.split(',');
+			for(var i in tags){
+				tag_query.push({ value: tags[i] });
+			}
+
+			return app.njax.tags.query(
+				{
+					tag_query:tag_query,
+					entity_type:"<%= _.capitalize(_model.name) %>"
+				},
+				function(err, entites){
+					if(err) return next(err);
+					var entity_id_query = [];
+					if(entites.length == 0){
+						req._list_query = false;
+						return next();
+					}
+					for(var i in entites){
+						entity_id_query.push({ _id: entites[i].entity_id });
+					}
+
+					req._list_query.$or = entity_id_query;
+
+
+					return next();
+				}
+			);
+
+		},
         populate_list_query:function(req, res, next){
-            var query = _.clone(route.read_query(req));
+			if(!req._list_query){
+				if(req._list_query === false){
+					//Then they tried to tag search and it returned no results
+					return next();
+				}else{
+					req._list_query = _.clone(route.read_query(req));
+					if(!req._list_query){
+						req._list_query = {}; //return next();//TODO: Fix this so its secure
+					}
+
+				}
+			}
             var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
             <% for(var name in _model.fields){  %>
                 <% if(_model.fields[name].type == 's3-asset'){ %>
                 <% }else if(_model.fields[name].type == 'ref'){ %>
                 if(req.query.<%= name %>){
                     if(checkForHexRegExp.test(req.query.<%= name %>)){
-                        query['<%= name %>'] = req.query.<%= name %>;
+						req._list_query['<%= name %>'] = req.query.<%= name %>;
                     }
                 }
                 <% }else if(_model.fields[name].type == 'array'){ %>
@@ -337,13 +388,13 @@ module.exports = function(app){
                 <% }else if(_model.fields[name].type == 'date'){ %>
                 <% }else{ %>
                     if(req.query.<%= name %>){
-                        query['<%= name %>'] =   { $regex: new RegExp('^' + req.query.<%= name %> + '', 'i') };
+						req._list_query['<%= name %>'] =   { $regex: new RegExp('^' + req.query.<%= name %> + '', 'i') };
                     }
                 <% } %>
             <% } %>
 
 
-            req._list_query = query;
+
             return next();
         },
         populate_list:function(req, res, next){
@@ -487,8 +538,10 @@ module.exports = function(app){
                     //Do nothing it is an array
                     //req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
                 <% }else if(_model.fields[name].type == 'object'){ %>
-                    req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
-                    req.<%= _model.name %>.markModified('<%= name %>');
+                	if(req.body.<%= name %>){
+                    	req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
+                    	req.<%= _model.name %>.markModified('<%= name %>');
+					}
                 <% }else{ %>
                     req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
                 <% } %>
@@ -553,6 +606,12 @@ module.exports = function(app){
         post_remove:function(req, res, next){
 			return next();
         },
+		validate_tag:function(req, res, next){
+			if(!req.body.type){
+				return next(new Error("Ivalid type"));
+			}
+			return next();
+		},
 		create_tag:function(req, res, next){
 			if(!req.<%= _model.name %>){
 				return next(new Error(404));

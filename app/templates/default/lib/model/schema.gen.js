@@ -266,7 +266,7 @@ module.exports = function(app){
         ret.url = doc.url;
         ret.api_url = doc.api_url;
 		ret._njax_type = doc._njax_type;
-		
+
         <% for(var name in _model.fields){  %>
             <% if(_model.fields[name].type == 's3-asset'){ %>
                 ret.<%= name %>_s3 = {
