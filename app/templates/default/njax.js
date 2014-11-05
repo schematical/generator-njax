@@ -115,7 +115,50 @@ module.exports = {
 						"bootstrap_populate":"req.user"
 				}
 			}
-		}
+		},
+		"subscription":{
+			"uri_prefix":"/subscription",
+			"name":"subscription",
+			"relationship":"assoc",
+			"default":true,
+			"fields":{
+				"event_filters":["string"],
+				"short_namespace":"string",
+				"entity_url":"string",
+				"entity_type":"string",
+				"entity_id":"string",
+				"data":{ "type":"object" },
+				"account":{
+					"type":"ref",
+					"ref":"account",
+					"bootstrap_populate":"req.user"
+				}
+			}
+		}/*,
+		"user_group":{
+			"uri_prefix":"/subscription",
+			"name":"subscription",
+			"relationship":"assoc",
+			"default":true,
+			"fields":{
+				"name":"string",
+				"namespace":"string",
+				"account":{
+					"type":"ref",
+					"ref":"account",
+					"bootstrap_populate":"req.user"
+				}
+			}
+		},
+		"user_group_member":{
+			"uri_prefix":"/subscription",
+			"name":"subscription",
+			"relationship":"assoc",
+			"default":true,
+			"fields":{
+
+			}
+		}*/
     },
     bower:{
         "name": "nde",

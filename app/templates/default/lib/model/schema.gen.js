@@ -17,6 +17,9 @@ module.exports = function(app){
             <%= name %>:<%= _model.fields[name].mongo_type %>,
         <% } %>
     <% } %>
+		<%  if(_model.parent_field){ %>
+			_parent_uri:{ type:"string" },
+		<% } %>
         creDate:Date
     };
 
@@ -34,18 +37,18 @@ module.exports = function(app){
         <% } else if(_model.parent_field){ %>
             <% if(_model.fields.namespace){ %>
                 if(!this.<%= _model.parent %>){
-                    var parent_id = null;
+                    var parent_uri = '';
                 }else{
-                    var parent_id =  (this.<%= _model.parent %>.uri || ('/' + this.<%= _model.parent %>));
+                    var parent_uri =  (this.<%= _model.parent %>.uri || (this._parent_uri));
                 }
-                return '<%= _model.parent_field.uri_prefix %>' + parent_id   + '<%= _model.uri_prefix %>/' + (this.namespace || this._id);
+                return parent_uri + '<%= _model.uri_prefix %>/' + (this.namespace || this._id);
             <% }else{ %>
-                if(!this.<%= _model.parent %>){
-                    var parent_id = null;
-                }else{
-                    var parent_id = (this.<%= _model.parent %>.uri || ('/' + this.<%= _model.parent %>));
-                }
-                return '<%= _model.parent_field.uri_prefix %>' +  parent_id + '<%= _model.uri_prefix %>/' + this._id;
+				if(!this.<%= _model.parent %>){
+					var parent_uri = null;
+				}else{
+					var parent_uri =  (this.<%= _model.parent %>.uri || (this._parent_uri));
+				}
+                return parent_uri + '<%= _model.uri_prefix %>/' + this._id;
             <% } %>
         <% } else { %>
             <% if(_model.fields.namespace){ %>
@@ -215,7 +218,27 @@ module.exports = function(app){
             this._id = new app.mongoose.Types.ObjectId();
             this.creDate = new Date();
         }
+        <% if(_model.parent_field){ %>
+            if(!this._parent_uri){
+            	if(this.<%= _model.parent %>){
+					//Bananas
+					var _this = this;
+					return app.model.<%= _.capitalize(_model.fields[_model.parent].ref) %>.findOne({ _id: this.<%= _model.parent %> }).exec(function(err, <%= _model.parent %>){
+						if(err) return next(err);
+						if(!<%= _model.parent %>){
+							return next(new Error("No <%= _model.parent %> found when trying to populate _parent_uri. Either find it or manually populate the _parent_uri."));
+						}
+						_this._parent_uri = <%= _model.parent %>.uri;
+						return next();
+					});
+				}
+				return next(new Error("Missing Parent Field: <%= _model.parent %>!"));
+            }
+
+		<% } %>
+
         return next();
+
     });
 
  	<%= _model.name.toLowerCase() %>Schema.virtual('events').get(function(){

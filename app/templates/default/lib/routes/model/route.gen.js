@@ -377,8 +377,10 @@ module.exports = function(app){
             var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
             <% for(var name in _model.fields){  %>
                 <% if(_model.fields[name].type == 's3-asset'){ %>
-                <% }else if(_model.fields[name].type == 'ref'){ %>
-                if(req.query.<%= name %>){
+                <% }else if(_model.fields[name].type == 'ref' && (name != 'owner')){ %>
+				if(<%= _model.fields[name].bootstrap_populate %>){
+					req._list_query['<%= name %>'] = <%= _model.fields[name].bootstrap_populate %>;
+                }else if(req.query.<%= name %>){
                     if(checkForHexRegExp.test(req.query.<%= name %>)){
 						req._list_query['<%= name %>'] = req.query.<%= name %>;
                     }
@@ -529,8 +531,8 @@ module.exports = function(app){
                         req.<%= _model.name %>.<%= name %> = req.njax.files.<%= name %>;
                     }
                 <% }else if(_model.fields[name].type == 'ref'){ %>
-                    if(req.<%= _model.fields[name].ref %>){
-                        req.<%= _model.name %>.<%= name %> = req.<%= _model.fields[name].ref %>._id;
+                    if(<%= _model.fields[name].bootstrap_populate %>){
+                        req.<%= _model.name %>.<%= name %> = <%= _model.fields[name].bootstrap_populate %>._id;
                     }else if(req.body.<%= name %>){
                         req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
                     }

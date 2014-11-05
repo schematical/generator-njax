@@ -189,10 +189,13 @@ NJaxGenerator.prototype._prepairModel = function(model){
             console.error(Object.keys(this.config.models));
             throw new Error("Cannot find model : " + parent_field.ref);
         }
+
         if(!this.config.models[parent_field.ref]._prerendered){
             this._prepairModel(this.config.models[model.parent]);
         }
-        model.parent_field = this.config.models[parent_field.ref];
+
+		model.parent_field = parent_field;
+        model.parent_model = this.config.models[parent_field.ref];
     }
     var uri = '';
     var schema_uri = '';
