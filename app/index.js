@@ -193,7 +193,7 @@ NJaxGenerator.prototype._prepairModel = function(model){
         if(!this.config.models[parent_field.ref]._prerendered){
             this._prepairModel(this.config.models[model.parent]);
         }
-
+		model.fields[model.parent].is_parent = true;
 		model.parent_field = parent_field;
         model.parent_model = this.config.models[parent_field.ref];
     }

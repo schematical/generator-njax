@@ -2,6 +2,7 @@
 var fs = require('fs');
 var async = require('async');
 var mkdirp = require('mkdirp');
+var _ = require('underscore');
 
 module.exports = function(app){
 
@@ -113,11 +114,17 @@ module.exports = function(app){
                             }
                             */
                         }
+
+						if(!_this.<%= name %> || _this.<%= name %>.length == 0){
+							return callback(null, null, null);
+						}
                         var dir_name = path.dirname(local_file_path);
                         if(!fs.existsSync(dir_name)){
                             mkdirp.sync(dir_name);
                         }
                         if(app.njax.config.local_file_cache){
+
+
                             var cache_path = app.njax.cachedir(_this.<%= name %>);
                             var content = null;
                             if(fs.existsSync(cache_path)){
@@ -250,12 +257,12 @@ module.exports = function(app){
 
      <%= _model.name.toLowerCase() %>Schema.virtual('tags').get(function(){
 		return function(callback){
-			return app.njax.tag.query(this, callback);
+			return app.njax.tags.query(this, callback);
 		}
 	});
 	<%= _model.name.toLowerCase() %>Schema.virtual('addTag').get(function(){
 		return function(tag_data, callback){
-			return app.njax.tag.add(tag_data, this, callback);
+			return app.njax.tags.add(tag_data, this, callback);
 		}
 	});
 

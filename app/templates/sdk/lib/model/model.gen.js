@@ -11,19 +11,31 @@ module.exports = function(sdk){
     <% } else if(_model.parent_field){ %>
 
     <% }else{ %>
-
+		<%= _model.name %>.prototype.base_uri = '<%= _model.uri %>';
     <% } %>
 
 	<%= _model.name %>.prototype._njax_type = '<%= _.capitalize(_model.name) %>';
 
-    <%= _model.name %>.prototype.base_uri = '<%= _model.uri %>';
+
 
     <%= _model.name %>.find = function(query, callback){
         if(_.isFunction(query)){
             callback = query;
             query = null;
         }
-        sdk.find(<%= _model.name %>.prototype.base_uri, query, function(err, <%= _model.name %>_records){
+
+		<% if(_model.parent_field){ %>
+		if(query.uri){
+			var uri = query.uri;
+		}else if(query._parent_uri){
+			var uri = query._parent_uri + '<%= _model.uri_prefix %>';
+		}else if(query.<%= _model.parent %>){
+			var uri = '<%= _model.parent_model.uri_prefix %>/' + query.<%= _model.parent %> + '<%= _model.uri_prefix %>';
+		}
+		<% }else{ %>
+			var uri = <%= _model.name %>.prototype.base_uri;
+		<% } %>
+        sdk.find(uri, query, function(err, <%= _model.name %>_records){
             if(err) return callback(err);
             var <%= _model.name %>s = [];
             for(var i in <%= _model.name %>_records){
@@ -60,7 +72,7 @@ module.exports = function(sdk){
 		<%= _model.name %>.find(query, function(err, <%= _model.name %>s){
 			if(err) return callback(err);
 			if(!<%= _model.name %>s || <%= _model.name %>s.length == 0){
-				return null;
+				return callback(null, null);
 			}
 			return callback(null, <%= _model.name %>s[0]);
 		});

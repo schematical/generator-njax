@@ -26,7 +26,19 @@ module.exports = {
                 "app_url":"string",
                 "domain":"string",
                 "secret":"string",
-                "level":"level",
+                "level":{
+					"type":"tpcd",
+					"options":{
+						"super":"super",
+						"partner":"partner",
+						"unknown":"unknown",
+						"sponsored":"sponsored",
+						"beta":"beta",
+						"alpha":"alpha",
+						"lab":"lab",
+						"dev":"dev"
+					}
+				},
                 "callback_url":"string",
                 "iframes":"object",
                 "owner":{

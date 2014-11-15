@@ -286,6 +286,19 @@ module.exports = function(app){
                     <% } %>
                      ]
                 };
+
+
+				<% if(_model.parent){ %>
+					<% if(_model.parent == 'owner'){ %>
+						if(req.account){
+							query['<%= _model.parent %>'] = req.account._id;
+						}
+					<% } else{ %>
+						if(<%= _model.fields[_model.parent].bootstrap_populate %>){
+							query['<%= _model.parent %>'] = <%= _model.fields[_model.parent].bootstrap_populate %>._id;
+						}
+					<% } %>
+				<% } %>
                 app.model.<%= _.capitalize(_model.name) %>.findOne(query, function(err, <%= _model.name.toLowerCase() %>){
                     if(err){
                         return next(err);
@@ -296,7 +309,8 @@ module.exports = function(app){
                     return next();
                 });
             <% }else{ %>
-                var model = null;
+
+			    var model = null;
 
                 for(var i = 0; i < req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s.length; i++){
                     //it is an id
@@ -377,9 +391,11 @@ module.exports = function(app){
             var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
             <% for(var name in _model.fields){  %>
                 <% if(_model.fields[name].type == 's3-asset'){ %>
-                <% }else if(_model.fields[name].type == 'ref' && (name != 'owner')){ %>
+
+
+                <% }else if(_model.fields[name].type == 'ref' && _model.fields[name].is_parent && (name != 'owner')){ %>
 				if(<%= _model.fields[name].bootstrap_populate %>){
-					req._list_query['<%= name %>'] = <%= _model.fields[name].bootstrap_populate %>;
+					req._list_query['<%= name %>'] = <%= _model.fields[name].bootstrap_populate %>._id;
                 }else if(req.query.<%= name %>){
                     if(checkForHexRegExp.test(req.query.<%= name %>)){
 						req._list_query['<%= name %>'] = req.query.<%= name %>;
@@ -531,11 +547,17 @@ module.exports = function(app){
                         req.<%= _model.name %>.<%= name %> = req.njax.files.<%= name %>;
                     }
                 <% }else if(_model.fields[name].type == 'ref'){ %>
-                    if(<%= _model.fields[name].bootstrap_populate %>){
-                        req.<%= _model.name %>.<%= name %> = <%= _model.fields[name].bootstrap_populate %>._id;
-                    }else if(req.body.<%= name %>){
-                        req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
-                    }
+                	<% if(name == 'owner'){ %>
+						if(!req.<%= _model.name %>.<%= name %> && <%= _model.fields[name].bootstrap_populate %>){
+							req.<%= _model.name %>.<%= name %> = <%= _model.fields[name].bootstrap_populate %>._id;
+						}
+                	<% }else{ %>
+						if(<%= _model.fields[name].bootstrap_populate %>){
+							req.<%= _model.name %>.<%= name %> = <%= _model.fields[name].bootstrap_populate %>._id;
+						}else if(req.body.<%= name %>){
+							req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
+						}
+					<% } %>
                 <% }else if(_model.fields[name].type == 'array'){ %>
                     //Do nothing it is an array
                     //req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
