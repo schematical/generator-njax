@@ -6,7 +6,7 @@
 <% for(var name in _model.fields){  %>
     <h3><%= _.capitalize(name) %></h3>
     <% if(_model.fields[name].type == 'md'){ %>
-        {{{ <%= _model.name %>.<%= name %> }}}
+        {{{ <%= _model.name %>.<%= name %>_rendered }}}
     <% }else if(_model.fields[name].type == 's3-asset'){ %>
         <img src="{{{ <%= _model.name %>.<%= name %>_s3.url }}}" />
     <% } else { %>

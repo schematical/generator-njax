@@ -63,7 +63,7 @@ module.exports = function(app){
     <% for(var name in _model.fields){  %>
         <% if(_model.fields[name].type == 'md'){ %>
             <%= _model.name.toLowerCase() %>Schema.virtual('<%= name %>').get(function(){
-                return this.<%= name %>_rendered;
+                return this.<%= name %>_raw;
             }).set(function(value){
                 if(!value || value.length == 0){
                     return false;
@@ -304,7 +304,7 @@ module.exports = function(app){
                     path:doc.<%= name %>
                 }
             <% }else if(_model.fields[name].type == 'md'){ %>
-                ret.<%= name %> = doc.<%= name %>_rendered;
+                ret.<%= name %>_rendered = doc.<%= name %>_rendered;
                 ret.<%= name %>_raw = doc.<%= name %>_raw;
             <% }else if(_model.fields[name].type == 'object'){ %>
 				ret.<%= name %> = doc.<%= name %>;
