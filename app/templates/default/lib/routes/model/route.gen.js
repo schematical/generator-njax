@@ -410,6 +410,10 @@ module.exports = function(app){
                 <% }else if(_model.fields[name].type == 'array'){ %>
                 <% }else if(_model.fields[name].type == 'array'){ %>
                 <% }else if(_model.fields[name].type == 'date'){ %>
+                <% }else if(_model.fields[name].type == 'boolean'){ %>
+                    if(req.query.<%= name %>) {
+                        req._list_query['<%= name %>'] = (req.query.<%= name %>.toLowerCase() === 'true');
+                    }
                 <% }else{ %>
                     if(req.query.<%= name %>){
 						req._list_query['<%= name %>'] =   { $regex: new RegExp('^' + req.query.<%= name %> + '', 'i') };
