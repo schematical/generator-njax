@@ -29,14 +29,14 @@ module.exports = {
                 "level":{
 					"type":"tpcd",
 					"options":{
-						"super":"super",
-						"partner":"partner",
-						"unknown":"unknown",
-						"sponsored":"sponsored",
-						"beta":"beta",
-						"alpha":"alpha",
-						"lab":"lab",
-						"dev":"dev"
+						"SUPER":"super",
+						"PARTNER":"partner",
+						"UNKNOWN":"unknown",
+						"FEATURED":"featured",
+						"BETA":"beta",
+						"ALPHA":"alpha",
+						"LAB":"lab",
+						"DEV":"dev"
 					}
 				},
                 "callback_url":"string",

@@ -1,6 +1,6 @@
 
 
-<form role="form" action='<%= _model.hjs_uri %>/{{ <%= _model.name %>._id }}' method='POST' enctype="multipart/form-data"  ng-controller="<%= _model.name %>EditForm">
+<form role="form" action='<%= _model.hjs_uri %>/{{ <%= _model.name %>._id }}' method='POST' enctype="multipart/form-data"  ng-controller="<%= _.capitalize(_model.name) %>EditForm">
     <% for(var name in _model.fields){  %>
         <% if(_model.fields[name].type == 'boolean'){ %>
             <div class="form-group">
