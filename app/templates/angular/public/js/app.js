@@ -7,6 +7,7 @@ angular.module(
     [
         'ngRoute',
         'ngCookies',
+		'njax.bootstrap',
         <% for(var i in config.models){ %>
             '<%= config.app_name %>.<%= i %>.service',
             '<%= config.app_name %>.<%= i %>.controller',
@@ -20,12 +21,6 @@ angular.module(
             '$routeProvider',
             function($routeProvider) {
 
-                $routeProvider.when('/', { templateUrl: 'partials/welcome.html', controller: 'WelcomeCtl'});
-                $routeProvider.when('/home', { templateUrl: 'partials/home.html', controller: 'HomeCtl'});
-                $routeProvider.when('/draw', { templateUrl: 'partials/draw.html', controller: 'DrawCtl'});
-                $routeProvider.when('/suggest', { templateUrl: 'partials/suggest.html', controller: 'SuggestCtl'});
-                $routeProvider.when('/display', { templateUrl: 'partials/display.html', controller: 'DisplayCtl'});
-                $routeProvider.otherwise({redirectTo: '/'});
         }
     ]
 );

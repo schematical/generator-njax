@@ -159,6 +159,12 @@ module.exports = function(app){
                 route.render_detail
             ]);
             app.all(uri + '/:<%= _model.name.toLowerCase() %>/edit', [
+            	function(req, res, next){
+					if(!req.<%= _model.name %>){
+						return next(new Error(404));
+					}
+					return next();
+            	},
                 route.auth_update,
                 route.bootstrap_edit,
                 route.render_edit
