@@ -245,13 +245,19 @@ module.exports = function(app){
         },
         auth_update:function(req, res, next){
             <% if(_model.fields.owner){ %>
-                if(req.user && (req.<%= _model.name %> && (req.<%= _model.name %>.owner && req.<%= _model.name %>.owner.equals(req.user._id)) || (req.is_admin))){
-                    return  next();//We have a legit users
-                }
-                return next(new Error(404));//We do not have a legit user
+            	<% if(_model.fields.owner.type == 'ref'){ %>
+					if(req.user && (req.<%= _model.name %> && (req.<%= _model.name %>.owner && req.<%= _model.name %>.owner.equals(req.user._id)) || (req.is_admin))){
+						return  next();//We have a legit users
+					}
+                <% } else { %>
+					if(req.user && (req.<%= _model.name %> && (req.<%= _model.name %>.owner && req.<%= _model.name %>.owner == req.user._id) || (req.is_admin))){
+						return  next();//We have a legit users
+					}
+				<% } %>
+                return next(new Error(403));//We do not have a legit user
             <% }else{ %>
                 if(!req.user){
-                    return next(new Error(404));//res.redirect('/');
+                    return next(new Error(403));//res.redirect('/');
                 }
                 return next();
              <% } %>
@@ -290,6 +296,11 @@ module.exports = function(app){
                         ] }
 
                     <% } %>
+					<% if(_model.invitable){ %>
+						/*,
+						{ owner: {'$ne': null } }*/
+
+					<% } %>
                      ]
                 };
 
@@ -394,6 +405,31 @@ module.exports = function(app){
 
 				}
 			}
+
+
+
+			<% if(_model.fields.archiveDate){ %>
+				req._list_query = {
+					$and:[
+						req._list_query,
+						{ $or: [
+							{ archiveDate: { $gt: new Date() } },
+							{ archiveDate: null }
+						] }
+					]
+				}
+			<% } %>
+			<% if(_model.invitable){ %>
+				<% if(_model.fields.owner){ %>
+					req._list_query.$and.push({ owner: {'$ne': null } });
+				<% } %>
+				<% if(_model.fields.account){ %>
+					req._list_query.$and.push({ account: {'$ne': null } });
+				<% } %>
+			<% } %>
+
+
+
             var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
             <% for(var name in _model.fields){  %>
                 <% if(_model.fields[name].type == 's3-asset'){ %>
