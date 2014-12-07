@@ -260,7 +260,9 @@ NJaxGenerator.prototype._prepairModel = function(model){
                 break
 			case 'core-ref':
 			case 'core_ref':
+				fieldData.type = 'core_ref';
 				model._rels.push({
+					type:fieldData.type,
 					name: key,
 					ref: fieldData.ref,
 					bootstrap_populate:fieldData.bootstrap_populate || ('req.' + fieldData.ref)

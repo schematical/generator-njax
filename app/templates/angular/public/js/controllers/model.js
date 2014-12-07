@@ -14,11 +14,12 @@ angular.module('<%= config.app_name %>.<%= _model.name %>.controller', [])
 					$scope.<%= _model.name %> = new <%= _.capitalize(_model.name) %>Service({
 						<% for(var name in _model.fields){ %>
 							<% if(_model.fields[name].type == 'date'){ %>
-								'<%= name %>':(NJaxBootstrap.<%= _model.name %>.<%= name %> && new Date(NJaxBootstrap.<%= _model.name %>.<%= name %>) || null,
+								'<%= name %>': (NJaxBootstrap.<%= _model.name %>.<%= name %> && new Date(NJaxBootstrap.<%= _model.name %>.<%= name %>) || null,
 							<% }else{ %>
-								'<%= name %>':NJaxBootstrap.<%= _model.name %>.<%= name %>,
+								'<%= name %>': NJaxBootstrap.<%= _model.name %>.<%= name %>,
 							<% } %>
 						<% } %>
+						'_id': NJaxBootstrap.<%= _model.name %>._id
 					});
 				}
                 $scope.validate = function(){
