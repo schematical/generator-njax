@@ -258,6 +258,15 @@ NJaxGenerator.prototype._prepairModel = function(model){
                 });
                 fieldData.mongo_type = "{ type: Schema.Types.ObjectId, ref: '" + this._.capitalize(fieldData.ref) + "' }"
                 break
+			case 'core-ref':
+			case 'core_ref':
+				model._rels.push({
+					name: key,
+					ref: fieldData.ref,
+					bootstrap_populate:fieldData.bootstrap_populate || ('req.' + fieldData.ref)
+				});
+				fieldData.mongo_type.type = "String";
+				break
             case 'api-ref':
                 fieldData.mongo_type.type = "String";
                 break
