@@ -118,28 +118,26 @@ module.exports = function(app){
                     route.render_detail
                 ]
             );
-            <% if(_model.fields.archiveDate){ %>
-                app.delete(
-                    uri + '/:<%= _model.name.toLowerCase() %>',
-                    [
-						function(req, res, next){
-							if(!req.njax){
-								req.njax = {};
-							}
-							req.njax.action = 'remove';
-							req.njax.entity = '<%= _model.name %>';
-							return next();
-						},
-                        route.auth_update,
-                        route.pre_remove,
-                        route.remove,
-                        route.post_remove,
-                        route.bootstrap_detail,
-                        route.broadcast_remove,
-                        route.render_remove
-                    ]
-                );
-            <% } %>
+            app.delete(
+                uri + '/:<%= _model.name.toLowerCase() %>',
+                [
+					function(req, res, next){
+						if(!req.njax){
+							req.njax = {};
+						}
+						req.njax.action = 'remove';
+						req.njax.entity = '<%= _model.name %>';
+						return next();
+					},
+                    route.auth_update,
+                    route.pre_remove,
+                    route.remove,
+                    route.post_remove,
+                    route.bootstrap_detail,
+                    route.broadcast_remove,
+                    route.render_remove
+                ]
+            );
 
             app.all(uri, [
 				route.populate_tag_query,
@@ -795,6 +793,16 @@ module.exports = function(app){
                     if(err) return next(err);
                     return next();
                 });
+            }
+        <% } else { %>
+            remove:function(req, res,next){
+                if(!req.user){
+                    return next();
+                }
+				req.<%= _model.name %>.remove(function(err){
+                    if(err) return next(err);
+					return next();
+				});
             }
         <% } %>
     }

@@ -85,7 +85,7 @@ module.exports = function(sdk){
             <% if(_model.is_subdocument){ %>
                 this.uri = this.parent_uri + '<%= _model.uri_prefix %>';
             <% } else if(_model.parent_field){ %>
-                this.uri = this.parent_uri + '<%= _model.uri_prefix %>';
+                this.uri = '<%= _model.parent_model.uri_prefix %>/' + this.<%= _model.parent %> + '<%= _model.uri_prefix %>';
             <% }else{ %>
                 this.uri = <%= _model.name %>.prototype.base_uri;
             <% } %>
