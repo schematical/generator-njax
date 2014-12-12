@@ -615,7 +615,9 @@ module.exports = function(app){
                     	req.<%= _model.name %>.markModified('<%= name %>');
 					}
                 <% }else{ %>
-                    req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
+					if(req.body.<%= name %>){
+                    	req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
+					}
                 <% } %>
             <% } %>
 
