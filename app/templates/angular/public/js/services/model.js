@@ -3,11 +3,12 @@ var <%= _model.name %>Services = angular.module('<%= config.app_name %>.<%= _mod
     '<%= _.capitalize(_model.name) %>Service',
     [
         '$resource',
-        function($resource){
-            return $resource('<%= _model.uri %>/:<%= _model.name %>_id',
+        'NJaxBootstrap',
+        function($resource, NJaxBootstrap){
+            return $resource(NJaxBootstrap.api_url + '<%= _model.uri %>/:<%= _model.name %>_id',
             	{
             		'<%= _model.name %>_id':'@_id'<% if(_model.parent){ %>,
-					 	<%= _model.fields[_model.parent].name %>:'@<%= _model.fields[_model.parent].name %>
+					 	<%= _model.parent %>:'@<%= _model.parent %>'
 					<% } %>
             	},
             	{

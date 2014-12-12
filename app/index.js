@@ -180,13 +180,14 @@ NJaxGenerator.prototype._prepairModel = function(model){
         var parent_field = model.fields[model.parent];
 
         if(!parent_field){
+			console.log(Object.keys(model.fields));
             throw new Error("No parent field '" + model.parent + "' exists in model '" + model.name + "'");
         }
         if(!parent_field.ref){
             throw new Error("Parent field must be a ref. Field: '" + model.parent + "' in model '" + model.name + "'");
         }
         if(!this.config.models[parent_field.ref]){
-            console.error(Object.keys(this.config.models));
+
             throw new Error("Cannot find model : " + parent_field.ref);
         }
 
@@ -257,6 +258,17 @@ NJaxGenerator.prototype._prepairModel = function(model){
                 });
                 fieldData.mongo_type = "{ type: Schema.Types.ObjectId, ref: '" + this._.capitalize(fieldData.ref) + "' }"
                 break
+			case 'core-ref':
+			case 'core_ref':
+				fieldData.type = 'core_ref';
+				model._rels.push({
+					type:fieldData.type,
+					name: key,
+					ref: fieldData.ref,
+					bootstrap_populate:fieldData.bootstrap_populate || ('req.' + fieldData.ref)
+				});
+				fieldData.mongo_type.type = "String";
+				break
             case 'api-ref':
                 fieldData.mongo_type.type = "String";
                 break
@@ -310,7 +322,16 @@ NJaxGenerator.prototype._prepairModel = function(model){
 
 
     }
+
+	if(model.invitable){
+		if(!model.fields.email){
+			throw new Error("Field Needs an email to be marked as 'invitable'");
+		}
+	}
+
     model._prerendered = true;
+
+
     return model;
 }
 

@@ -93,12 +93,14 @@ module.exports = {
 				"entity_type":"string",
 				"entity_id":"string",
                 "data":{ "type":"object" },
+
                 "application":{
                     "type":"ref",
                     "ref":"application",
                     "bootstrap_populate":"req.application"
                 },
-                "accounts":{ "type":"array" }
+                "accounts":{ "type":"array" },
+				"mutedDate":"date"
             }
         },
 		"tag":{

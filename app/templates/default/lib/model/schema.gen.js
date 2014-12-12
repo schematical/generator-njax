@@ -96,7 +96,7 @@ module.exports = function(app){
                 var s3 = new AWS.S3();
                 var _this = this;
                 if(!app.njax.config.local_file_cache){
-                    var url = 'http://s3.amazonaws.com/' + app.njax.config.aws.bucket_name  +  '/' + this.<%= name %>;
+                    var url = '//s3.amazonaws.com/' + app.njax.config.aws.bucket_name  +  '/' + this.<%= name %>;
                 }else{
                     var url = app.njax.config.www_url + '/cache/' + this.<%= name %>;
                 }
@@ -127,17 +127,18 @@ module.exports = function(app){
 
                             var cache_path = app.njax.cachedir(_this.<%= name %>);
                             var content = null;
-                            if(fs.existsSync(cache_path)){
-                                content = fs.readFileSync(
-                                    cache_path
-                                );
+                            if(!fs.existsSync(cache_path)){
+								return callback(null,null, null);
                             }
-
-
-                            fs.writeFileSync(
-                                local_file_path,
-                                content
-                            );
+							content = fs.readFileSync(
+								cache_path
+							);
+							if(local_file_path != cache_path){
+								fs.writeFileSync(
+									local_file_path,
+									content
+								);
+							}
                             return callback(null,content, local_file_path);
                         }
                         
@@ -212,9 +213,19 @@ module.exports = function(app){
     <% if(_model.fields.archiveDate){ %>
         <%= _model.name.toLowerCase() %>Schema.virtual('archive').get(function(){
             return function(callback){
+            	this.status = 'archived';
                 this.archiveDate = new Date();
                 this.save(callback);
             }
+        });
+        <%= _model.name.toLowerCase() %>Schema.virtual('is_archived').get(function(){
+			if(!this.archiveDate){
+				return false;
+			}
+			if(!this.archiveDate > new Date()){
+				return false;
+			}
+		   return true;
         });
     <% } %>
 
@@ -239,8 +250,17 @@ module.exports = function(app){
 						return next();
 					});
 				}
-				return next(new Error("Missing Parent Field: <%= _model.parent %>!"));
-            }
+
+				<% if(_model.parent == 'owner' && _model.invitable){ %>
+					var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+					if(!this.email || !re.test(this.email)){
+						return next(new Error("Missing Parent Field: <%= _model.parent %>. This field is 'invitable' but needs a valid email"));
+					}
+				<% }else{ %>
+					return next(new Error("Missing Parent Field: <%= _model.parent %>!"));
+				<% } %>
+			}
 
 		<% } %>
 
@@ -308,14 +328,25 @@ module.exports = function(app){
                 ret.<%= name %>_raw = doc.<%= name %>_raw;
             <% }else if(_model.fields[name].type == 'object'){ %>
 				ret.<%= name %> = doc.<%= name %>;
-			<% }if(_model.fields[name].type == 'tpcd'){ %>
+			<% } else if(_model.fields[name].type == 'tpcd'){ %>
                 <% for(var value in _model.fields[name].options){ %>
                     ret.is_<%= value %> = doc.is_<%= value %>;
                 <% } %>
+
+			<% } else if(_model.fields[name].type == 'date'){ %>
+				ret.<%= name %> = doc.<%= name %>;
+				if(doc.<%= name %>){
+					ret.<%= name %>_iso = doc.<%= name %>.toISOString();
+				}
             <% }else{ %>
 
             <% } %>
         <% } %>
+
+		ret.creDate = doc.creDate;
+		if(doc.creDate){
+			ret.creDate_iso = doc.creDate.toISOString();
+		}
     }
 
     return <%= _model.name.toLowerCase() %>Schema;

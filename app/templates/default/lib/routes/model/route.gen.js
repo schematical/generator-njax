@@ -243,13 +243,19 @@ module.exports = function(app){
         },
         auth_update:function(req, res, next){
             <% if(_model.fields.owner){ %>
-                if(req.user && (req.<%= _model.name %> && (req.<%= _model.name %>.owner && req.<%= _model.name %>.owner.equals(req.user._id)) || (req.is_admin))){
-                    return  next();//We have a legit users
-                }
-                return next(new Error(404));//We do not have a legit user
+            	<% if(_model.fields.owner.type == 'ref'){ %>
+					if(req.user && (req.<%= _model.name %> && (req.<%= _model.name %>.owner && req.<%= _model.name %>.owner.equals(req.user._id)) || (req.is_admin))){
+						return  next();//We have a legit users
+					}
+                <% } else { %>
+					if(req.user && (req.<%= _model.name %> && (req.<%= _model.name %>.owner && req.<%= _model.name %>.owner == req.user._id) || (req.is_admin))){
+						return  next();//We have a legit users
+					}
+				<% } %>
+                return next(new Error(403));//We do not have a legit user
             <% }else{ %>
                 if(!req.user){
-                    return next(new Error(404));//res.redirect('/');
+                    return next(new Error(403));//res.redirect('/');
                 }
                 return next();
              <% } %>
@@ -288,6 +294,11 @@ module.exports = function(app){
                         ] }
 
                     <% } %>
+					<% if(_model.invitable){ %>
+						/*,
+						{ owner: {'$ne': null } }*/
+
+					<% } %>
                      ]
                 };
 
@@ -392,6 +403,31 @@ module.exports = function(app){
 
 				}
 			}
+
+
+
+			<% if(_model.fields.archiveDate){ %>
+				req._list_query = {
+					$and:[
+						req._list_query,
+						{ $or: [
+							{ archiveDate: { $gt: new Date() } },
+							{ archiveDate: null }
+						] }
+					]
+				}
+			<% } %>
+			<% if(_model.invitable){ %>
+				<% if(_model.fields.owner){ %>
+					req._list_query.$and.push({ owner: {'$ne': null } });
+				<% } %>
+				<% if(_model.fields.account){ %>
+					req._list_query.$and.push({ account: {'$ne': null } });
+				<% } %>
+			<% } %>
+
+
+
             var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
             <% for(var name in _model.fields){  %>
                 <% if(_model.fields[name].type == 's3-asset'){ %>
@@ -512,6 +548,7 @@ module.exports = function(app){
                     return cb();
                 },
                 <% for(var i in _model._rels){ %>
+                <% if(_model._rels[i].type == 'ref'){ %>
                 function(cb){
                     if(req.<%= _model._rels[i].ref %>){
                         return cb();
@@ -528,6 +565,7 @@ module.exports = function(app){
                         return cb();
                     });
                 },
+			  	<% } %>
                 <% } %>
                 function(cb){
 
@@ -560,7 +598,7 @@ module.exports = function(app){
                     if(req.njax.files && req.njax.files.<%= name %>){
                         req.<%= _model.name %>.<%= name %> = req.njax.files.<%= name %>;
                     }
-                <% }else if(_model.fields[name].type == 'ref'){ %>
+                <% }else if((_model.fields[name].type == 'ref') || (_model.fields[name].type == 'core_ref')){ %>
                 	<% if(name == 'owner'){ %>
 						if(!req.<%= _model.name %>.<%= name %> && <%= _model.fields[name].bootstrap_populate %>){
 							req.<%= _model.name %>.<%= name %> = <%= _model.fields[name].bootstrap_populate %>._id;
@@ -581,7 +619,9 @@ module.exports = function(app){
                     	req.<%= _model.name %>.markModified('<%= name %>');
 					}
                 <% }else{ %>
-                    req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
+					if(req.body.<%= name %>){
+                    	req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
+					}
                 <% } %>
             <% } %>
 
@@ -609,11 +649,21 @@ module.exports = function(app){
         },
         bootstrap_detail:function(req, res, next){
             <% if(_model.fields.owner){ %>
-                if(req.user && req.<%= _model.name %> && req.<%= _model.name %>.owner && (req.<%= _model.name %>.owner.equals(req.user._id))){
-                    res.bootstrap('is_owner', true);
-                }else{
-                    res.bootstrap('is_owner', false);
-                }
+
+
+				<% if(_model.fields.owner.type == 'ref'){ %>
+					if(req.user && req.<%= _model.name %> && req.<%= _model.name %>.owner && (req.<%= _model.name %>.owner.equals(req.user._id))){
+						res.bootstrap('is_owner', true);
+					}else{
+						res.bootstrap('is_owner', false);
+					}
+				<% } else { %>
+					if(req.user && req.<%= _model.name %> && req.<%= _model.name %>.owner && (req.<%= _model.name %>.owner == req.user._id)){
+						res.bootstrap('is_owner', true);
+					}else{
+						res.bootstrap('is_owner', false);
+					}
+				<% } %>
             <% } %>
             return next();
         },
