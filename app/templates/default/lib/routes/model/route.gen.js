@@ -239,11 +239,11 @@ module.exports = function(app, _model){
 				if(req.user && (req[_model.name] && (req.[_model.name].owner && req.[_model.name].owner.equals(req.user._id)) || (req.is_admin))){
 					return  next();//We have a legit users
 				}
-				} else {
-					if(req.user && (req.[_model.name] && (req.[_model.name].owner && req.[_model.name].owner == req.user._id) || (req.is_admin))){
-						return  next();//We have a legit users
-					}
+			} else {
+				if(req.user && (req.[_model.name] && (req.[_model.name].owner && req.[_model.name].owner == req.user._id) || (req.is_admin))){
+					return  next();//We have a legit users
 				}
+			}
 			return next(new Error(403));//We do not have a legit user
 		}else{
 			if(!req.user){
@@ -424,6 +424,12 @@ module.exports = function(app, _model){
 					}
 				}
 			}else if(_model.fields[name].type == 'array'){
+			}else if(_model.fields[name].type == 'ref'){
+				if(req.query[name]){
+                    if(checkForHexRegExp.test(req.query[name])){
+						req._list_query[name] = req.query.[name];
+                    }
+                }
 			}else if(_model.fields[name].type == 'date'){
 			}else if(_model.fields[name].type == 'boolean'){
 				if(req.query[name]) {
@@ -561,39 +567,38 @@ module.exports = function(app, _model){
         }
 
         <% for(var name in _model.fields){  %>
-											<% if(_model.fields[name].type == 's3-asset'){ %>
-																						   if(req.njax.files && req.njax.files.<%= name %>){
-																							   req.<%= _model.name %>.<%= name %> = req.njax.files.<%= name %>;
-																						   }
-																						   <% }else if((_model.fields[name].type == 'ref') || (_model.fields[name].type == 'core_ref')){ %>
-                																																										 <% if(name == 'owner'){ %>
-																																																				 if(!req.<%= _model.name %>.<%= name %> && <%= _model.fields[name].bootstrap_populate %>){
-																																																					 req.<%= _model.name %>.<%= name %> = <%= _model.fields[name].bootstrap_populate %>._id;
-																																																				 }
-                																																																 <% }else{ %>
-																																																						   if(<%= _model.fields[name].bootstrap_populate %>){
-																																																							   req.<%= _model.name %>.<%= name %> = <%= _model.fields[name].bootstrap_populate %>._id;
-																																																						   }else if(req.body.<%= name %>){
-																																																							   req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
-																																																						   }
-																																																						   <% } %>
-																																														 <% }else if(_model.fields[name].type == 'array'){ %>
-																																																										   //Do nothing it is an array
-																																																										   //req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
-																																																										   <% }else if(_model.fields[name].type == 'object'){ %>
-                																																																																			  if(req.body.<%= name %>){
-                    																																																																			  req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
-                    																																																																			  req.<%= _model.name %>.markModified('<%= name %>');
-																																																																							  }
-																																																																							  <% }else{ %>
-																																																																										if(req.body.<%= name %>){
-                    																																																																						req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
-																																																																										}
-																																																																										<% } %>
-											<% } %>
+			<% if(_model.fields[name].type == 's3-asset'){ %>
+			   if(req.njax.files && req.njax.files.<%= name %>){
+			       req.<%= _model.name %>.<%= name %> = req.njax.files.<%= name %>;
+			   }
+			<% }else if((_model.fields[name].type == 'ref') || (_model.fields[name].type == 'core_ref')){ %>
+            	 <% if(name == 'owner'){ %>
+					 if(!req.<%= _model.name %>.<%= name %> && <%= _model.fields[name].bootstrap_populate %>){
+			    		 req.<%= _model.name %>.<%= name %> = <%= _model.fields[name].bootstrap_populate %>._id;
+					 }
+                 <% }else{ %>
+			     if(<%= _model.fields[name].bootstrap_populate %>){
+					 req.<%= _model.name %>.<%= name %> = <%= _model.fields[name].bootstrap_populate %>._id;
+  				 }else if(req.body.<%= name %>){
+					 req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
+				 }
+			<% } %>
+		    <% }else if(_model.fields[name].type == 'array'){ %>
+		    //Do nothing it is an array
+		    //req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
+		    <% }else if(_model.fields[name].type == 'object'){ %>
+                if(req.body.<%= name %>){
+                    req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
+                    req.<%= _model.name %>.markModified('<%= name %>');
+		    	}
+		    <% }else{ %>
+		    	if(req.body.<%= name %>){
+                    req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
+		    	}
+		    <% } %>
+		<% } %>
 
         return next();
-
     },
     update_save:function(req, res, next){
         if(!req.<%= _model.name %>){
