@@ -443,7 +443,10 @@ module.exports = function(app){
 						req._list_query['<%= name %>'] = req.query.<%= name %>;
                     }
                 }
-                <% }else if(_model.fields[name].type == 'array'){ %>
+                <% }else if(_model.fields[name].type == 'ref'){ %>
+                    if(req.query.<%= name %>){
+                        req._list_query['<%= name %>'] = req.query.<%= name %>;
+                    }
                 <% }else if(_model.fields[name].type == 'array'){ %>
                 <% }else if(_model.fields[name].type == 'date'){ %>
                 <% }else if(_model.fields[name].type == 'boolean'){ %>
