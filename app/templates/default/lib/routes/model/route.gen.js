@@ -632,6 +632,9 @@ module.exports = function(app){
                 return next();
             }
             req.<%= _model.name %>.save(function(err, <%= _model.name %>){
+				if(err){
+					return next(err);
+				}
                 //app._refresh_locals();
                 res.bootstrap('<%= _model.name %>', req.<%= _model.name %>);
                 return next();

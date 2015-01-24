@@ -41,6 +41,7 @@ module.exports = {
 				},
                 "callback_url":"string",
                 "iframes":"object",
+				"bootstrap_data":{ type:"object"},
                 "owner":{
                     "type":"ref",
                     "ref":"account",

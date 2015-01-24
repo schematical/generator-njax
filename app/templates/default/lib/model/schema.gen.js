@@ -73,13 +73,17 @@ module.exports = function(app){
                 this.<%= name %>_rendered = markdown.toHTML(value);
             });
         <% } if(_model.fields[name].type == 'tpcd'){ %>
-         <%= _model.name.toLowerCase() %>Schema.virtual('<%= name %>_tpcds').get(function(){
-            return {
-                <% for(var value in _model.fields[name].options){ %>
-                    <%= value %>:'<%= _model.fields[name].options[value] %>',
-                <% } %>
-            }
-        });
+			 <%= _model.name.toLowerCase() %>Schema.virtual('<%= name %>_tpcds').get(function(){
+				return {
+					<% for(var value in _model.fields[name].options){ %>
+						<%= value %>:'<%= _model.fields[name].options[value] %>',
+					<% } %>
+				}
+			});
+
+				<%= _model.name.toLowerCase() %>Schema.path('<%= name %>').validate(function (value) {
+  					return /<%= Object.keys(_model.fields[name].options).join('|') %>/.test(value);
+				}, 'Invalid <%= name %>');
 
         <% for(var value in _model.fields[name].options){ %>
             <%= _model.name.toLowerCase() %>Schema.virtual('is_<%= value %>').get(function(){
@@ -239,16 +243,27 @@ module.exports = function(app){
         <% if(_model.parent_field){ %>
             if(!this._parent_uri){
             	if(this.<%= _model.parent %>){
-					//Bananas
-					var _this = this;
-					return app.model.<%= _.capitalize(_model.fields[_model.parent].ref) %>.findOne({ _id: this.<%= _model.parent %> }).exec(function(err, <%= _model.parent %>){
-						if(err) return next(err);
-						if(!<%= _model.parent %>){
-							return next(new Error("No <%= _model.parent %> found when trying to populate _parent_uri. Either find it or manually populate the _parent_uri."));
-						}
-						_this._parent_uri = <%= _model.parent %>.uri;
-						return next();
-					});
+            		var _this = this;
+            		<% if( _model.parent_field.type == 'core_ref'){ %>
+						return app.sdk.<%= _.capitalize(_model.fields[_model.parent].ref) %>.findOne( this.<%= _model.parent %>, function(err, <%= _model.parent %>){
+							if(err) return next(err);
+							if(!<%= _model.parent %>){
+								return next(new Error("No <%= _model.parent %> found when trying to populate _parent_uri. Either find it or manually populate the _parent_uri."));
+							}
+							_this._parent_uri = <%= _model.parent %>.uri;
+							return next();
+						});
+            		<% } else { %>
+
+						return app.model.<%= _.capitalize(_model.fields[_model.parent].ref) %>.findOne({ _id: this.<%= _model.parent %> }).exec(function(err, <%= _model.parent %>){
+							if(err) return next(err);
+							if(!<%= _model.parent %>){
+								return next(new Error("No <%= _model.parent %> found when trying to populate _parent_uri. Either find it or manually populate the _parent_uri."));
+							}
+							_this._parent_uri = <%= _model.parent %>.uri;
+							return next();
+						});
+					<% } %>
 				}
 
 				<% if(_model.parent == 'owner' && _model.invitable){ %>

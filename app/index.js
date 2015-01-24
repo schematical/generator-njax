@@ -186,26 +186,38 @@ NJaxGenerator.prototype._prepairModel = function(model){
         if(!parent_field.ref){
             throw new Error("Parent field must be a ref. Field: '" + model.parent + "' in model '" + model.name + "'");
         }
-        if(!this.config.models[parent_field.ref]){
+		if(parent_field.type != 'core_ref'){
+			if(!this.config.models[parent_field.ref]){
 
-            throw new Error("Cannot find model : " + parent_field.ref);
-        }
+				throw new Error("Cannot find model : " + parent_field.ref);
+			}
 
-        if(!this.config.models[parent_field.ref]._prerendered){
-            this._prepairModel(this.config.models[model.parent]);
-        }
+			if(!this.config.models[parent_field.ref]._prerendered){
+				this._prepairModel(this.config.models[model.parent]);
+			}
+			model.parent_model = this.config.models[parent_field.ref];
+		}else{
+
+			if(!(parent_field.route.length >= 0)){//It just needs to exist
+				throw new Error("Parent fields of type 'core_ref' need to have a 'route' property set : " + parent_field.ref);
+			}
+		}
 		model.fields[model.parent].is_parent = true;
 		model.parent_field = parent_field;
-        model.parent_model = this.config.models[parent_field.ref];
+
     }
     var uri = '';
     var schema_uri = '';
     var route = '';
     var hjs_uri = '';
-    if(model.parent){
-
-        route +=  this.config.models[parent_field.ref].route + '/:' + parent_field.ref;
-        hjs_uri += '{{ ' + parent_field.ref + '.uri }}';
+    if(model.parent_field){
+		if(model.parent_field.type == 'core_ref'){
+			route +=  parent_field.route + '/:' + parent_field.ref;
+			hjs_uri += '{{ ' + parent_field.ref + '.uri }}';
+		}else{
+			route +=  this.config.models[parent_field.ref].route + '/:' + parent_field.ref;
+			hjs_uri += '{{ ' + parent_field.ref + '.uri }}';
+		}
     }
     if(typeof(model.uri_prefix) == 'undefined'){
         route += '/' + model.name + 's';
