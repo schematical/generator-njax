@@ -473,6 +473,21 @@ module.exports = function(app){
             async.series([
                 function(cb){
                     <% if(!_model.is_subdocument){ %>
+
+
+
+
+                        if(req.query.$orderby){
+                            query = {
+                                $query: query
+                            };
+                            query.$orderby =  { };
+                            query.$orderby[req.query.$orderby] = req.query.$orderby;
+                        }
+
+
+
+
                         app.model.<%= _.capitalize(_model.name) %>.find(query, function(err, _<%= _model.name %>s){
                             if(err) return next(err);
                             <%= _model.name %>s = _<%= _model.name %>s;
