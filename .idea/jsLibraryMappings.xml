@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <excludedPredefinedLibrary name="HTML" />
-    <excludedPredefinedLibrary name="HTML5 / EcmaScript 5" />
+    <file url="file://$PROJECT_DIR$" libraries="{generator-njax node_modules}" />
   </component>
 </project>
-

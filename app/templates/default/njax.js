@@ -20,6 +20,7 @@ module.exports = {
             "uri_prefix":"/apps",
             "default":true,
             "fields":{
+                "thumb_img":"s3-asset",
                 "namespace":"namespace",
                 "name":"string",
                 "desc":"md",
@@ -132,17 +133,26 @@ module.exports = {
 			}
 		},
 		"subscription":{
-			"uri_prefix":"/subscription",
+			"uri_prefix":"/subscriptions",
 			"name":"subscription",
 			"relationship":"assoc",
+            "parent":"account",
 			"default":true,
 			"fields":{
 				"event_filters":["string"],
 				"short_namespace":"string",
+                "type":"string",
 				"entity_url":"string",
 				"entity_type":"string",
 				"entity_id":"string",
 				"data":{ "type":"object" },
+                "_entity_name":"strings",
+                "_entity_namespace":"strings",
+                "application":{
+                    "type":"ref",
+                    "ref":"application",
+                    "bootstrap_populate":"req.application"
+                },
 				"account":{
 					"type":"ref",
 					"ref":"account",

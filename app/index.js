@@ -58,7 +58,7 @@ NJaxGenerator.prototype.app = function app() {
         this._copyIfNew(this.default_tpl_dir + 'config.js', 'config.js');
 
         this._copyIfNew(this.default_tpl_dir + 'lib/routes/index.js', 'lib/routes/index.js');
-        this._copyIfNew( this.default_tpl_dir + 'lib/routes/model/index.js', 'lib/routes/model/index.js');
+        //this._copyIfNew( this.default_tpl_dir + 'lib/routes/model/index.js', 'lib/routes/model/index.js');
         this._copyIfNew( this.default_tpl_dir +'public/templates/_meta.hjs', 'public/templates/_meta.hjs');
         this._copyIfNew( this.default_tpl_dir +'public/templates/_meta_footer.hjs', 'public/templates/_meta_footer.hjs');
         this._copyIfNew( this.default_tpl_dir +'public/templates/_modal.hjs', 'public/templates/_modal.hjs');
@@ -67,6 +67,13 @@ NJaxGenerator.prototype.app = function app() {
         this._copyIfNew( this.default_tpl_dir +'public/templates/auth.hjs', 'public/templates/auth.hjs');
         this._copyIfNew( this.default_tpl_dir +'public/templates/register.hjs', 'public/templates/register.hjs');
     }
+
+
+
+    this.template(this.default_tpl_dir + 'lib/routes/model/index.js', 'lib/routes/model/index.js');
+    this.template(this.default_tpl_dir + 'lib/model/index.js', 'lib/model/index.js');
+
+
     for(var i in this.config.models){
 
         this._model = this.config.models[i];
@@ -76,8 +83,6 @@ NJaxGenerator.prototype.app = function app() {
     }
 
 
-
-    this.template(this.default_tpl_dir + 'lib/model/index.js', 'lib/model/index.js');
 
 };
 NJaxGenerator.prototype.frameworks = function(){
