@@ -541,11 +541,35 @@ module.exports = function(app){
 
 
                         if(req.query.$orderby){
-                            query = {
-                                $query: query
-                            };
-                            query.$orderby =  { };
-                            query.$orderby[req.query.$orderby] = req.query.$orderby;
+                            var orderby_parts = req.query.$orderby.split(':');
+                            var orderby_data = {};
+                            orderby_data['_query_field'] = (typeof(orderby_parts[1]) != 'undefined' && parseInt(orderby_parts[1])) || 1;
+                            var agg_query = [
+                                { $match:query },
+                                {
+                                    $project: {
+
+                                        <% for(var name in _model.fields){  %>
+                                            <%= name %>:'$<%= name %>',
+                                        <% } %>
+
+                                        _query_field: { $toLower: '$' + orderby_parts[0] }
+
+                                    }
+                                },
+                                {
+                                    $sort: orderby_data
+                                }
+                            ];
+
+                            return app.model.<%= _.capitalize(_model.name) %>.aggregate(
+                                agg_query
+                            ).exec(function(err, _<%= _model.name %>s_data){
+                                if(err) return next(err);
+                                res.bootstrap('<%= _model.name %>s', _<%= _model.name %>s_data);
+                                return next();
+                            });
+
                         }
 
 
