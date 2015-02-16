@@ -402,7 +402,7 @@ module.exports = function(app){
 
         },
         render_remove:function(req, res, next){
-            res.render('model/<%= _model.name %>_list', res.locals.<%= _model.name %>);
+            res.render('model/<%= _model.name %>_detail', res.locals.<%= _model.name %>);
         },
         render_list:function(req, res, next){
             res.render('model/<%= _model.name %>_list', res.locals.<%= _model.name %>s);
