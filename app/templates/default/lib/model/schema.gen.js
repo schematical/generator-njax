@@ -82,7 +82,16 @@ module.exports = function(app){
 			});
 
 				<%= _model.name.toLowerCase() %>Schema.path('<%= name %>').validate(function (value) {
-  					return /<%= Object.keys(_model.fields[name].options).join('|') %>/.test(value);
+                    if(
+                    <% for(var i in _model.fields[name].options){ %>
+                        (value == '<%= i %>') ||
+                    <% }  %>
+                        (!value)
+                    ){
+                        return true;
+                    }
+                    return false;
+  					//return /<%= Object.keys(_model.fields[name].options).join('|') %>/.test(value);
 				}, 'Invalid <%= name %>');
 
         <% for(var value in _model.fields[name].options){ %>
@@ -145,7 +154,7 @@ module.exports = function(app){
 							}
                             return callback(null,content, local_file_path);
                         }
-                        
+
                         async.series([
                             function(cb){
                                 mkdirp(path.dirname(local_file_path), function (err) {

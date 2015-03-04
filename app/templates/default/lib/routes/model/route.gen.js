@@ -211,7 +211,7 @@ module.exports = function(app){
                 app.post(uri +  '/:<%= _model.name.toLowerCase() %>/subscriptions',[
                     route.auth_create_subscription,
                     route.create_subscription,
-                    route.render_subscription_list
+                    route.render_subscription_detail
                 ]);
                 app.delete(uri +  '/:<%= _model.name.toLowerCase() %>/subscriptions/:subscription',[
                     function(req, res, next){
