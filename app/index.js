@@ -254,6 +254,9 @@ NJaxGenerator.prototype._prepairModel = function(model){
             }
             fieldData = { type: 'array', sub_type: sub_type };
         }
+        if(!fieldData){
+            throw new Error("Field Data is null? Field Name:" + key) + "- Model Name:" + model.name;
+        }
         if(!fieldData.type){
             console.error(fieldData);
             throw new Error("Invalid Model > Field > Type in njax.json");

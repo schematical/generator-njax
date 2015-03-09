@@ -324,11 +324,11 @@ module.exports = function(app){
 
         },
         populate:function(req, res, next, id){
-            var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
+
             <% if(!_model.is_subdocument){ %>
                 var or_condition = []
 
-                if(checkForHexRegExp.test(id)){
+                if(app.njax.helpers.regex.isHexKey(id)){
                     or_condition.push({ _id:new ObjectId(id) });
                 }
                 <% if(_model.fields.namespace){ %>
@@ -384,7 +384,7 @@ module.exports = function(app){
 
                 for(var i = 0; i < req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s.length; i++){
                     //it is an id
-                    if(checkForHexRegExp.test(id) && req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i]._id == id){
+                    if(app.njax.helpers.regex.isHexKey(id) && req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i]._id == id){
                         model = req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i];
                     } <% if(_model.fields.namespace){ %>else if(req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i].namespace == id){
                         model = req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i];
@@ -493,7 +493,6 @@ module.exports = function(app){
 
 
 
-            var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
             <% for(var name in _model.fields){  %>
                 <% if(_model.fields[name].type == 's3-asset'){ %>
 
@@ -502,7 +501,7 @@ module.exports = function(app){
 				if(<%= _model.fields[name].bootstrap_populate %>){
 					req._list_query['<%= name %>'] = <%= _model.fields[name].bootstrap_populate %>._id;
                 }else if(req.query.<%= name %>){
-                    if(checkForHexRegExp.test(req.query.<%= name %>)){
+                    if(app.njax.helpers.regex.isHexKey(req.query.<%= name %>)){
 						req._list_query['<%= name %>'] = req.query.<%= name %>;
                     }
                 }
@@ -518,7 +517,8 @@ module.exports = function(app){
                     }
                 <% }else{ %>
                     if(req.query.<%= name %>){
-						req._list_query['<%= name %>'] =   { $regex: new RegExp('^' + req.query.<%= name %> + '', 'i') };
+                        var escpaedField = app.njax.helpers.regex.escape(req.query.<%= name %>);
+						req._list_query['<%= name %>'] =   { $regex: new RegExp('^' + escpaedField + '', 'i') };
                     }
                 <% } %>
             <% } %>
