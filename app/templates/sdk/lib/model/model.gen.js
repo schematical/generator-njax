@@ -49,9 +49,9 @@ module.exports = function(sdk){
 	<%= _model.name %>.findOne = function(query, callback){
 		if(_.isString(query)){
 			<% if(_model.is_subdocument){ %>
-			var uri = this.parent_uri + '<%= _model.uri_prefix %>/' + query;
+			var uri = this._parent_uri + '<%= _model.uri_prefix %>/' + query;
 			<% } else if(_model.parent_field){ %>
-			var uri = this.parent_uri + '<%= _model.uri_prefix %>/' + query;
+			var uri = this._parent_uri + '<%= _model.uri_prefix %>/' + query;
 			<% }else{ %>
 			var uri = <%= _model.name %>.prototype.base_uri + '/' + query;
 			<% } %>
@@ -83,9 +83,9 @@ module.exports = function(sdk){
         if(!this.uri){
 
             <% if(_model.is_subdocument){ %>
-                this.uri = this.parent_uri + '<%= _model.uri_prefix %>';
+                this.uri = this._parent_uri + '<%= _model.uri_prefix %>';
             <% } else if(_model.parent_field){ %>
-                this.uri = this.parent_uri + '<%= _model.uri_prefix %>';
+                this.uri = this._parent_uri + '<%= _model.uri_prefix %>';
             <% }else{ %>
                 this.uri = <%= _model.name %>.prototype.base_uri;
             <% } %>

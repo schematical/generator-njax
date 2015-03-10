@@ -684,6 +684,12 @@ module.exports = function(app){
                     <% } %>
                     cre_date:new Date()
                 });
+                <% if(_model.fields.namespace){ %>
+                    if(!req.body.namespace && req.body.name){
+                        req.<%= _model.name %>.namespace = app.njax.helpers.toNamespace(req.body.name);
+                    }
+                <% } %>
+
             }
             return next();
 
