@@ -142,6 +142,7 @@ module.exports = function(app){
             <% } %>
 
             app.all(uri, [
+                route.auth_query_list,
 				route.populate_tag_query,
                 route.populate_list_query,
                 route.populate_list,
@@ -155,6 +156,7 @@ module.exports = function(app){
             ]);
 
             app.all(uri + '/:<%= _model.name.toLowerCase() %>', [
+                route.auth_query_detail,
                 route.bootstrap_detail,
                 route.render_detail
             ]);
@@ -188,10 +190,12 @@ module.exports = function(app){
 					route.render_tag
 				]);
 				app.all(uri +  '/:<%= _model.name.toLowerCase() %>/tags',[
+                    route.auth_query_tags,
 					route.list_tags,
 					route.render_tags
 				]);
 				app.all(uri +  '/:<%= _model.name.toLowerCase() %>/tags/:tag',[
+                    route.auth_update,
 					function(req, res, next){
 						if(!req.tag){
 							return next(new Error(404));
@@ -201,6 +205,39 @@ module.exports = function(app){
 					route.render_tag
 				]);
 
+
+
+
+                app.post(uri +  '/:<%= _model.name.toLowerCase() %>/subscriptions',[
+                    route.auth_create_subscription,
+                    route.create_subscription,
+                    route.render_subscription_detail
+                ]);
+                app.delete(uri +  '/:<%= _model.name.toLowerCase() %>/subscriptions/:subscription',[
+                    function(req, res, next){
+                        if(!req.subscription){
+                            return next(new Error(404));
+                        }
+                        return next();
+                    },
+                    route.remove_subscription,
+                    route.render_subscription_detail
+                ]);
+                app.all(uri +  '/:<%= _model.name.toLowerCase() %>/subscriptions',[
+                    route.auth_query_subscription,
+                    route.list_subscription,
+                    route.render_subscription_list
+                ]);
+                app.all(uri +  '/:<%= _model.name.toLowerCase() %>/subscriptions/:subscription',[
+                    route.auth_update,
+                    function(req, res, next){
+                        if(!req.tag){
+                            return next(new Error(404));
+                        }
+                        return next();
+                    },
+                    route.render_subscription_detail
+                ])
 
 
 
@@ -225,6 +262,7 @@ module.exports = function(app){
 				*/
 
 				app.all(uri +  '/:<%= _model.name.toLowerCase() %>/events',[
+                    route.auth_query_detail,
 					route.list_events,
 					route.render_events
 				]);
@@ -242,6 +280,21 @@ module.exports = function(app){
             <% } %>
 
 
+        },
+        auth_query_detail:function(req, res, next){
+            return next();
+        },
+        auth_query_list:function(req, res, next){
+            return next();
+        },
+        auth_query_tags:function(req, res, next){
+            return next();
+        },
+        auth_query_subscription:function(req, res, next){
+            return next();
+        },
+        auth_create_subscription:function(req, res, next){
+            return next();
         },
         auth_update:function(req, res, next){
             <% if(_model.fields.owner){ %>
@@ -271,11 +324,11 @@ module.exports = function(app){
 
         },
         populate:function(req, res, next, id){
-            var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
+
             <% if(!_model.is_subdocument){ %>
                 var or_condition = []
 
-                if(checkForHexRegExp.test(id)){
+                if(app.njax.helpers.regex.isHexKey(id)){
                     or_condition.push({ _id:new ObjectId(id) });
                 }
                 <% if(_model.fields.namespace){ %>
@@ -331,7 +384,7 @@ module.exports = function(app){
 
                 for(var i = 0; i < req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s.length; i++){
                     //it is an id
-                    if(checkForHexRegExp.test(id) && req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i]._id == id){
+                    if(app.njax.helpers.regex.isHexKey(id) && req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i]._id == id){
                         model = req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i];
                     } <% if(_model.fields.namespace){ %>else if(req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i].namespace == id){
                         model = req.<%= _model.parent %>.<%= _model.name.toLowerCase() %>s[i];
@@ -349,7 +402,7 @@ module.exports = function(app){
 
         },
         render_remove:function(req, res, next){
-            res.render('model/<%= _model.name %>_list', res.locals.<%= _model.name %>s);
+            res.render('model/<%= _model.name %>_detail', res.locals.<%= _model.name %>);
         },
         render_list:function(req, res, next){
             res.render('model/<%= _model.name %>_list', res.locals.<%= _model.name %>s);
@@ -420,30 +473,42 @@ module.exports = function(app){
 				}
 			<% } %>
 			<% if(_model.invitable){ %>
-				<% if(_model.fields.owner){ %>
-					req._list_query.$and.push({ owner: {'$ne': null } });
-				<% } %>
-				<% if(_model.fields.account){ %>
-					req._list_query.$and.push({ account: {'$ne': null } });
-				<% } %>
+                if( !req.query.invites){
+                    <% if(_model.fields.owner){ %>
+                        req._list_query.$and.push({ owner: {'$ne': null } });
+                    <% } %>
+                    <% if(_model.fields.account){ %>
+                        req._list_query.$and.push({ account: {'$ne': null } });
+                    <% } %>
+
+                }  else{
+                    <% if(_model.fields.owner){ %>
+                            req._list_query.$and.push({ owner: null  });
+                    <% } %>
+                    <% if(_model.fields.account){ %>
+                        req._list_query.$and.push({ account:  null  });
+                    <% } %>
+                }
 			<% } %>
 
 
 
-            var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
             <% for(var name in _model.fields){  %>
                 <% if(_model.fields[name].type == 's3-asset'){ %>
 
 
-                <% }else if(_model.fields[name].type == 'ref' && _model.fields[name].is_parent && (name != 'owner')){ %>
+                <% }else if((_model.fields[name].type == 'ref' || _model.fields[name].type == 'core_ref') && _model.fields[name].is_parent && (name != 'owner')){ %>
 				if(<%= _model.fields[name].bootstrap_populate %>){
 					req._list_query['<%= name %>'] = <%= _model.fields[name].bootstrap_populate %>._id;
                 }else if(req.query.<%= name %>){
-                    if(checkForHexRegExp.test(req.query.<%= name %>)){
+                    if(app.njax.helpers.regex.isHexKey(req.query.<%= name %>)){
 						req._list_query['<%= name %>'] = req.query.<%= name %>;
                     }
                 }
-                <% }else if(_model.fields[name].type == 'array'){ %>
+                <% }else if(_model.fields[name].type == 'ref'){ %>
+                    if(req.query.<%= name %>){
+                        req._list_query['<%= name %>'] = req.query.<%= name %>;
+                    }
                 <% }else if(_model.fields[name].type == 'array'){ %>
                 <% }else if(_model.fields[name].type == 'date'){ %>
                 <% }else if(_model.fields[name].type == 'boolean'){ %>
@@ -452,7 +517,8 @@ module.exports = function(app){
                     }
                 <% }else{ %>
                     if(req.query.<%= name %>){
-						req._list_query['<%= name %>'] =   { $regex: new RegExp('^' + req.query.<%= name %> + '', 'i') };
+                        var escpaedField = app.njax.helpers.regex.escape(req.query.<%= name %>);
+						req._list_query['<%= name %>'] =   { $regex: new RegExp('^' + escpaedField + '', 'i') };
                     }
                 <% } %>
             <% } %>
@@ -470,6 +536,46 @@ module.exports = function(app){
             async.series([
                 function(cb){
                     <% if(!_model.is_subdocument){ %>
+
+
+
+
+                        if(req.query.$orderby){
+                            var orderby_parts = req.query.$orderby.split(':');
+                            var orderby_data = {};
+                            orderby_data['_query_field'] = (typeof(orderby_parts[1]) != 'undefined' && parseInt(orderby_parts[1])) || 1;
+                            var agg_query = [
+                                { $match:query },
+                                {
+                                    $project: {
+
+                                        <% for(var name in _model.fields){  %>
+                                            <%= name %>:'$<%= name %>',
+                                        <% } %>
+
+                                        _query_field: { $toLower: '$' + orderby_parts[0] }
+
+                                    }
+                                },
+                                {
+                                    $sort: orderby_data
+                                }
+                            ];
+
+                            return app.model.<%= _.capitalize(_model.name) %>.aggregate(
+                                agg_query
+                            ).exec(function(err, _<%= _model.name %>s_data){
+                                if(err) return next(err);
+                                res.bootstrap('<%= _model.name %>s', _<%= _model.name %>s_data);
+                                return next();
+                            });
+
+                        }
+
+
+
+
+
                         app.model.<%= _.capitalize(_model.name) %>.find(query, function(err, _<%= _model.name %>s){
                             if(err) return next(err);
                             <%= _model.name %>s = _<%= _model.name %>s;
@@ -578,6 +684,12 @@ module.exports = function(app){
                     <% } %>
                     cre_date:new Date()
                 });
+                <% if(_model.fields.namespace){ %>
+                    if(!req.body.namespace && req.body.name){
+                        req.<%= _model.name %>.namespace = app.njax.helpers.toNamespace(req.body.name);
+                    }
+                <% } %>
+
             }
             return next();
 
@@ -602,7 +714,7 @@ module.exports = function(app){
                 	<% }else{ %>
 						if(<%= _model.fields[name].bootstrap_populate %>){
 							req.<%= _model.name %>.<%= name %> = <%= _model.fields[name].bootstrap_populate %>._id;
-						}else if(req.body.<%= name %>){
+						}else if(!_.isUndefined(req.body.<%= name %>)){
 							req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
 						}
 					<% } %>
@@ -610,12 +722,12 @@ module.exports = function(app){
                     //Do nothing it is an array
                     //req.<%= _model.name.toLowerCase() %>.<%= name %> = req.body.<%= name %>;
                 <% }else if(_model.fields[name].type == 'object'){ %>
-                	if(req.body.<%= name %>){
+                	if(!_.isUndefined(req.body.<%= name %>)){
                     	req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
                     	req.<%= _model.name %>.markModified('<%= name %>');
 					}
                 <% }else{ %>
-					if(req.body.<%= name %>){
+					if(!_.isUndefined(req.body.<%= name %>)){
                     	req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
 					}
                 <% } %>
@@ -629,6 +741,9 @@ module.exports = function(app){
                 return next();
             }
             req.<%= _model.name %>.save(function(err, <%= _model.name %>){
+				if(err){
+					return next(err);
+				}
                 //app._refresh_locals();
                 res.bootstrap('<%= _model.name %>', req.<%= _model.name %>);
                 return next();
@@ -733,6 +848,50 @@ module.exports = function(app){
 		render_tag:function(req, res, next){
 			return res.render('model/tag_detail', res.locals.tag);
 		},
+
+
+
+
+
+        create_subscription:function(req, res, next){
+            if(!req.<%= _model.name %>){
+                return next(new Error(404));
+            }
+            //TODO: Add validation
+            return app.njax.subscription.add(
+                req.user,
+                req.<%= _model.name %>,
+                req.body,
+                function(err, subscription){
+                    if(err) return next(err);
+                    res.bootstrap('subscription', subscription);
+                    return next();
+                }
+            );
+        },
+        remove_subscription:function(req, res, next){
+            if(!req.tag){
+                return next(new Error(404));
+            }
+            return req.subscription.remove(function(err){
+                if(err) return next(err);
+                return next();
+            });
+        },
+        list_subscription:function(req, res, next){
+            app.njax.subscription.query(req.<%= _model.name %>, function(err, subscriptions){
+                if(err) return next(err);
+                res.bootstrap('subscriptions', subscriptions);
+                return next();
+            });
+        },
+        render_subscription_list:function(req, res, next){
+            return res.render('model/subscriptions_list', res.locals.subscriptions);
+        },
+        render_subscription_detail:function(req, res, next){
+            return res.render('model/subscription_detail', res.locals.subscription);
+        },
+
 
 
 
