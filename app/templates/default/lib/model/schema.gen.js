@@ -196,7 +196,8 @@ module.exports = function(app){
                                     Key: file_path,
                                     Body: content,
                                     ACL: 'public-read',
-                                    ContentLength: content.length
+                                    ContentLength: content.length,
+                                    CacheControl: '86400'
                                 };
                                 s3.putObject(params, function (err, aws_ref) {
                                     if (err) {
