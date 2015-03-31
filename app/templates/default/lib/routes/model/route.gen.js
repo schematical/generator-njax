@@ -518,7 +518,7 @@ module.exports = function(app){
                 <% }else{ %>
                     if(req.query.<%= name %>){
                         var escpaedField = app.njax.helpers.regex.escape(req.query.<%= name %>);
-						req._list_query['<%= name %>'] =   { $regex: new RegExp('^' + escpaedField + '', 'i') };
+						req._list_query['<%= name %>'] =  { $regex: new RegExp('.*' + escpaedField + '', 'i') };
                     }
                 <% } %>
             <% } %>
@@ -922,6 +922,9 @@ module.exports = function(app){
 		},
 		*/
 		list_events:function(req, res, next){
+            if(!req.<%= _model.name %>){
+                return next(new Error(404));
+            }
 			app.njax.events.query(req.<%= _model.name %>, function(err, events){
 				if(err) return next(err);
 				res.bootstrap('events', events);

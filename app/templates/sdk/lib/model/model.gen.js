@@ -30,7 +30,7 @@ module.exports = function(sdk){
 		}else if(query._parent_uri){
 			var uri = query._parent_uri + '<%= _model.uri_prefix %>';
 		}else if(query.<%= _model.parent %>){
-			var uri = '<%= _model.parent_model.uri_prefix %>/' + query.<%= _model.parent %> + '<%= _model.uri_prefix %>';
+			var uri = '<%= _model.parent_field.uri_prefix %>/' + query.<%= _model.parent %> + '<%= _model.uri_prefix %>';
 		}
 		<% }else{ %>
 			var uri = <%= _model.name %>.prototype.base_uri;
