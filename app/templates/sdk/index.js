@@ -6,7 +6,9 @@ module.exports = function(generator, Class, framework_config){
 	generator._templateIfNew(generator.sdk_tpl_dir + '/index.gen.js', sdk_path +'/index.js');
     generator._templateIfNew(generator.sdk_tpl_dir + 'lib/index.js', sdk_path + '/lib/index.js');
     generator._templateIfNew(generator.sdk_tpl_dir + 'package.json', sdk_path + '/lib/package.json');
-
+    if(framework_config.node_module && framework_config.node_module.config) {
+        generator._templateIfNew(generator.sdk_tpl_dir + 'default_config.gen.js', sdk_path + '/default_config.js');
+    }
     for(var i in generator.config.models){
 
         generator._model = generator.config.models[i];
