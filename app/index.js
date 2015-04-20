@@ -327,7 +327,8 @@ NJaxGenerator.prototype._prepairModel = function(model){
                 break;
             case 'tpcd':
                 fieldData.mongo_type.type = "String";
-
+            case 'latlng':
+                fieldData.mongo_type = "{ type: [Number], index: '2d' }";
 
                 break;
 

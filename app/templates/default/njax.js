@@ -49,6 +49,9 @@ module.exports = {
                     "bootstrap_populate":"req.user"
                 },
                 auth_url:"string"
+                },
+                "widgets":"object",
+                auth_url:"string"
             },
             "active":{ "type":"boolean" }
         },
