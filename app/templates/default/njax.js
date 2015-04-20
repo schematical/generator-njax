@@ -47,7 +47,9 @@ module.exports = {
                     "type":"ref",
                     "ref":"account",
                     "bootstrap_populate":"req.user"
-                }
+                },
+                "widgets":"object",
+                auth_url:"string"
             },
             "active":{ "type":"boolean" }
         },
