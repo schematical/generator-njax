@@ -362,6 +362,9 @@ module.exports = function(app){
 				if(doc.<%= name %>){
 					ret.<%= name %>_iso = doc.<%= name %>.toISOString();
 				}
+             <% } else if(_model.fields[name].type == 'latlng'){ %>
+                ret.<%= name %>_lat = doc.<%= name %> && doc.<%= name %>[0];
+                ret.<%= name %>_lng = doc.<%= name %> && doc.<%= name %>[1];
             <% }else{ %>
 
             <% } %>
