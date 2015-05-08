@@ -417,11 +417,16 @@ module.exports = function(app){
 			}
 			var tag_query = [];
 			var tags = req.query.tags.split(',');
-			for(var i in tags){
-				tag_query.push({ value: tags[i] });
-			}
+            var tag_check = {};
 
+			for(var i in tags){
+                if(!tag_check[tags[i]]){
+                    tag_query.push({ value: tags[i] });
+                    tag_check[tags[i]] = tags[i];
+                }
+			}
 			return app.njax.tags.query(
+
 				{
 					tag_query:tag_query,
 					entity_type:"<%= _.capitalize(_model.name) %>"
