@@ -325,6 +325,17 @@ NJaxGenerator.prototype._prepairModel = function(model){
             case 'object':
                 fieldData.mongo_type.type = "Object";
                 break;
+            case 'visibility':
+                fieldData = {
+                    "type": "tpcd",
+                    "options": {
+                        "public": "Public",
+                        "private": "Private",
+                        "protected": "protected"
+                    }
+                }
+            //Purposally forgetting the break for now
+
             case 'tpcd':
                 fieldData.mongo_type.type = "String";
 
@@ -333,6 +344,29 @@ NJaxGenerator.prototype._prepairModel = function(model){
                 fieldData.mongo_type = "{ type: [Number], index: '2d' }";
 
                 break;
+            case 'address':
+                fieldData.mongo_type = "{ type: [Number], index: '2d' }";
+                model.fields[key + '_coords'] = {
+                    type:'latlng'
+                };
+
+                model.fields[key + '_address1'] = {
+                    type:'string'
+                }
+                model.fields[key + '_address2'] = {
+                    type:'string'
+                }
+                model.fields[key + '_city'] = {
+                    type:'string'
+                }
+                model.fields[key + '_state'] = {
+                    type:'string'
+                }
+                model.fields[key + '_zip'] = {
+                    type:'string'
+                }
+                break;
+
 
         }
         if(model._files.length > 0){
