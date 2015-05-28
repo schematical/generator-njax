@@ -353,6 +353,7 @@ module.exports = function(app){
             <% }else if(_model.fields[name].type == 'object'){ %>
 				ret.<%= name %> = doc.<%= name %>;
 			<% } else if(_model.fields[name].type == 'tpcd'){ %>
+                ret.<%= name %> = doc.<%= name %>;
                 <% for(var value in _model.fields[name].options){ %>
                     ret.is_<%= value %> = doc.is_<%= value %>;
                 <% } %>

@@ -2,7 +2,7 @@ var path = require('path');
 var fs = require('fs');
 var async = require('async');
 var _ = require('underscore');
-
+var xssFilters = require('xss-filters');
 module.exports = function(app){
     var ObjectId = app.mongoose.Types.ObjectId;
      var route = app.njax.routes.<%= _model.name.toLowerCase() %> = {
@@ -733,7 +733,9 @@ module.exports = function(app){
 					}
                 <% }else{ %>
 					if(!_.isUndefined(req.body.<%= name %>)){
-                    	req.<%= _model.name %>.<%= name %> = req.body.<%= name %>;
+                        var <%= name %> = xssFilters.inHTMLData(req.body.<%= name %>);
+
+                    	req.<%= _model.name %>.<%= name %> = <%= name %>;
 					}
                 <% } %>
             <% } %>
