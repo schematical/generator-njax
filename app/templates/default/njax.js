@@ -104,7 +104,14 @@ module.exports = {
                     "bootstrap_populate":"req.application"
                 },
                 "accounts":{ "type":"array" },
-				"mutedDate":"date"
+				"mutedDate":"date",
+                "visibility": {
+                    "type":"tpcd",
+                    "options":{
+                        "public":"Public",
+                        "private":"Private"
+                    }
+                }
             }
         },
 		"tag":{
