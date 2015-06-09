@@ -1,22 +1,84 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'link' ]
+1 verbose cli [ '/home/john/.nvm/v0.10.36/bin/node',
+1 verbose cli   '/home/john/.nvm/v0.10.36/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'generator-njax' ]
 2 info using npm@1.4.28
-3 info using node@v0.10.35
-4 verbose node symlink /usr/bin/node
-5 verbose linkPkg /media/user1a/MainEnc/www/generator-njax
-6 error Error: EACCES, symlink '/media/user1a/MainEnc/www/generator-njax'
-6 error  { [Error: EACCES, symlink '/media/user1a/MainEnc/www/generator-njax']
-6 error   errno: 3,
-6 error   code: 'EACCES',
-6 error   path: '/media/user1a/MainEnc/www/generator-njax' }
-7 error Please try running this command again as root/Administrator.
-8 error System Linux 3.13.0-44-generic
-9 error command "/usr/bin/node" "/usr/bin/npm" "link"
-10 error cwd /media/user1a/MainEnc/www/generator-njax
-11 error node -v v0.10.35
-12 error npm -v 1.4.28
-13 error path /media/user1a/MainEnc/www/generator-njax
-14 error code EACCES
-15 error errno 3
-16 error stack Error: EACCES, symlink '/media/user1a/MainEnc/www/generator-njax'
-17 verbose exit [ 3, true ]
+3 info using node@v0.10.36
+4 verbose cache add [ 'generator-njax', null ]
+5 verbose cache add name=undefined spec="generator-njax" args=["generator-njax",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'generator-njax',
+6 verbose parsed url   path: 'generator-njax',
+6 verbose parsed url   href: 'generator-njax' }
+7 silly lockFile fcb08ff6-generator-njax generator-njax
+8 verbose lock generator-njax /home/john/.npm/fcb08ff6-generator-njax.lock
+9 silly lockFile fcb08ff6-generator-njax generator-njax
+10 silly lockFile fcb08ff6-generator-njax generator-njax
+11 verbose addNamed [ 'generator-njax', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 91c63d62-generator-njax generator-njax@
+14 verbose lock generator-njax@ /home/john/.npm/91c63d62-generator-njax.lock
+15 silly addNameRange { name: 'generator-njax', range: '*', hasData: false }
+16 verbose request where is /generator-njax
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 49ab2eb7413f72a1
+19 verbose url raw /generator-njax
+20 verbose url resolving [ 'https://registry.npmjs.org/', './generator-njax' ]
+21 verbose url resolved https://registry.npmjs.org/generator-njax
+22 verbose request where is https://registry.npmjs.org/generator-njax
+23 info trying registry request attempt 1 at 13:44:09
+24 http GET https://registry.npmjs.org/generator-njax
+25 http 404 https://registry.npmjs.org/generator-njax
+26 verbose headers { date: 'Wed, 15 Apr 2015 18:44:09 GMT',
+26 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 verbose headers   'content-type': 'application/json',
+26 verbose headers   'cache-control': 'max-age=0',
+26 verbose headers   'content-length': '51',
+26 verbose headers   'accept-ranges': 'bytes',
+26 verbose headers   via: '1.1 varnish',
+26 verbose headers   'x-served-by': 'cache-ord1732-ORD',
+26 verbose headers   'x-cache': 'MISS',
+26 verbose headers   'x-cache-hits': '0',
+26 verbose headers   'x-timer': 'S1429123449.187578,VS0,VE68',
+26 verbose headers   'keep-alive': 'timeout=10, max=50',
+26 verbose headers   connection: 'Keep-Alive' }
+27 silly registry.get cb [ 404,
+27 silly registry.get   { date: 'Wed, 15 Apr 2015 18:44:09 GMT',
+27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=0',
+27 silly registry.get     'content-length': '51',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     'x-served-by': 'cache-ord1732-ORD',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1429123449.187578,VS0,VE68',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 silly lockFile 91c63d62-generator-njax generator-njax@
+29 silly lockFile 91c63d62-generator-njax generator-njax@
+30 error 404 404 Not Found: generator-njax
+30 error 404
+30 error 404 'generator-njax' is not in the npm registry.
+30 error 404 You should bug the author to publish it
+30 error 404
+30 error 404 Note that you can also install from a
+30 error 404 tarball, folder, or http url, or git url.
+31 error System Linux 3.13.0-49-generic
+32 error command "/home/john/.nvm/v0.10.36/bin/node" "/home/john/.nvm/v0.10.36/bin/npm" "install" "-g" "generator-njax"
+33 error cwd /home/john/work/generator-njax
+34 error node -v v0.10.36
+35 error npm -v 1.4.28
+36 error code E404
+37 verbose exit [ 1, true ]
