@@ -1,17 +1,15 @@
 {
   "name": "generator-njax",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "description": "A generator for Yeoman",
   "keywords": [
     "yeoman-generator"
   ],
   "homepage": "https://github.com/schematical/generator-njax",
-  "bugs": "https://github.com/schematical/generator-njax/issues",
-  "author": {
-    "name": "Matt Lea",
-    "email": "mlea@schematical.com",
-    "url": "https://github.com/schematical"
+  "bugs": {
+    "url": "https://github.com/schematical/generator-njax/issues"
   },
+  "author": "Matt Lea <mlea@schematical.com> (https://github.com/schematical)",
   "main": "app/index.js",
   "repository": {
     "type": "git",
@@ -22,8 +20,8 @@
   },
   "dependencies": {
     "yeoman-generator": "~0.14.0",
-    "underscore":"*",
-    "mkdirp":"*"
+    "underscore": "*",
+    "mkdirp": "*"
   },
   "devDependencies": {
     "mocha": "~1.14.0"
@@ -39,5 +37,9 @@
     {
       "type": "MIT"
     }
-  ]
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "license": "APACHE"
 }

@@ -11,15 +11,15 @@ var NJaxGenerator = module.exports = function SchemaGenerator(args, options, con
     // By calling `NamedBase` here, we get the argument to the subgenerator call
     // as `this.name`.
 
-    var config_file_path = path.join(process.cwd(), 'njax.json');
-    if(!fs.existsSync(config_file_path)){
-        throw new Error("Missing NJax File");
-    }
-    var config_raw = fs.readFileSync(config_file_path);
-
     yeoman.generators.Base.apply(this, arguments);
 
-    this.config = JSON.parse(config_raw);
+    var config_file_path = path.join(process.cwd(), 'njax_config');
+    if(!fs.existsSync(config_file_path + '.js')){
+        throw new Error("Missing NJax File");
+    }
+    this.config =  require(config_file_path);
+
+
 
 };
 
@@ -32,7 +32,7 @@ NJaxGenerator.prototype.app = function app() {
 
     this.default_tpl_dir = 'default/';
 
-    var _njax = require(__dirname + '/templates/' + this.default_tpl_dir + 'njax');
+   /* var _njax = require(__dirname + '/templates/' + this.default_tpl_dir + 'njax_config');
     var unique_models = _.clone(this.config.models);
     if(this.config.is_platform || this.config.njax_module){
         var njax_models = _.clone(_njax.models);
@@ -42,10 +42,9 @@ NJaxGenerator.prototype.app = function app() {
     _.extend(this.config, _njax);
 
     this.config.models = _.extend(njax_models, unique_models);
-    //console.log(Object.keys(this.config.models));
 
     this._prepairModels();
-
+    */
     this.mkdir('lib');
     this.mkdir('lib/model');
     this.mkdir('lib/routes');
@@ -74,13 +73,13 @@ NJaxGenerator.prototype.app = function app() {
     this.template(this.default_tpl_dir + 'lib/model/index.js', 'lib/model/index.js');
 
 
-    for(var i in this.config.models){
+    /*for(var i in this.config.models){
 
         this._model = this.config.models[i];
 
         this._genSchema(this._model);
 
-    }
+    }*/
 
 
 
